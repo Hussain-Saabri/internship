@@ -81,10 +81,10 @@ export default function SettingsPage() {
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
             className={`
-              px-3 py-2 whitespace-nowrap text-[#25B990]
+              px-3 py-2 whitespace-nowrap text-gray-500
 ]
               ${activeTab === tab.key
-                ? "border-b-2 border-[#25B990] font-medium"
+                ? "border-b-2 border-black font-medium"
                 : "text-gray-500"
               }
             `}
