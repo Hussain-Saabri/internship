@@ -97,7 +97,7 @@ export default function SettingsPage() {
       {/* CONTENT SECTIONS */}
 
       {activeTab === "profile" && (
-        <Card className="border-white/50 rounded-[20px] bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md">
+        <Card className="border-gray-200 border rounded-[12px] ">
           <CardHeader>
             <CardTitle>Profile Information</CardTitle>
             <CardDescription>
@@ -137,7 +137,7 @@ export default function SettingsPage() {
       )}
 
       {activeTab === "password" && (
-        <Card className="border-white/50 rounded-[20px] bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md">
+        <Card className="border border-gray-200 rounded-[12px] ">
           <CardHeader>
             <CardTitle>Change Password</CardTitle>
             <CardDescription>
@@ -181,7 +181,7 @@ export default function SettingsPage() {
       )}
 
       {activeTab === "preferences" && (
-        <Card className="border-white/50 rounded-[20px] bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md">
+        <Card className="border border-gray-200 rounded-[12px] ">
           <CardHeader>
             <CardTitle>App Preferences</CardTitle>
             <CardDescription>
