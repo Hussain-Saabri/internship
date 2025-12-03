@@ -60,7 +60,7 @@ export function Header({
         </div>
 
         {/* ---- CENTER: PLATFORM + DATE FILTERS (Desktop) ---- */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4 ">
           {showPlatformSelector && <PlatformSelector />}
           {showDatePicker && <DateRangePicker />}
         </div>

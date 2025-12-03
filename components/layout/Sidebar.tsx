@@ -47,8 +47,8 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
         {!collapsed ? (
           <Logo width={110} height={30} />
         ) : (
-          <div className="h-9 w-9 bg-[#25B990] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-sm">
-            Q
+          <div className="">
+            
           </div>
         )}
       </div>
@@ -58,7 +58,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
         onClick={onToggle}
         className={cn(
           "absolute right-3 z-50",
-          collapsed ? "top-[54px] left-[25px]" : "top-[20px]",
+          collapsed ? "top-[22px] left-[25px]" : "top-[20px]",
           "flex items-center justify-center w-6 h-6",
           "bg-white border border-gray-200 rounded-full ",
           "text-gray-500 hover:text-gray-800 hover:bg-gray-50 hover:scale-105",

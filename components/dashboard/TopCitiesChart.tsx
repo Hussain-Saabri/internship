@@ -58,11 +58,11 @@ const CityLegendItem = ({ city }: { city: CityData }) => {
           className="w-2.5 h-2.5 rounded-full"
           style={{ backgroundColor: city.color }}
         />
-        <span className="text-sm font-semibold text-gray-500">{city.name}</span>
+        <span className="text-[10px] font-semibold text-gray-500">{city.name}</span>
       </div>
       <div className="flex items-center gap-4">
-        <span className="text-xs font-bold text-gray-500 bg-white/60 px-2 py-0.5 rounded-md">{city.percentage}%</span>
-        <span className="text-sm font-bold text-gray-900">{city.amount}</span>
+        <span className="text-[10px] font-bold text-gray-500 bg-white/60 px-2 py-0.5 rounded-md">{city.percentage}%</span>
+        <span className="text-[10px] font-bold text-gray-900">{city.amount}</span>
       </div>
     </div>
   )
@@ -71,7 +71,7 @@ const CityLegendItem = ({ city }: { city: CityData }) => {
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.08)] animate-in fade-in zoom-in-95 duration-200 min-w-[160px]">
+      <div className="bg-white p-3 rounded-xl border border-gray-200  min-w-[160px]">
         <div className="flex items-center gap-2.5 mb-3 px-1">
           <div
             className="w-2 h-2 rounded-full shadow-sm"
@@ -149,7 +149,7 @@ export function TopCitiesChart() {
                   <Cell
                     key={`cell-${index}`}
                     fill={entry.color}
-                    style={{ filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.05))' }}
+                    
                   />
                 ))}
               </Pie>

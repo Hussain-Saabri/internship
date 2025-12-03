@@ -340,14 +340,14 @@ export function ProductLevelTable() {
           Product-Level Inventory (Top SKUs by Stock)
         </h3>
 
-        <div className="rounded-xl border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm">
+        <div className="rounded-[12px] border border-gray-200 overflow-hidden  backdrop-blur-sm">
           <div className="overflow-x-auto">
             <Table className="w-full">
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow
                     key={headerGroup.id}
-                    className="bg-white/50 border-b border-gray-200 h-12 hover:bg-white/60"
+                    className="bg-gray-50 border-b border-gray-200 h-12 "
                   >
                     {headerGroup.headers.map((header) => (
                       <TableHead

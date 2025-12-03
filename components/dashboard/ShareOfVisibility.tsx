@@ -23,7 +23,7 @@ const sovData: WeeklySOVData[] = [
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.08)] animate-in fade-in zoom-in-95 duration-200 min-w-[180px]">
+      <div className="bg-white p-3 rounded-xl border border-gray-100min-w-[180px]">
         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3 px-1">{label}</p>
 
         <div className="flex flex-col gap-2">
@@ -84,7 +84,7 @@ export function ShareOfVisibility() {
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
-            <div className="w-1 h-4 bg-[#25B990] rounded-full"></div>
+           
             <h3 className="text-sm font-bold text-gray-900 tracking-tight">Share of Visibility (SOV %)</h3>
           </div>
           <button className="px-3 py-1.5 text-xs font-medium text-white  bg-[#25B990] hover:bg-[#25B990]/80 hover:text-white rounded-lg transition-all duration-200 backdrop-blur-sm">

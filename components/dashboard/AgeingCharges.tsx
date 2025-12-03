@@ -91,7 +91,7 @@ export function AgeingCharges() {
         {/* Header */}
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-1 h-4 bg-purple-600 rounded-full"></div>
+           
             <h3 className="text-sm font-bold text-gray-900 tracking-tight">Ageing Charges</h3>
           </div>
 
@@ -110,7 +110,7 @@ export function AgeingCharges() {
         {/* Bar Chart */}
         <div className="mb-6 relative z-10" style={{ width: "100%", height: "188px" }}>
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={ageingData} margin={{ top: 10, right: 10, left: -10, bottom: 5 }}>
+            <BarChart data={ageingData} margin={{ top: 10, right: 10, left: -15, bottom: 5 }}>
 
               <CartesianGrid 
               strokeDasharray="3 3" 
@@ -122,14 +122,14 @@ export function AgeingCharges() {
                 dataKey="period"
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: "#4b5563", fontSize: 10, fontWeight: 600 }}
+                tick={{ fill: "#4b5563", fontSize: 10, fontWeight: 500 }}
                 dy={10}
               />
 
               <YAxis
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: "#4b5563", fontSize: 10, fontWeight: 600 }}
+                tick={{ fill: "#4b5563", fontSize: 10, fontWeight: 500 }}
               />
 
               {/* ⭐ Tooltip Integrated */}

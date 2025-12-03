@@ -68,7 +68,7 @@ export function PlatformSelector({
   return (
     <div
       className={cn(
-        "hidden md:flex h-10 items-center gap-2 rounded-xl bg-gray-50 p-1",
+        "hidden md:flex h-10 items-center gap-5 rounded-xl bg-gray-50 p-1 border border-gray-200",
         className
       )}
       role="tablist"

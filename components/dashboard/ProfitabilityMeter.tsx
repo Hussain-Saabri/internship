@@ -111,7 +111,7 @@ export function ProfitabilityMeter() {
       <div className="relative z-10 flex flex-col gap-6 h-full">
         {/* Header */}
         <div className="flex items-center gap-2">
-          <div className="w-1 h-4 bg-purple-600 rounded-full"></div>
+          
           <h3 className="text-sm font-bold text-gray-900 tracking-tight">Profitability</h3>
         </div>
 

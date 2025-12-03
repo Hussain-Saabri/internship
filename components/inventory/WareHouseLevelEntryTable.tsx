@@ -285,29 +285,29 @@ export function WareHouseLevelEntryTable() {
           Warehouse-Level Inventory
         </h3>
 
-        <div className="rounded-xl border border-gray-200  bg-white/40 backdrop-blur-sm">
-          <div className=" relative w-full">
-            <Table className="w-full text-[10px] overflow-hidden">
-              <TableHeader>
-                {table.getHeaderGroups().map((group) => (
-                  <TableRow
-                    key={group.id}
-                    className="bg-white/50 border-b border-gray-200 h-12 hover:bg-white/60"
-                  >
-                    {group.headers.map((header) => (
-                      <TableHead
-                        key={header.id}
-                        className=" px-1 text-left align-middle font-medium whitespace-nowrap text-[#1F2937] text-[10px]"
-                      >
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                      </TableHead>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableHeader>
+        <div className="rounded-[12px] border border-gray-200  backdrop-blur-sm">
+          <div className=" rounded-[12px] overflow-hidden backdrop-blur-sm">
+            <Table className="w-full text-[10px]">
+    <TableHeader>
+      {table.getHeaderGroups().map((group) => (
+        <TableRow
+          key={group.id}
+          className="bg-gray-100 h-12 border-b border-gray-200"
+        >
+          {group.headers.map((header) => (
+            <TableHead
+              key={header.id}
+              className="px-1 text-left align-middle font-medium whitespace-nowrap text-[#4B5563] text-[10px]"
+            >
+              {flexRender(
+                header.column.columnDef.header,
+                header.getContext()
+              )}
+            </TableHead>
+          ))}
+        </TableRow>
+      ))}
+    </TableHeader>
 
               <TableBody>
                 {table.getRowModel().rows.map((row) => (

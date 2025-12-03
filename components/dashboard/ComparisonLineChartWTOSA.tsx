@@ -79,7 +79,7 @@ const CustomLegend = ({
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.08)] animate-in fade-in zoom-in-95 duration-200 min-w-[180px]">
+      <div className="bg-white p-3 rounded-xl border border-gray-200  min-w-[180px]">
         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3 px-1">
           {label}
         </p>

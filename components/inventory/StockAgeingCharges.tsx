@@ -53,7 +53,7 @@ export function StockAgeingCharges() {
               dataKey="period"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6B7280', fontSize: 11, fontWeight: 500 }}
+              tick={{ fill: '#6B7280', fontSize: 10, fontWeight: 600 }}
               tickFormatter={(value) => value.replace(" days", "d")}
               dy={10}
             />
@@ -61,7 +61,7 @@ export function StockAgeingCharges() {
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6B7280', fontSize: 11, fontWeight: 500 }}
+              tick={{ fill: '#6B7280', fontSize: 11, fontWeight: 600 }}
               tickFormatter={(value) => value >= 1000 ? `${(value / 1000).toFixed(0)}k` : value}
               dx={-10}
             />
