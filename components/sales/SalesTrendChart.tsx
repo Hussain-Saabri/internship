@@ -40,7 +40,7 @@ const CustomLegend = () => {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white/90 backdrop-blur-md p-3 rounded-xl border border-white/50 shadow-lg">
+      <div className="bg-white/90 backdrop-blur-md p-3 rounded-xl border ">
         <p className="text-xs font-bold text-gray-700 mb-2">{label}</p>
         {payload.map((entry: any, index: number) => (
           <div key={index} className="flex items-center gap-2 mb-1 last:mb-0">
@@ -61,27 +61,27 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function SalesTrendChart() {
   return (
-    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md">
+    <Card className=" rounded-[12px] flex-grow w-full  relative overflow-hidden ">
 
       <CardContent className="p-6 relative z-10">
         {/* Title */}
         <div className="flex items-center justify-between mb-8">
-          <h3 className="text-sm font-bold text-gray-700 tracking-wide uppercase">
+          <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase">
             Sales Trend
           </h3>
         </div>
 
         {/* Line Chart */}
-        <div style={{ width: "100%", height: "300px" }}>
+        <div style={{ width: "100%", height: "350px" }}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={salesData}
-              margin={{ top: 10, right: 10, left: -15, bottom: 0 }}
+              margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
             >
               <defs>
                 <linearGradient id="thisMonthGradient" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#34D399" />
-                  <stop offset="100%" stopColor="#10B981" />
+                  <stop offset="0%" stopColor="#25B990" />
+                  <stop offset="100%" stopColor="#25B990" />
                 </linearGradient>
                 <linearGradient id="lastMonthGradient" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="#FCA5A5" />
@@ -95,22 +95,22 @@ export function SalesTrendChart() {
                   </feMerge>
                 </filter>
               </defs>
-              <CartesianGrid
-                strokeDasharray="3 3"
-                stroke="rgba(97, 87, 87, 0.46)"
-                vertical={false}
+              <CartesianGrid 
+              strokeDasharray="3 3" 
+              stroke="rgba(0,0,0,0.08)" 
+              vertical={false} 
               />
               <XAxis
                 dataKey="day"
-                axisLine={false}
+                axisLine={false} 
                 tickLine={false}
-                tick={{ fill: "#4b5563", fontSize: 12, fontWeight: 600 }}
+                tick={{ fill: "#4b5563 ", fontSize: 10, fontWeight: 600 }}
                 dy={10}
               />
               <YAxis
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: "#4b5563", fontSize: 12, fontWeight: 600 }}
+                tick={{ fill: "#4b5563", fontSize: 10, fontWeight: 600 }}
                 domain={[0, 'auto']}
                 tickFormatter={(value) => `₹${value / 1000}k`}
                 dx={-5}

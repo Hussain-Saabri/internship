@@ -52,6 +52,7 @@ const MarginProgressBar = ({ metric }: { metric: MarginMetric }) => {
     green: {
       text: "text-emerald-600",
       bar: "bg-emerald-400",
+      hex: "#25B990",
     },
     yellow: {
       text: "text-amber-500",
@@ -91,18 +92,18 @@ const MarginProgressBar = ({ metric }: { metric: MarginMetric }) => {
 
 const FinancialMetricCard = ({ metric }: { metric: FinancialMetric }) => {
   return (
-    <div className="bg-white rounded-2xl py-4 px-3 flex flex-col gap-1 items-center justify-center min-w-0 flex-1 shadow-sm border border-gray-100/50">
+    <div className="bg-white rounded-2xl py-4 px-3 flex flex-col gap-1 items-center justify-center min-w-0 flex-1 border border-gray-100">
       <p className="text-[10px] font-bold text-gray-400 tracking-wider text-center uppercase">
         {metric.label}
       </p>
-      <p className="text-lg font-extrabold text-gray-900 text-center tracking-tight">{metric.value}</p>
+      <p className=" font-bold text-gray-900 text-center tracking-tight">{metric.value}</p>
     </div>
   )
 }
 
 export function ProfitabilityMeter() {
   return (
-    <DashboardCard className="h-full flex flex-col justify-between relative overflow-hidden border-gray-200">
+    <DashboardCard className="h-full flex flex-col justify-between relative overflow-hidden border-gray-200 bg-white">
       {/* Faint Overlay Gradient for Depth - Removed */}
       {/* <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" /> */}
 

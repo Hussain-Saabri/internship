@@ -59,7 +59,7 @@ const CustomLegend = ({
           className="w-2 h-2 rounded-full"
           style={{ backgroundColor: line1Color }}
         />
-        <span className="text-[11px] font-medium tracking-wide text-black">
+        <span className="text-[11px] font-medium tracking-wide text-gray-500">
           {line1Label}
         </span>
       </div>
@@ -68,7 +68,7 @@ const CustomLegend = ({
           className="w-2 h-2 rounded-full"
           style={{ backgroundColor: line2Color }}
         />
-        <span className="text-[11px] font-medium tracking-wide text-black">
+        <span className="text-[11px] font-medium tracking-wide text-gray-500">
           {line2Label}
         </span>
       </div>
@@ -134,7 +134,7 @@ export function ComparisonLineChartWTDISCOUNT({
   xAxisConfig,
 }: ComparisonLineChartProps) {
   return (
-    <DashboardCard className="relative overflow-hidden flex flex-col justify-between border-gray-200">
+    <DashboardCard className="rounded-[12px] relative overflow-hidden flex flex-col justify-between border-gray-200 bg-white">
       {/* Content */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Header */}
@@ -148,7 +148,7 @@ export function ComparisonLineChartWTDISCOUNT({
           {headerButton && (
             <button
               onClick={headerButton.onClick}
-              className="px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-purple-700 hover:bg-white/50 rounded-lg transition-all duration-200 backdrop-blur-sm"
+              className="px-3 py-1.5 text-xs font-medium text-white  bg-[#25B990] hover:bg-[#25B990]/80 hover:text-white rounded-lg transition-all duration-200 "
             >
               {headerButton.text}
             </button>
@@ -213,14 +213,14 @@ export function ComparisonLineChartWTDISCOUNT({
                 dataKey={xAxisKey}
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: "#4b5563", fontSize: 10, fontWeight: 600 }}
+                tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
                 tickFormatter={xAxisConfig?.tickFormatter}
                 dy={10}
               />
               <YAxis
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: "#4b5563", fontSize: 10, fontWeight: 600 }}
+                tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
                 domain={yAxisConfig?.domain}
                 ticks={yAxisConfig?.ticks}
                 tickFormatter={yAxisConfig?.tickFormatter}

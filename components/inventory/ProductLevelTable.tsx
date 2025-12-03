@@ -333,21 +333,21 @@ export function ProductLevelTable() {
   })
 
   return (
-    <Card className="border-white/50 rounded-[20px] bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md">
+    <Card className="border-gray-200 border rounded-[12px] bg-white ">
       <CardContent className="p-6">
 
         <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
           Product-Level Inventory (Top SKUs by Stock)
         </h3>
 
-        <div className="rounded-xl border border-white/40 overflow-hidden bg-white/40 backdrop-blur-sm">
+        <div className="rounded-xl border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm">
           <div className="overflow-x-auto">
             <Table className="w-full">
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow
                     key={headerGroup.id}
-                    className="bg-white/50 border-b border-white/40 h-12 hover:bg-white/60"
+                    className="bg-white/50 border-b border-gray-200 h-12 hover:bg-white/60"
                   >
                     {headerGroup.headers.map((header) => (
                       <TableHead
@@ -372,7 +372,7 @@ export function ProductLevelTable() {
                 {table.getRowModel().rows.map((row) => (
                   <TableRow
                     key={row.id}
-                    className="border-b border-white/40 hover:bg-white/60 transition-colors"
+                    className="border-b border-gray-200 hover:bg-white/60 transition-colors"
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell

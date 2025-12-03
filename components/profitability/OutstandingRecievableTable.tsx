@@ -183,16 +183,16 @@ export function OutstandingReceivablesDetail() {
 
 
   return (
-    <Card className="rounded-[20px] border-white/50 bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md lg:col-span-2">
+    <Card className="rounded-[12px] border-gray-200 bg-white  lg:col-span-2">
       <CardContent className="px-6 py-6">
         <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">Outstanding Receivables Detail</h3>
 
-        <div className="rounded-xl border border-white/40 overflow-hidden bg-white/40 backdrop-blur-sm">
+        <div className="rounded-xl border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm">
           <div className="w-full overflow-x-auto">
             <Table className="w-full table-fixed min-w-[600px]">
-              <TableHeader className="bg-white/50 border-b border-white/40 h-10 hover:bg-white/60">
+              <TableHeader className="bg-white/50 border-b border-gray-200 h-10 hover:bg-white/60">
                 {table.getHeaderGroups().map((group) => (
-                  <TableRow key={group.id} className="border-b border-white/40">
+                  <TableRow key={group.id} className="border-b border-gray-200">
                     {group.headers.map((header) => (
                       <TableHead
                         key={header.id}
@@ -220,7 +220,7 @@ export function OutstandingReceivablesDetail() {
                 {table.getRowModel().rows.map((row) => (
                   <TableRow
                     key={row.id}
-                    className="border-b border-white/40 hover:bg-white/60 transition-colors"
+                    className="border-b border-gray-200 hover:bg-white/60 transition-colors"
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell

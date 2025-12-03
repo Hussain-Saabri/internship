@@ -33,41 +33,36 @@ export function NavItem({
     <Link
       href={href}
       className={cn(
-        "group relative flex items-center gap-3 px-3 py-2 rounded-md transition-all duration-200",
+        "group relative flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-200 ease-in-out",
         collapsed ? "justify-center px-2" : "justify-start",
 
-        // Default State
-        "text-gray-500 hover:bg-white hover:text-gray-900 hover:shadow-sm",
+        // Default State (Inactive)
+        "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
 
         // Active State
         isActive &&
         `
-          bg-white text-gray-900 font-medium shadow-sm
-          ring-1 ring-gray-200/50
+          bg-gray-50 text-[#111] font-semibold shadow-sm
+          border border-gray-200
         `,
 
         className
       )}
     >
       <Icon
-        size={18}
+        size={20}
         strokeWidth={isActive ? 2 : 1.5}
         className={cn(
           "transition-colors duration-200",
-          isActive ? "text-gray-900" : "text-gray-400 group-hover:text-gray-600"
+          isActive ? "text-[#25B990]" : "text-gray-400 group-hover:text-gray-600"
         )}
       />
 
       {!collapsed && (
-        <span className="text-[13.5px] tracking-tight">
+        <span className="text-[14px] tracking-tight">
           {label}
         </span>
       )}
-
-      {/* Active Indicator (Optional - can be a dot or left border) */}
-      {/* {isActive && !collapsed && (
-         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-[#2E7D32] rounded-r-full opacity-0" />
-      )} */}
     </Link>
   );
 
@@ -76,7 +71,7 @@ export function NavItem({
       <TooltipProvider disableHoverableContent>
         <Tooltip delayDuration={0}>
           <TooltipTrigger asChild>{buttonContent}</TooltipTrigger>
-          <TooltipContent side="right" className="bg-gray-900 text-white border-none text-xs font-medium px-2 py-1">
+          <TooltipContent side="right" className="bg-gray-900 text-white border-none text-xs font-medium px-2.5 py-1.5 rounded-lg ml-2 shadow-xl">
             {label}
           </TooltipContent>
         </Tooltip>

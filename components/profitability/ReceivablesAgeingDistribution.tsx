@@ -29,7 +29,7 @@ const data: AgeingData[] = [
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white/90 backdrop-blur-md border border-white/50 p-3 rounded-xl shadow-lg">
+      <div className="bg-white/90  border p-3 rounded-xl ">
         <p className="text-xs font-semibold text-gray-700 mb-1">{label}</p>
         <p className="text-sm font-bold" style={{ color: payload[0].payload.color }}>
           {payload[0].payload.displayAmount}
@@ -45,7 +45,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function ReceivablesAgeingDistribution() {
   return (
-    <div className="rounded-[20px] border-white/50 bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md p-6 flex flex-col">
+    <div className="rounded-[12px] border border-gray-200 bg-white p-6 flex flex-col">
       {/* Header */}
       <h4 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
         Receivables Ageing Distribution
@@ -83,7 +83,7 @@ export function ReceivablesAgeingDistribution() {
               dataKey="label"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#6B7280", fontSize: 11, fontWeight: 500 }}
+              tick={{ fill: "#9CA3AF", fontSize: 10, fontWeight: 500 }}
               dy={10}
             />
 
@@ -120,7 +120,7 @@ export function ReceivablesAgeingDistribution() {
       {/* Bottom small boxes: 1 column on mobile, 2 on sm+ */}
       <div className="grid grid-cols-2 gap-3 mt-6">
         {data.map((item) => (
-          <div key={item.label} className="p-3 bg-white/60 rounded-xl border border-white/60 shadow-sm backdrop-blur-sm flex flex-col items-center justify-center text-center hover:shadow-md transition-all">
+          <div key={item.label} className="p-3 bg-white/90 rounded-xl border    flex flex-col items-center justify-center text-center hover:shadow-md transition-all">
             <p className="text-[10px] font-medium text-gray-500 uppercase tracking-wide">{item.label}</p>
             <p className="text-sm font-bold mt-1" style={{ color: item.color }}>{item.displayAmount}</p>
             <p className="text-[10px] text-gray-400 mt-0.5">

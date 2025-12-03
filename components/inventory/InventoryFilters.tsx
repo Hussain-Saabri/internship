@@ -23,7 +23,7 @@ export default function InventoryFilters() {
   ];
 
   return (
-    <div className="rounded-[20px] border-white/50 bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md p-4">
+    <div className="rounded-[12px] border border-gray-200 bg-white  p-4">
       <div className="flex flex-wrap items-start justify-between gap-4 md:flex-row md:items-center flex-col">
 
         <div className="flex flex-wrap gap-3">

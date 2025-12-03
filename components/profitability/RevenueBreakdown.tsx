@@ -36,7 +36,7 @@ const revenueBreakdown: RevenueData[] = [
 
 const LegendItem = ({ item }: { item: RevenueData }) => {
   return (
-    <div className="flex flex-col items-center justify-center p-3 bg-white/60 rounded-xl border border-white/60 shadow-sm backdrop-blur-sm transition-all hover:shadow-md">
+    <div className="flex flex-col items-center justify-center p-3 bg-white/90 border rounded-xl   ">
       <p className="text-[10px] font-medium text-gray-500 uppercase tracking-wide whitespace-nowrap">{item.label}</p>
       <p className="text-lg font-bold mt-1" style={{ color: item.color }}>₹{item.amount.toFixed(2)}M</p>
     </div>
@@ -46,7 +46,7 @@ const LegendItem = ({ item }: { item: RevenueData }) => {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white/90 backdrop-blur-md border border-white/50 p-3 rounded-xl shadow-lg">
+      <div className="bg-white/90  border p-3 rounded-xl ">
         <p className="text-xs font-semibold text-gray-700 mb-1">{label}</p>
         <p className="text-sm font-bold" style={{ color: payload[0].payload.color }}>
           ₹{payload[0].value.toFixed(2)}M
@@ -59,7 +59,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function RevenueBreakdown() {
   return (
-    <div className="rounded-[20px] border-white/50 bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md p-6 h-full flex flex-col">
+    <div className="rounded-[20px] border border-gray-200 bg-white  p-6 h-full flex flex-col">
       {/* Header */}
       <div className="mb-6">
         <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase">Revenue Breakdown</h3>
@@ -70,7 +70,7 @@ export function RevenueBreakdown() {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={revenueBreakdown}
-            margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
+            margin={{ top: 10, right: 10, left: -25, bottom: 0 }}
             barSize={60}
           >
             <defs>

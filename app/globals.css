@@ -93,3 +93,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+* :focus {
+  outline: none !important;
+}
+/* addded to remove the black border box when click on the chart */

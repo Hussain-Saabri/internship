@@ -65,7 +65,7 @@ const CustomXAxisTick = (props: any) => {
 
 export function CategoryBreakdown() {
   return (
-    <div className="relative overflow-hidden border border-white/40 shadow-[0_2px_20px_rgb(0,0,0,0.04)] bg-gradient-to-br from-[#F4ECFF] to-[#E8E2FF] rounded-2xl h-full p-6">
+    <div className="relative overflow-hidden border border-white/40 shadow-[0_2px_20px_rgb(0,0,0,0.04)] bg-white rounded-2xl h-full p-6">
       {/* Faint Overlay Gradient for Depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
 

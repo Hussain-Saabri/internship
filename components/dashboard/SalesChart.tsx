@@ -30,7 +30,7 @@ export function SalesChart() {
       line1Label="Last Month"
       line2Label="This Month"
       line1Color="rgba(37, 185, 144, 0.35)"
-      line2Color="#25b990"
+      line2Color="#25B990"
       yAxisConfig={{
         tickFormatter: (value) => value.toLocaleString(),
       }}

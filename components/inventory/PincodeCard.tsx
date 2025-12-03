@@ -15,7 +15,7 @@ export function PincodeCard({ data }: PincodeCardProps) {
   const { id, name, drr, value, doi, stockouts } = data;
 
   return (
-    <div className="flex items-center justify-between bg-white/60 border border-white/60 rounded-xl px-4 py-3 shadow-sm hover:shadow-md transition-all duration-200 group-hover:border-white/80 group-hover:bg-white/80">
+    <div className="flex items-center justify-between bg-white/60 border border-gray-200 rounded-xl px-4 py-3   ">
       {/* Left Side: Location Info */}
       <div className="flex flex-col gap-0.5">
         <div className="flex items-center gap-2">

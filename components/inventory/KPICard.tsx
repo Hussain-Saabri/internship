@@ -30,9 +30,9 @@ const trendColorClasses = {
 
 export function KPICard({ title, value, icon, trend, subtitle, valueColor = "default" }: KPICardProps) {
   return (
-    <Card className="h-[116px] border-white/40 rounded-xl bg-gradient-to-br from-[#F4ECFF] to-[#E8E2FF] shadow-lg relative overflow-hidden">
+    <Card className="h-[116px] border border-gray-200 rounded-xl bg-white  relative overflow-hidden">
       {/* Faint Overlay Gradient for Depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
+      <div className="absolute " />
 
       <CardContent className="p-4 flex flex-col gap-2 h-full relative z-10">
         {/* Header: Title and Icon */}

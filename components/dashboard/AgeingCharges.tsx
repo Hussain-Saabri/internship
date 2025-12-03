@@ -82,7 +82,7 @@ const LegendItem = ({ item }: { item: AgeingData }) => {
 
 export function AgeingCharges() {
   return (
-    <DashboardCard className="flex flex-col relative overflow-hidden border-gray-200">
+    <DashboardCard className="flex flex-col relative overflow-hidden border-gray-200 bg-white">
 
 
 
@@ -112,7 +112,11 @@ export function AgeingCharges() {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={ageingData} margin={{ top: 10, right: 10, left: -10, bottom: 5 }}>
 
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.08)" vertical={false} />
+              <CartesianGrid 
+              strokeDasharray="3 3" 
+              stroke="rgba(0,0,0,0.08)" 
+              vertical={false} 
+              />
 
               <XAxis
                 dataKey="period"

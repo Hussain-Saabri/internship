@@ -245,7 +245,7 @@ export function DeductionPenaltiesTable() {
 
 
   return (
-    <Card className="rounded-[20px] border-white/50 bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md">
+    <Card className="rounded-[12px] border border-gray-200 bg-white ">
       <CardContent className="p-6">
         {/* Header */}
         <h4 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
@@ -253,14 +253,14 @@ export function DeductionPenaltiesTable() {
         </h4>
 
         {/* Table */}
-        <div className="rounded-xl border border-white/40 overflow-hidden bg-white/40 backdrop-blur-sm">
+        <div className="rounded-xl border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm">
           <div className="overflow-x-auto">
             <Table className="w-full">
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow
                     key={headerGroup.id}
-                    className="bg-white/50 border-b border-white/40 h-10 hover:bg-white/60"
+                    className="bg-white/50 border-b border-gray-200 h-10 hover:bg-white/60"
                   >
                     {headerGroup.headers.map((header) => (
                       <TableHead
@@ -278,7 +278,7 @@ export function DeductionPenaltiesTable() {
                 {table.getRowModel().rows.map((row) => (
                   <TableRow
                     key={row.id}
-                    className="border-b border-white/40 hover:bg-white/60 transition-colors"
+                    className="border-b border-gray-200 hover:bg-white/60 transition-colors"
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell

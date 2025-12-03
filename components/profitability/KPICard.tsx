@@ -30,7 +30,7 @@ const trendColorClasses = {
 
 export function KPICard({ title, value, icon, trend, subtitle, valueColor = "default" }: KPICardProps) {
   return (
-    <Card className="flex flex-col gap-6 rounded-[20px] border-white/50 bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md">
+    <Card className="flex flex-col gap-6 rounded-[12px] border-gray-200 bg-white ">
       <CardContent className="[&:last-child]:pb-6 p-4">
         {/* Header: Title and Icon */}
         <div className="flex items-center justify-between mb-2">

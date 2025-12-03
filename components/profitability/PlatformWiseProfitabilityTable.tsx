@@ -157,7 +157,7 @@ export function PlatformWiseProfitabilityTable() {
   })
 
   return (
-    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md h-full flex flex-col">
+    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md h-full flex flex-col">
       <CardContent className="p-6 flex flex-col h-full">
         {/* Title */}
         <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
@@ -165,13 +165,13 @@ export function PlatformWiseProfitabilityTable() {
         </h3>
 
         {/* Table Container */}
-        <div className="flex-1 rounded-xl border border-white/40 overflow-hidden bg-white/40 backdrop-blur-sm flex flex-col">
+        <div className="flex-1 rounded-xl border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm flex flex-col">
           <div className="flex-1 overflow-x-auto overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
             <Table className="w-full min-w-[600px]">
               {/* HEADER */}
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id} className="bg-white/50 border-b border-white/40 h-12 hover:bg-white/60">
+                  <TableRow key={headerGroup.id} className="bg-white/50 border-b border-gray-200 h-12 hover:bg-white/60">
                     {headerGroup.headers.map((header) => (
                       <TableHead
                         key={header.id}
@@ -203,7 +203,7 @@ export function PlatformWiseProfitabilityTable() {
                 {table.getRowModel().rows.map((row) => (
                   <TableRow
                     key={row.id}
-                    className="border-b border-white/40 last:border-0 hover:bg-white/40 transition-colors duration-200 group"
+                    className="border-b border-gray-200 last:border-0 hover:bg-white/40 transition-colors duration-200 group"
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell

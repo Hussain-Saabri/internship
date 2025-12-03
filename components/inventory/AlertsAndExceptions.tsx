@@ -10,7 +10,7 @@ import {
 
 export function AlertsAndExceptions() {
   return (
-    <Card className="border-white/50 rounded-[20px] bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md">
+    <Card className="border border-gray-200 rounded-[12px] bg-white  ">
       <CardContent className="p-4">
         {/* Section Header */}
         <div className="flex items-center gap-2 mb-4">

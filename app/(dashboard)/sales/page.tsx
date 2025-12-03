@@ -4,7 +4,7 @@ import { KPICard } from "@/components/sales/KPICard"
 import { SalesTrendChart } from "@/components/sales/SalesTrendChart"
 import { PlatformContributionChart } from "@/components/sales/PlatformContributionChart"
 import { SalesPerformanceTable } from "@/components/sales/SalesPerformanceTable"
-import { PlatformPerformnceTable } from "@/components/sales/PlatformPerformnceTable"
+import { PlatformPerformanceTable } from "@/components/sales/PlatformPerformnceTable"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
@@ -113,11 +113,11 @@ export default function SalesPage() {
 
       {/* Platform Selection - Click to drill down */}
       <div className="w-full">
-          <PlatformPerformnceTable />
+        <PlatformPerformanceTable />
       </div>
 
-      
-     
+
+
 
       {/* Sales Performance Details Table - Read-only Overview */}
       <div className="w-full">

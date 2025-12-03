@@ -24,8 +24,8 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="
-        bg-white/95 backdrop-blur-sm border border-gray-100 
-        shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-xl p-4 min-w-[180px]
+        bg-white  border  
+         rounded-xl p-4 min-w-[180px]
       ">
         <p className="text-gray-400 text-xs font-medium mb-3 uppercase tracking-wider">{label}</p>
         <div className="space-y-2">
@@ -54,7 +54,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function CashFlowSnapshot() {
   return (
-    <div className="flex flex-col h-full bg-gradient-to-br from-[#F4ECFF] to-[#E8E2FF] rounded-2xl shadow-[0_2px_20px_rgb(0,0,0,0.04)] border border-white/40 overflow-hidden relative">
+    <div className="flex flex-col h-full bg-white rounded-2xl border border-gray-200 overflow-hidden relative">
       {/* Faint Overlay Gradient for Depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
 
@@ -71,7 +71,7 @@ export function CashFlowSnapshot() {
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={cashData}
-            margin={{ top: 20, right: 20, left: 0, bottom: 0 }}
+            margin={{ top: 20, right: 20, left: -5, bottom: 0 }}
           >
             <defs>
               <linearGradient id="gradientInflow" x1="0" y1="0" x2="0" y2="1">
@@ -147,7 +147,7 @@ export function CashFlowSnapshot() {
               strokeWidth={3}
               dot={false}
               activeDot={{ r: 6, strokeWidth: 0, fill: "#10B981" }}
-              filter="url(#shadow)"
+              
             />
 
             <Line
@@ -158,7 +158,7 @@ export function CashFlowSnapshot() {
               strokeWidth={3}
               dot={false}
               activeDot={{ r: 6, strokeWidth: 0, fill: "#F43F5E" }}
-              filter="url(#shadow)"
+              
             />
 
             <Line
@@ -169,7 +169,7 @@ export function CashFlowSnapshot() {
               strokeWidth={3}
               dot={false}
               activeDot={{ r: 6, strokeWidth: 0, fill: "#6366F1" }}
-              filter="url(#shadow)"
+              
             />
           </LineChart>
         </ResponsiveContainer>
@@ -188,7 +188,7 @@ export function CashFlowSnapshot() {
               "
             >
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">
+                <span className="text-xs font-bold text-black uppercase tracking-wider">
                   {item.month}
                 </span>
                 <div className="h-1.5 w-1.5 rounded-full bg-gray-300 group-hover:bg-indigo-500 transition-colors" />

@@ -15,12 +15,13 @@ const chartData = [
 
 export function SalesByDayChart() {
   return (
-    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md">
+    <Card className="border-gray-200 rounded-[20px] flex-grow w-full  overflow-hidden ">
       <CardContent className="p-6">
-        <h3 className="text-sm font-bold text-gray-700 tracking-wide mb-6">
+        <h3 className="text-sm font-bold text-black tracking-wide text-gray-900 mb-6">
+          
           Sales by Day
         </h3>
-        <div style={{ width: "100%", height: "280px" }}>
+        <div className="outline-none focus:outline-none" style={{ width: "100%", height: "280px" }}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={chartData}
@@ -37,13 +38,13 @@ export function SalesByDayChart() {
                 dataKey="day"
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: "#6b7280", fontSize: 11, fontWeight: 700 }}
+                tick={{ fill: "#6B7280", fontSize: 11, fontWeight: 600 }}
                 dy={10}
               />
               <YAxis
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: "#6b728d", fontSize: 11, fontWeight: 700 }}
+                tick={{ fill: "#6B7280", fontSize: 11, fontWeight: 600 }}
                 domain={[0, 600000]}
                 ticks={[0, 150000, 300000, 450000, 600000]}
                 tickFormatter={(value) => `${value / 1000}k`}
@@ -51,10 +52,10 @@ export function SalesByDayChart() {
               <Line
                 type="monotone"
                 dataKey="sales"
-                stroke="#f8cb46"
-                strokeWidth={3}
-                dot={{ r: 4, fill: "#f8cb46", strokeWidth: 2, stroke: "#fff" }}
-                activeDot={{ r: 6, strokeWidth: 0 }}
+                stroke="#25B990"
+                strokeWidth={5}
+                dot={{ r: 4, fill: "#25B990", strokeWidth: 2, stroke: "#fff" }}
+                activeDot={false}
               />
             </LineChart>
           </ResponsiveContainer>

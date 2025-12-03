@@ -19,7 +19,7 @@ const ageingData: AgeingData[] = [
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white/90 backdrop-blur-md border border-white/50 p-3 rounded-xl shadow-lg">
+      <div className="bg-white/90  border p-3 rounded-xl ">
         <p className="text-xs font-semibold text-gray-700 mb-1">{label}</p>
         <p className="text-sm font-bold" style={{ color: payload[0].payload.color }}>
           ₹{payload[0].value.toFixed(2)}M
@@ -32,7 +32,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function StockAgeingCharges() {
   return (
-    <div className="rounded-[20px] border bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 border-white/50 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md p-6 h-full flex flex-col">
+    <div className="rounded-[12px] border bg-white border-gray-200 p-6 h-full flex flex-col">
 
       {/* Header */}
       <div className="mb-6">
@@ -44,7 +44,7 @@ export function StockAgeingCharges() {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={ageingData}
-            margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
+            margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
             barSize={60}
           >
             <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" vertical={false} />
@@ -53,7 +53,7 @@ export function StockAgeingCharges() {
               dataKey="period"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#4B5563', fontSize: 11, fontWeight: 600 }}
+              tick={{ fill: '#6B7280', fontSize: 11, fontWeight: 500 }}
               tickFormatter={(value) => value.replace(" days", "d")}
               dy={10}
             />
@@ -84,7 +84,7 @@ export function StockAgeingCharges() {
         {ageingData.map((item) => (
           <div
             key={item.period}
-            className="flex flex-col items-center justify-center bg-white/60 shadow-sm rounded-2xl px-5 py-2 border border-white/60 min-w-[100px]"
+            className="flex flex-col items-center justify-center bg-white/90  rounded-[10px] px-5 py-2 border min-w-[100px]"
           >
             <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wide mb-0.5 whitespace-nowrap">
               {item.period}

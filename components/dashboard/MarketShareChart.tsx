@@ -61,7 +61,7 @@ const marketShareData: MonthlyMarketShareData[] = [
 // =========================
 export function MarketShareChart() {
   return (
-    <DashboardCard className="flex flex-col relative overflow-hidden border-gray-200">
+    <DashboardCard className="rounded-[12px] flex flex-col relative overflow-hidden border-gray-200 bg-white ">
 
       {/* Subtle overlay - Removed */}
       {/* <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" /> */}
@@ -75,7 +75,7 @@ export function MarketShareChart() {
             Est. Market Share %
           </h3>
 
-          <button className="px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-purple-700 hover:bg-white/50 rounded-lg transition-all duration-200 backdrop-blur-sm">
+          <button className="px-3 py-1.5 text-xs font-medium text-white  bg-[#25B990] hover:bg-[#25B990]/80 hover:text-white rounded-lg transition-all duration-200 backdrop-blur-sm">
             Show Competitors
           </button>
         </div>
@@ -131,7 +131,7 @@ export function MarketShareChart() {
                 dataKey="month"
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: "#4b5563", fontSize: 10, fontWeight: 600 }}
+                tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
                 dy={10}
               />
 
@@ -139,7 +139,7 @@ export function MarketShareChart() {
               <YAxis
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: "#4b5563", fontSize: 10, fontWeight: 600 }}
+                tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
                 domain={[0, 35]}
                 ticks={[0, 10, 20, 30]}
               />

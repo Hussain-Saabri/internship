@@ -21,7 +21,7 @@ const expenseData: ExpenseWaterfall[] = [
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white/90 backdrop-blur-md border border-white/50 p-3 rounded-xl shadow-lg">
+      <div className="bg-white/90 border border-gray-200 p-3 rounded-xl ">
         <p className="text-xs font-semibold text-gray-700 mb-1">{label}</p>
         <p className="text-sm font-bold" style={{ color: payload[0].payload.color }}>
           ₹{payload[0].value.toFixed(2)}M
@@ -34,7 +34,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function ExpenseWaterfall() {
   return (
-    <div className="rounded-[20px] border-white/50 bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md p-6 h-full flex flex-col">
+    <div className="rounded-[20px] border border-gray-200 bg-white   p-6 h-full flex flex-col">
       {/* Header */}
       <div className="mb-6">
         <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase">
@@ -47,7 +47,7 @@ export function ExpenseWaterfall() {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={expenseData}
-            margin={{ top: 5, right: 10, left: -20, bottom: 25 }}
+            margin={{ top: 5, right: 10, left: -25, bottom: 25 }}
             barSize={45}
           >
             <defs>

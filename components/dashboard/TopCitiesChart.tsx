@@ -18,47 +18,47 @@ const cityData: CityData[] = [
     value: 28,
     percentage: 28,
     amount: "₹85.0L",
-    color: "#86efac", // Pastel Green
+    color: "#25B990", // Pastel Green
   },
   {
     name: "Delhi",
     value: 24,
     percentage: 24,
     amount: "₹72.0L",
-    color: "#5eead4", // Pastel Teal
+    color: "#25B990", // Pastel Teal
   },
   {
     name: "Bangalore",
     value: 20,
     percentage: 20,
     amount: "₹61.0L",
-    color: "#93c5fd", // Pastel Blue
+    color: "#25B990", // Pastel Blue
   },
   {
     name: "Hyderabad",
     value: 16,
     percentage: 16,
     amount: "₹48.0L",
-    color: "#c4b5fd", // Pastel Purple
+    color: "#25B990", // Pastel Purple
   },
   {
     name: "Pune",
     value: 12,
     percentage: 12,
     amount: "₹30.0L",
-    color: "#fca5a5", // Pastel Red/Pink
+    color: "#25B990", // Pastel Red/Pink
   },
 ]
 
 const CityLegendItem = ({ city }: { city: CityData }) => {
   return (
-    <div className="flex items-center justify-between py-0.5 border-b border-gray-200/50 last:border-0">
+    <div className="flex items-center justify-between py-0.5 ">
       <div className="flex items-center gap-3">
         <div
           className="w-2.5 h-2.5 rounded-full"
           style={{ backgroundColor: city.color }}
         />
-        <span className="text-sm font-semibold text-gray-700">{city.name}</span>
+        <span className="text-sm font-semibold text-gray-500">{city.name}</span>
       </div>
       <div className="flex items-center gap-4">
         <span className="text-xs font-bold text-gray-500 bg-white/60 px-2 py-0.5 rounded-md">{city.percentage}%</span>
@@ -111,7 +111,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 export function TopCitiesChart() {
   return (
-    <DashboardCard className="h-full flex flex-col relative overflow-hidden border-gray-200">
+    <DashboardCard className="rounded-[12px] h-full flex flex-col relative overflow-hidden border-gray-200 bg-white">
       {/* Faint Overlay Gradient for Depth - Removed */}
       {/* <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" /> */}
 
@@ -159,7 +159,7 @@ export function TopCitiesChart() {
         </div>
 
         {/* Legend List */}
-        <div className="flex flex-col gap-1 mt-4">
+        <div className="flex flex-col gap-1 mt-6">
           {cityData.map((city) => (
             <CityLegendItem key={city.name} city={city} />
           ))}

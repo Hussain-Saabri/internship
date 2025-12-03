@@ -324,7 +324,7 @@ export function SkuInventoryTable({ pincode }: SkuInventoryTableProps) {
   })
 
   return (
-    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md">
+    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md">
       <CardContent className="p-6">
 
         <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">

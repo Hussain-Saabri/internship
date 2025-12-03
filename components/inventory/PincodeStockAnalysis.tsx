@@ -14,7 +14,7 @@ export function PincodeStockAnalysis() {
   ];
 
   return (
-    <Card className="rounded-[20px] border-white/50 bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-md h-full">
+    <Card className="rounded-[12px] border border-gray-200 bg-white  h-full">
       <CardContent className="p-6">
         <h3 className="text-sm font-semibold text-gray-800 tracking-wide mb-6">
           Pincode-Level Stock Analysis

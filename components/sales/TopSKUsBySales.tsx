@@ -19,7 +19,7 @@ const skuData: SKUData[] = [
 
 export function TopSKUsBySales() {
   return (
-    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md">
+    <Card className="border-gray-200 border rounded-[12px] flex-grow w-full   relative overflow-hidden backdrop-blur-md">
       <CardContent className="p-6">
         <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
           Top SKUs by Sales
@@ -28,7 +28,7 @@ export function TopSKUsBySales() {
           {skuData.map((item, index) => (
             <div
               key={index}
-              className="group p-3 rounded-xl bg-white/40 border border-white/40 hover:bg-white/60 transition-all duration-200 cursor-pointer shadow-sm"
+              className="group p-2 rounded-xl bg-white border border-gray-200 hover:bg-white/60 transition-all duration-200 cursor-pointer "
             >
               {/* Header: Product name and sales value */}
               <div className="flex items-center justify-between mb-2">

@@ -9,7 +9,7 @@ export function DashboardCard({ children, className }: DashboardCardProps) {
     return (
         <div
             className={cn(
-                "bg-white rounded-[20px] p-6 border border-gray-200",
+                "bg-white rounded-[12px] p-6 border border-gray-200",
                 className
             )}
         >

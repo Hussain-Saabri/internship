@@ -393,7 +393,7 @@ const columns: ColumnDef<ProductPerformance>[] = [
     header: "PRODUCT / SKU",
     cell: ({ row }) => (
       <div className="flex flex-col">
-        <span className="text-[10px] font-semibold text-gray-800">
+        <span className="text-[10px] font-bold text-gray-800">
           {row.original.productName}
         </span>
         <span className="text-[10px] text-gray-500">
@@ -692,7 +692,7 @@ export function SalesPerformanceTable({
             <Button
               variant="outline"
               size="sm"
-              className="rounded-full bg-white/50 border-white/40 hover:bg-white/80 text-[10px] h-7"
+              className="rounded-full text-[10px] h-7 "
               onClick={(e) => {
                 e.stopPropagation();
                 onRowAction(row.original);
@@ -753,7 +753,7 @@ export function SalesPerformanceTable({
   });
 
   return (
-    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-gradient-to-br from-white/70 to-[#F3F0FF]/60 shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md">
+    <Card className="rounded-[12px] flex-grow w-full  relative overflow-hidden ">
       <CardContent className="p-6">
         {/* Title */}
         <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
@@ -762,7 +762,7 @@ export function SalesPerformanceTable({
 
         {/* Tabs */}
         <Tabs defaultValue="product" className="w-full">
-          <TabsList className="bg-white/50 p-1 rounded-xl mb-6 w-auto inline-flex border border-white/40">
+          <TabsList className="bg-gray-200 p-1 rounded-xl mb-6 w-auto inline-flex border border-white/40">
             <TabsTrigger
               value="product"
               className="
@@ -784,134 +784,149 @@ export function SalesPerformanceTable({
           </TabsList>
 
           <TabsContent value="product">
-            <div className="rounded-xl border border-white/40 overflow-hidden bg-white/40 backdrop-blur-sm">
-              <div className="overflow-x-auto">
-                <Table className="w-full">
-                  <TableHeader>
-                    {table.getHeaderGroups().map((headerGroup) => (
-                      <TableRow
-                        key={headerGroup.id}
-                        className="bg-white/50 border-b border-white/40 h-12 hover:bg-white/60"
-                      >
-                        {headerGroup.headers.map((header) => (
-                          <TableHead
-                            key={header.id}
-                            className="px-2 py-3 text-left text-gray-500 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap"
-                          >
-                            {header.isPlaceholder ? null : (
-                              <div
-                                className={cn(
-                                  "flex items-center gap-1 cursor-pointer select-none hover:text-gray-700 transition-colors",
-                                )}
-                                onClick={header.column.getToggleSortingHandler()}
-                              >
-                                {flexRender(
-                                  header.column.columnDef.header,
-                                  header.getContext()
-                                )}
-                                {{
-                                  asc: " ↑",
-                                  desc: " ↓",
-                                }[header.column.getIsSorted() as string] ?? null}
-                              </div>
-                            )}
-                          </TableHead>
-                        ))}
-                      </TableRow>
-                    ))}
-                  </TableHeader>
+  <div className="rounded-xl border border-gray-200 overflow-hidden">
+    <div className="overflow-x-auto">
+      <Table className="w-full border-collapse">
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow
+              key={headerGroup.id}
+              className="bg-gray-50 border-b border-gray-200 h-12"
+            >
+              {headerGroup.headers.map((header) => (
+                <TableHead
+                  key={header.id}
+                  className="px-2 py-3 text-left font-bold text-[10px] tracking-wider uppercase whitespace-nowrap"
+                >
+                  {header.isPlaceholder ? null : (
+                    <div
+                      className={cn(
+                        "flex items-center gap-1 cursor-pointer select-none hover:text-gray-800 transition-colors"
+                      )}
+                      onClick={header.column.getToggleSortingHandler()}
+                    >
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                      {{
+                        asc: " ↑",
+                        desc: " ↓",
+                      }[header.column.getIsSorted() as string] ?? null}
+                    </div>
+                  )}
+                </TableHead>
+              ))}
+            </TableRow>
+          ))}
+        </TableHeader>
 
-                  <TableBody>
-                    {table.getRowModel().rows.map((row, index) => (
-                      <TableRow
-                        key={row.id}
-                        className={`
-                          border-b border-white/40 h-[60px] transition-all duration-200 cursor-pointer group
-                          ${index % 2 === 0 ? 'bg-white/30' : 'bg-white/10'}
-                          hover:bg-white/40
-                        `}
-                      >
-                        {row.getVisibleCells().map((cell) => (
-                          <TableCell
-                            key={cell.id}
-                            className="px-2 py-4 whitespace-nowrap"
-                          >
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext()
-                            )}
-                          </TableCell>
-                        ))}
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </div>
-          </TabsContent>
+       <TableBody>
+  {table.getRowModel().rows.map((row) => (
+    <TableRow
+      key={row.id}
+      className="
+        h-[60px]
+        cursor-pointer
+        transition-all
+        bg-white
+        border-b border-gray-200
+        
+      "
+    >
+      {row.getVisibleCells().map((cell) => (
+        <TableCell
+          key={cell.id}
+          className="px-2 py-4 whitespace-nowrap"
+        >
+          {flexRender(cell.column.columnDef.cell, cell.getContext())}
+        </TableCell>
+      ))}
+    </TableRow>
+  ))}
+</TableBody>
+
+      </Table>
+    </div>
+  </div>
+</TabsContent>
+
+
+
+
+
+
+
+
+
 
           <TabsContent value="category">
-            <div className="rounded-xl border border-white/40 overflow-hidden bg-white/40 backdrop-blur-sm">
-              <div className="overflow-x-auto">
-                <Table className="w-full">
-                  <TableHeader>
-                    {categoryTable.getHeaderGroups().map((headerGroup) => (
-                      <TableRow
-                        key={headerGroup.id}
-                        className="bg-white/50 border-b border-white/40 h-12 hover:bg-white/60"
-                      >
-                        {headerGroup.headers.map((header) => (
-                          <TableHead
-                            key={header.id}
-                            className="px-2 py-3 text-left text-gray-500 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap"
-                          >
-                            {header.isPlaceholder ? null : (
-                              <div
-                                className={cn(
-                                  "flex items-center gap-1 cursor-pointer select-none hover:text-gray-700 transition-colors",
-                                )}
-                                onClick={header.column.getToggleSortingHandler()}
-                              >
-                                {flexRender(
-                                  header.column.columnDef.header,
-                                  header.getContext()
-                                )}
-                                {{
-                                  asc: " ↑",
-                                  desc: " ↓",
-                                }[header.column.getIsSorted() as string] ?? null}
-                              </div>
-                            )}
-                          </TableHead>
-                        ))}
-                      </TableRow>
-                    ))}
-                  </TableHeader>
-                  <TableBody>
-                    {categoryTable.getRowModel().rows.map((row, index) => (
-                      <TableRow
-                        key={row.id}
-                        className={`
-                          border-b border-white/40 h-[60px] transition-all duration-200 cursor-pointer group
-                          ${index % 2 === 0 ? 'bg-white/30' : 'bg-white/10'}
-                          hover:bg-white/40
-                        `}
-                      >
-                        {row.getVisibleCells().map((cell) => (
-                          <TableCell key={cell.id} className="px-2 py-4 whitespace-nowrap">
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext()
-                            )}
-                          </TableCell>
-                        ))}
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </div>
-          </TabsContent>
+  <div className="rounded-xl border border-gray-200 overflow-hidden bg-white">
+    <div className="overflow-x-auto">
+      <Table className="w-full border-collapse">
+        <TableHeader>
+          {categoryTable.getHeaderGroups().map((headerGroup) => (
+            <TableRow
+              key={headerGroup.id}
+              className="bg-gray-50 border-b border-gray-200 h-12"
+            >
+              {headerGroup.headers.map((header) => (
+                <TableHead
+                  key={header.id}
+                  className="px-2 py-3 text-left text-gray-500 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap"
+                >
+                  {header.isPlaceholder ? null : (
+                    <div
+                      className={cn(
+                        "flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
+                      )}
+                      onClick={header.column.getToggleSortingHandler()}
+                    >
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                      {{
+                        asc: " ↑",
+                        desc: " ↓",
+                      }[header.column.getIsSorted() as string] ?? null}
+                    </div>
+                  )}
+                </TableHead>
+              ))}
+            </TableRow>
+          ))}
+        </TableHeader>
+
+        <TableBody>
+          {categoryTable.getRowModel().rows.map((row) => (
+            <TableRow
+              key={row.id}
+              className="
+                h-[60px]
+                bg-white
+                border-b border-gray-200
+                cursor-pointer
+                transition-all
+                hover:bg-gray-50
+              "
+            >
+              {row.getVisibleCells().map((cell) => (
+                <TableCell
+                  key={cell.id}
+                  className="px-2 py-4 whitespace-nowrap"
+                >
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  </div>
+</TabsContent>
+
         </Tabs>
       </CardContent>
     </Card>

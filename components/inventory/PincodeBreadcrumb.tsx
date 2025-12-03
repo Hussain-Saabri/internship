@@ -14,7 +14,7 @@ export default function PincodeBreadcrumb({
   return (
     <div className="w-full">
       <nav aria-label="breadcrumb" className="w-full">
-        <ol className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-br from-[#F4ECFF] to-[#E8E2FF] border border-white/60 shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-all hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+        <ol className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl bg-white border border-white/60 shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-all hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
           {/* Home / Inventory Overview */}
           <li className="flex items-center">
             <Link
