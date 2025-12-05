@@ -20,16 +20,24 @@ export function SKUInsightsTabs() {
   ]
 
   return (
-    <div className="flex flex-col gap-6">
-      {/* Tabs Container */}
-      <div className="bg-[linear-gradient(135deg,#EFF1F5,#F8FAFC)] rounded-2xl border border-gray-200/70 shadow-[0_2px_10px_rgba(0,0,0,0.03)] p-1.5 w-fit">
-        <div className="flex items-center gap-1">
+    <div className="flex flex-col gap-6 w-full">
+
+      {/* 🔥 RESPONSIVE TABS */}
+      <div className="
+        bg-[linear-gradient(135deg,#EFF1F5,#F8FAFC)]
+        rounded-2xl border border-gray-200/70 
+        shadow-[0_2px_10px_rgba(0,0,0,0.03)]
+        p-1.5
+        w-full
+      ">
+        <div className="flex flex-wrap md:flex-nowrap items-center gap-1 w-full">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`
-                relative px-4 py-2 rounded-2xl text-xs font-medium tracking-tight transition-all duration-200
+                relative px-4 py-2 rounded-2xl text-xs font-medium tracking-tight 
+                transition-all duration-200 flex-1 md:flex-none text-center
                 ${activeTab === tab.id
                   ? "text-gray-900 font-semibold"
                   : "text-gray-600 hover:bg-gray-100/70"
@@ -54,8 +62,15 @@ export function SKUInsightsTabs() {
         </div>
       </div>
 
-      {/* Tab Content Area */}
-      <div className="bg-white/80 backdrop-blur-[2px] rounded-2xl p-6 border border-gray-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] min-h-[400px]">
+      {/* 🔥 RESPONSIVE CONTENT AREA */}
+      <div className="
+        bg-white/80 backdrop-blur-[2px] 
+        rounded-2xl p-4 md:p-6 
+        border border-gray-200/60 
+        shadow-[0_4px_20px_rgba(0,0,0,0.03)]
+        min-h-[300px] md:min-h-[400px] 
+        w-full
+      ">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -63,13 +78,11 @@ export function SKUInsightsTabs() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
+            className="w-full"
           >
             {activeTab === "keywords" && <TopKeywords />}
-
             {activeTab === "ageing" && <StockAgeingAnalysis />}
-
             {activeTab === "pincode" && <PincodeLevelAnalysis />}
-
             {activeTab === "competitor" && <CompetitorAnalysis />}
           </motion.div>
         </AnimatePresence>
