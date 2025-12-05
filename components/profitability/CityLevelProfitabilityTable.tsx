@@ -20,7 +20,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { ArrowUpDownIcon } from "@/lib/flaticons";
+import { ArrowUpDownIcon, ArrowUpIcon, ArrowDownIcon } from "@/lib/flaticons";
 import { cn } from "@/lib/utils";
 
 // =======================
@@ -133,7 +133,7 @@ export function CityLevelProfitabilityTable() {
   return (
     <Card className="border-gray-200 border rounded-[12px] flex-grow w-full bg-white overflow-hidden shadow-none h-full flex flex-col">
       <CardContent className="p-6 flex flex-col h-full">
-        
+
         {/* Title */}
         <h3 className="text-sm font-semibold text-gray-900 tracking-wide mb-6">
           City-Level Profitability
@@ -143,7 +143,7 @@ export function CityLevelProfitabilityTable() {
         <div className="flex-1 rounded-[12px] border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm flex flex-col">
           <div className="flex-1 overflow-x-auto thin-scrollbar">
             <div className="min-w-max">
-              
+
               <Table className="w-full">
                 {/* HEADER */}
                 <TableHeader>
@@ -169,7 +169,12 @@ export function CityLevelProfitabilityTable() {
                               onClick={header.column.getToggleSortingHandler()}
                             >
                               {flexRender(header.column.columnDef.header, header.getContext())}
-                              <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+                              {{
+                                asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+                                desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+                              }[header.column.getIsSorted() as string] ?? (
+                                  <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+                                )}
                             </div>
                           )}
                         </TableHead>

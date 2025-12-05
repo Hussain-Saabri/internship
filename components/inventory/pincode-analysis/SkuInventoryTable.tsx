@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/table";
 
 import { cn } from "@/lib/utils";
-import { AlertTriangleIcon, ArrowUpDownIcon } from "@/lib/flaticons";
+import { AlertTriangleIcon, ArrowUpDownIcon, ArrowUpIcon, ArrowDownIcon } from "@/lib/flaticons";
 
 // ===========================
 // Types
@@ -49,6 +49,7 @@ interface ProductLevelInventory {
 
 interface SkuInventoryTableProps {
   pincode: string;
+  name: string;
 }
 
 // ===========================
@@ -220,7 +221,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         PRODUCT / SKU
-        <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+
       </div>
     ),
     cell: ({ row }) => (
@@ -241,7 +242,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         CATEGORY
-        <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+
       </div>
     ),
     cell: ({ row }) => (
@@ -257,7 +258,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         STOCK
-        <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+
       </div>
     ),
     cell: ({ row }) => (
@@ -275,7 +276,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         VALUE
-        <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+
       </div>
     ),
     cell: ({ row }) => (
@@ -293,7 +294,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         DRR
-        <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+
       </div>
     ),
     cell: ({ row }) => (
@@ -311,7 +312,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         DOI
-        <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+
       </div>
     ),
     cell: ({ row }) => {
@@ -342,7 +343,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         STOCKOUTS
-        <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+
       </div>
     ),
     cell: ({ row }) => {
@@ -364,11 +365,11 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
     accessorKey: "nearExpiry",
     header: ({ column }) => (
       <div
-        className="flex items-center gap-1 cursor-pointer hover:text-[#25B990]"
+        className="flex items-center gap-1  cursor-pointer hover:text-[#25B990]"
         onClick={column.getToggleSortingHandler()}
       >
         EXPIRY %
-        <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+
       </div>
     ),
     cell: ({ row }) => {
@@ -392,7 +393,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
 // ===========================
 // COMPONENT (FINAL + CLEAN)
 // ===========================
-export function SkuInventoryTable({ pincode }: SkuInventoryTableProps) {
+export function SkuInventoryTable({ pincode, name }: SkuInventoryTableProps) {
   const [sorting, setSorting] = useState<SortingState>([]);
 
   const table = useReactTable({
@@ -408,7 +409,7 @@ export function SkuInventoryTable({ pincode }: SkuInventoryTableProps) {
     <Card className="border border-gray-200 rounded-[12px] bg-white shadow-none">
       <CardContent className="p-6">
         <h3 className="text-sm font-semibold text-gray-900 tracking-wide mb-6">
-          SKU Inventory — Pincode {pincode}
+          SKU Inventory — Pincode {pincode} ({name})
         </h3>
 
         <div className="rounded-[12px] border border-gray-200 overflow-hidden ">
@@ -425,14 +426,19 @@ export function SkuInventoryTable({ pincode }: SkuInventoryTableProps) {
                       {group.headers.map((header) => (
                         <TableHead
                           key={header.id}
-                          className="px-2 text-left whitespace-nowrap font-semibold text-gray-900 text-[11px]"
+                          className="px-2 text-left whitespace-nowrap font-bold text-gray-900 text-[11px]"
                         >
                           <div
                             className="flex items-center gap-1 cursor-pointer hover:text-[#25B990]"
                             onClick={header.column.getToggleSortingHandler()}
                           >
                             {flexRender(header.column.columnDef.header, header.getContext())}
-                            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+                            {{
+                              asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+                              desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+                            }[header.column.getIsSorted() as string] ?? (
+                                <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+                              )}
                           </div>
                         </TableHead>
                       ))}

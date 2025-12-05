@@ -1185,3 +1185,31 @@ export const CloseIcon = ({ size = 40, className = "" }) => (
     X
   </div>
 );
+
+export const CubeIcon: React.FC<IconProps> = ({
+  size = 16,
+  className = "",
+  strokeWidth = 2,
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    {/* Front face */}
+    <path d="M12 2 20 6v6l-8 4-8-4V6l8-4z" />
+
+    {/* Left face */}
+    <path d="M4 6l8 4v10" />
+
+    {/* Right face */}
+    <path d="M20 6l-8 4" />
+  </svg>
+);

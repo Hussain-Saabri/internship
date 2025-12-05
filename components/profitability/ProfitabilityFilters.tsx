@@ -5,24 +5,25 @@ import FilterGroup from "./FilterGroup";
 import ExportButton from "../common/ExportButton";
 
 export default function ProfitabilityFilters() {
-  const [selectedFilters, setSelectedFilters] = useState([
-    "Weekly",
+  const [timeFilter, setTimeFilter] = useState("Monthly");
+  const [platformFilter, setPlatformFilter] = useState("All Platforms");
 
-    "All Platforms",
-  ]);
-
-  const allOptions = [
-    { label: "Weekly", fixed: true },
+  const timeOptions = [
+    { label: "Weekly" },
     { label: "Monthly" },
-    { label: "Quaterly", fixed: true },
-    { label: "All Platforms", fixed: true },
+    { label: "Quaterly" },
+  ];
+
+  const platformOptions = [
+    { label: "All Platforms" },
     { label: "Blinkit" },
     { label: "Zepto" },
     { label: "Instamart" },
-    { label: "All Cities" },
   ];
 
-
+  const otherOptions = [
+    { label: "All Cities", disabled: true },
+  ];
 
   return (
     <div className="rounded-[12px] border border-gray-200 bg-white   p-4">
@@ -33,9 +34,19 @@ export default function ProfitabilityFilters() {
         {/* Filters wrap independently */}
         <div className="flex flex-wrap gap-3">
           <FilterGroup
-            options={allOptions}
-            selected={selectedFilters}
-            onChange={setSelectedFilters}
+            options={timeOptions}
+            value={timeFilter}
+            onChange={setTimeFilter}
+          />
+          <FilterGroup
+            options={platformOptions}
+            value={platformFilter}
+            onChange={setPlatformFilter}
+          />
+          <FilterGroup
+            options={otherOptions}
+            value=""
+            onChange={() => { }}
           />
         </div>
 

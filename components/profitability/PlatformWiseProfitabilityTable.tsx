@@ -20,7 +20,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-import { ArrowUpDownIcon, TrendingDownIcon, TrendingUpIcon } from "@/lib/flaticons"
+import { ArrowUpDownIcon, TrendingDownIcon, TrendingUpIcon, ArrowUpIcon, ArrowDownIcon } from "@/lib/flaticons"
 import { cn } from "@/lib/utils"
 
 // ----------------------
@@ -168,58 +168,61 @@ export function PlatformWiseProfitabilityTable() {
         <div className="flex-1 rounded-[12px] border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm flex flex-col ">
           <div className="flex-1 overflow-x-auto thin-scrollbar ">
             <div className="min-w-max">
-            <Table className="w-full">
-              {/* HEADER */}
-              <TableHeader>
-                {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id} className="bg-white/50 border-b border-gray-200 h-12 hover:bg-white/60">
-                    {headerGroup.headers.map((header) => (
-                      <TableHead
-                        key={header.id}
-                        className={cn(
-                          " bg-gray-50/60 backdrop-blur-sm px-4 py-3 text-left text-gray-700 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap select-none",
-                          header.id === "platform" ? "text-left" : "text-right"
-                        )}
-                      >
-                        {header.isPlaceholder ? null : (
-                          <div
-                            className={cn(
-                              "flex items-center gap-1.5 transition-colors hover:text-gray-700 cursor-pointer",
-                              header.id !== "platform" && "justify-end"
-                            )}
-                            onClick={header.column.getToggleSortingHandler()}
-                          >
-                            {flexRender(header.column.columnDef.header, header.getContext())}
-                            <ArrowUpDownIcon />
+              <Table className="w-full">
+                {/* HEADER */}
+                <TableHeader>
+                  {table.getHeaderGroups().map((headerGroup) => (
+                    <TableRow key={headerGroup.id} className="bg-white/50 border-b border-gray-200 h-12 hover:bg-white/60">
+                      {headerGroup.headers.map((header) => (
+                        <TableHead
+                          key={header.id}
+                          className={cn(
+                            " bg-gray-50/60 backdrop-blur-sm px-4 py-3 text-left text-gray-700 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap select-none",
+                            header.id === "platform" ? "text-left" : "text-right"
+                          )}
+                        >
+                          {header.isPlaceholder ? null : (
+                            <div
+                              className={cn(
+                                "flex items-center gap-1.5 transition-colors hover:text-gray-700 cursor-pointer",
+                                header.id !== "platform" && "justify-end"
+                              )}
+                              onClick={header.column.getToggleSortingHandler()}
+                            >
+                              {flexRender(header.column.columnDef.header, header.getContext())}
+                              {{
+                                asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+                                desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+                              }[header.column.getIsSorted() as string] ?? (
+                                  <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+                                )}
+                            </div>
+                          )}
+                        </TableHead>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableHeader>
 
-
-                          </div>
-                        )}
-                      </TableHead>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableHeader>
-
-              {/* BODY */}
-              <TableBody>
-                {table.getRowModel().rows.map((row) => (
-                  <TableRow
-                    key={row.id}
-                    className="border-b border-gray-200 last:border-0 hover:bg-white/40 transition-colors duration-200 group"
-                  >
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell
-                        key={cell.id}
-                        className="py-3 px-4"
-                      >
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                {/* BODY */}
+                <TableBody>
+                  {table.getRowModel().rows.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      className="border-b border-gray-200 last:border-0 hover:bg-white/40 transition-colors duration-200 group"
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell
+                          key={cell.id}
+                          className="py-3 px-4"
+                        >
+                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
           </div>
         </div>

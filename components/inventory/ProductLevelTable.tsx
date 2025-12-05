@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/table"
 
 import { cn } from "@/lib/utils"
-import { AlertTriangleIcon } from "@/lib/flaticons"
+import { AlertTriangleIcon, ArrowUpIcon, ArrowDownIcon, ArrowUpDownIcon } from "@/lib/flaticons"
 
 // ===========================
 // Types
@@ -360,6 +360,12 @@ export function ProductLevelTable() {
                             onClick={header.column.getToggleSortingHandler()}
                           >
                             {flexRender(header.column.columnDef.header, header.getContext())}
+                            {{
+                              asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+                              desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+                            }[header.column.getIsSorted() as string] ?? (
+                                <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+                              )}
                           </div>
                         )}
                       </TableHead>

@@ -23,7 +23,10 @@ import {
 import {
   TrendingUpIcon,
   TrendingDownIcon,
-} from "lucide-react";
+  ArrowUpIcon,
+  ArrowDownIcon,
+  ArrowUpDownIcon
+} from "@/lib/flaticons";
 import { cn } from "@/lib/utils";
 
 // Types
@@ -688,8 +691,8 @@ export function SalesPerformanceTable({
         {
           id: "actions",
           header: () => (
-    <span className="text-[12px] left-2 relative block">ACTION</span>
-  ),
+            <span className="text-[12px] left-2 relative block">ACTION</span>
+          ),
           cell: ({ row }) => (
             <Button
               variant="outline"
@@ -712,11 +715,11 @@ export function SalesPerformanceTable({
     showActions && onRowAction
       ? [
         ...categoryColumns,
-         {
+        {
           id: "actions",
           header: () => (
-    <span className="text-[12px] left-2 relative block">ACTION</span>
-  ),
+            <span className="text-[12px] left-2 relative block">ACTION</span>
+          ),
           cell: ({ row }) => (
             <Button
               variant="outline"
@@ -787,79 +790,79 @@ export function SalesPerformanceTable({
             </TabsTrigger>
           </TabsList>
 
-         <TabsContent value="product">
-  <div className="rounded-[12px] border border-gray-200 overflow-hidden">
+          <TabsContent value="product">
+            <div className="rounded-[12px] border border-gray-200 overflow-hidden">
 
-    {/* scroll wrapper updated */}
-    <div className="flex-1 overflow-x-auto thin-scrollbar">
-      <div className="min-w-max"> 
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow
-                key={headerGroup.id}
-                className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200 h-12 cursor-pointer"
-              >
-                {headerGroup.headers.map((header) => (
-                  <TableHead
-                    key={header.id}
-                    className="px-2 py-3 text-left font-semibold text-[12px] text-gray-900 tracking-wider uppercase whitespace-nowrap"
-                  >
-                    {header.isPlaceholder ? null : (
-                      <div
-                        className={cn(
-                          "flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-                        )}
-                        onClick={header.column.getToggleSortingHandler()}
-                      >
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                        {{
-                          asc: " ↑",
-                          desc: " ↓",
-                        }[header.column.getIsSorted() as string] ?? null}
-                      </div>
-                    )}
-                  </TableHead>
-                ))}
-              </TableRow>
-            ))}
-          </TableHeader>
+              {/* scroll wrapper updated */}
+              <div className="flex-1 overflow-x-auto thin-scrollbar">
+                <div className="min-w-max">
+                  <Table>
+                    <TableHeader>
+                      {table.getHeaderGroups().map((headerGroup) => (
+                        <TableRow
+                          key={headerGroup.id}
+                          className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200 h-12 cursor-pointer"
+                        >
+                          {headerGroup.headers.map((header) => (
+                            <TableHead
+                              key={header.id}
+                              className="px-2 py-3 text-left font-semibold text-[12px] text-gray-900 tracking-wider uppercase whitespace-nowrap"
+                            >
+                              {header.isPlaceholder ? null : (
+                                <div
+                                  className={cn(
+                                    "flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
+                                  )}
+                                  onClick={header.column.getToggleSortingHandler()}
+                                >
+                                  {flexRender(
+                                    header.column.columnDef.header,
+                                    header.getContext()
+                                  )}
+                                  {{
+                                    asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+                                    desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+                                  }[header.column.getIsSorted() as string] ?? (
+                                      <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+                                    )}
+                                </div>
+                              )}
+                            </TableHead>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableHeader>
 
-          <TableBody>
-            {table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                className="
+                    <TableBody>
+                      {table.getRowModel().rows.map((row) => (
+                        <TableRow
+                          key={row.id}
+                          className="
                   cursor-pointer
                   transition-all
                   bg-white
                   border-b border-gray-200
                   hover:bg-gray-50
                 "
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell
-                    key={cell.id}
-                    className="px-2 py-[4px] whitespace-nowrap"
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
+                        >
+                          {row.getVisibleCells().map((cell) => (
+                            <TableCell
+                              key={cell.id}
+                              className="px-2 py-[4px] whitespace-nowrap"
+                            >
+                              {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableBody>
 
-        </Table>
-      </div>
-    </div>
+                  </Table>
+                </div>
+              </div>
 
-  </div>
-</TabsContent>
-
-
+            </div>
+          </TabsContent>
 
 
 
@@ -868,78 +871,82 @@ export function SalesPerformanceTable({
 
 
 
-<TabsContent value="category">
-  <div className="rounded-xl border border-gray-200 overflow-hidden bg-white">
 
-    {/* scroll wrapper updated */}
-    <div className="overflow-x-auto thin-scrollbar">
-      <div className="min-w-max">
 
-        <Table className="w-full border-collapse">
-          <TableHeader>
-            {categoryTable.getHeaderGroups().map((headerGroup) => (
-              <TableRow
-                key={headerGroup.id}
-                className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200"
-              >
-                {headerGroup.headers.map((header) => (
-                  <TableHead
-                    key={header.id}
-                    className="px-2 py-3 text-left text-gray-900 font-bold text-[12px] tracking-wider uppercase whitespace-nowrap"
-                  >
-                    {header.isPlaceholder ? null : (
-                      <div
-                        className={cn(
-                          "flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-                        )}
-                        onClick={header.column.getToggleSortingHandler()}
-                      >
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                        {{
-                          asc: " ↑",
-                          desc: " ↓",
-                        }[header.column.getIsSorted() as string] ?? null}
-                      </div>
-                    )}
-                  </TableHead>
-                ))}
-              </TableRow>
-            ))}
-          </TableHeader>
+          <TabsContent value="category">
+            <div className="rounded-xl border border-gray-200 overflow-hidden bg-white">
 
-          <TableBody>
-            {categoryTable.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                className="
+              {/* scroll wrapper updated */}
+              <div className="overflow-x-auto thin-scrollbar">
+                <div className="min-w-max">
+
+                  <Table className="w-full border-collapse">
+                    <TableHeader>
+                      {categoryTable.getHeaderGroups().map((headerGroup) => (
+                        <TableRow
+                          key={headerGroup.id}
+                          className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200"
+                        >
+                          {headerGroup.headers.map((header) => (
+                            <TableHead
+                              key={header.id}
+                              className="px-2 py-3 text-left text-gray-900 font-bold text-[12px] tracking-wider uppercase whitespace-nowrap"
+                            >
+                              {header.isPlaceholder ? null : (
+                                <div
+                                  className={cn(
+                                    "flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
+                                  )}
+                                  onClick={header.column.getToggleSortingHandler()}
+                                >
+                                  {flexRender(
+                                    header.column.columnDef.header,
+                                    header.getContext()
+                                  )}
+                                  {{
+                                    asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+                                    desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+                                  }[header.column.getIsSorted() as string] ?? (
+                                      <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+                                    )}
+                                </div>
+                              )}
+                            </TableHead>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableHeader>
+
+                    <TableBody>
+                      {categoryTable.getRowModel().rows.map((row) => (
+                        <TableRow
+                          key={row.id}
+                          className="
                   bg-white
                   border-b border-gray-200
                   cursor-pointer
                   transition-all
                   hover:bg-gray-50
                 "
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell
-                    key={cell.id}
-                    className="px-2 py-[10px] whitespace-nowrap"
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+                        >
+                          {row.getVisibleCells().map((cell) => (
+                            <TableCell
+                              key={cell.id}
+                              className="px-2 py-[10px] whitespace-nowrap"
+                            >
+                              {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
 
-      </div>
-    </div>
+                </div>
+              </div>
 
-  </div>
-</TabsContent>
+            </div>
+          </TabsContent>
 
         </Tabs >
       </CardContent >

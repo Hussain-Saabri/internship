@@ -12,21 +12,20 @@ import { Logo } from "@/components/base/Logo"
 import { Eye, EyeOff } from "lucide-react"
 
 export default function LoginPage() {
-  const accessToken = useAuthStore((s) => s.accessToken)
+  const { setUser, setTokens } = useAuthStore()
+  const router = useRouter()
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
-  const router = useRouter()
-  const { setUser, setTokens } = useAuthStore()
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
     setIsLoading(true)
 
-    // Simulate API call delay
     await new Promise((resolve) => setTimeout(resolve, 800))
 
     if (email && password) {
@@ -52,9 +51,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen w-full grid lg:grid-cols-[55%_45%] overflow-hidden">
+    <div className="min-h-screen w-full grid lg:grid-cols-[55%_45%] lg:overflow-hidden overflow-y-auto">
       {/* Left Panel - Login Form */}
-      <div className="flex flex-col justify-center px-8 sm:px-16 md:px-24 lg:px-32 bg-[#FAF8F2] relative">
+      <div className="flex flex-col justify-center px-8 sm:px-16 md:px-24 lg:px-32 bg-[#FAF8F2] relative min-h-[100dvh] py-12 lg:py-0">
         <div className="w-full max-w-sm mx-auto">
           <div className="mb-6">
             <div className="mb-6">
@@ -136,10 +135,10 @@ export default function LoginPage() {
               {isLoading ? "Signing in..." : "Sign in"}
             </Button>
 
-         
+
           </form>
-          
-          
+
+
         </div>
       </div>
 

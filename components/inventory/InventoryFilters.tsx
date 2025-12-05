@@ -13,13 +13,13 @@ export default function InventoryFilters() {
   const [platform, setPlatform] = useState("All Platforms");
 
   const options = [
-    { label: "Today", icon: <CalendarIcon size={14} /> },
+    { label: "Today", icon: <CalendarIcon size={14} />, disabled: true },
     { label: "All Platforms" },
     { label: "Blinkit" },
     { label: "Zepto" },
     { label: "Instamart" },
-    { label: "All Cities", icon: <MapPinIcon size={14} /> },
-    { label: "All Warehouses", icon: <WarehouseIcon size={14} /> },
+    { label: "All Cities", icon: <MapPinIcon size={14} />, disabled: true },
+    { label: "All Warehouses", icon: <WarehouseIcon size={14} />, disabled: true },
   ];
 
   return (

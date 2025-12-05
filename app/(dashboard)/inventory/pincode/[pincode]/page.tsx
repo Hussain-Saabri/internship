@@ -3,7 +3,7 @@ import PincodeBreadcrumb from "@/components/inventory/PincodeBreadcrumb";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PincodeCard } from "@/components/inventory/pincode-analysis/PincodeCard";
 import { KPICard } from "@/components/inventory/pincode-analysis/KPICard";
-import { CalendarIcon } from "@/lib/flaticons"
+import { CubeIcon, TrendingUpIcon, AlertTriangleIcon,InventoryIcon } from "@/lib/flaticons";
 import { CategoryBreakdown } from "@/components/inventory/pincode-analysis/CategoryBreakdown";
 import StockDrrTrendChart from "@/components/inventory/pincode-analysis/StockDrrChart";
 import { SkuInventoryTable } from "@/components/inventory/pincode-analysis/SkuInventoryTable";
@@ -35,39 +35,39 @@ export default async function PincodeDetailsPage({ params, searchParams }: PageP
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
 
         <KPICard
-          title="Net Revenue"
+          title="Total Stock"
           value="₹18.5M"
-          icon={<CalendarIcon size={16} className="text-[#25b990]" strokeWidth={2} />}
+          icon={<InventoryIcon size={16} className="text-[#25b990]" strokeWidth={2} />}
           subtitle="days of inventory"
           valueColor="green"
         />
         <KPICard
-          title="Gross Margin"
-          value="₹18.5M"
-          icon={<CalendarIcon size={16} className="text-[#25b990]" strokeWidth={2} />}
-          subtitle="(Sales - COGS) / Sales"
+          title="Avg DRR"
+          value="40"
+          icon={<TrendingUpIcon size={16} className="text-[#25b990]" strokeWidth={2} />}
+          subtitle="units/day"
           valueColor="green"
         />
         <KPICard
-          title="Contribution Margin"
-          value="₹18.5M"
-          icon={<CalendarIcon size={16} className="text-[#25b990]" strokeWidth={2} />}
-          subtitle="After logistics & fees"
-          valueColor="green"
+          title="Avg DOI"
+          value="10d"
+          icon={<InventoryIcon size={16} className="text-[#25b990]" strokeWidth={2} />}
+          subtitle="days"
+          valueColor="default"
         />
         <KPICard
-          title="Deductions"
-          value="₹18.5M"
-          icon={<CalendarIcon size={16} className="text-[#25b990]" strokeWidth={2} />}
-          subtitle="Penalties & Returns"
-          valueColor="green"
+          title="Active SKUs"
+          value="6"
+          icon={<InventoryIcon size={16} className="text-[#25b990]" strokeWidth={2} />}
+          subtitle="SKUs"
+          valueColor="default"
         />
         <KPICard
-          title="Receivables"
-          value="₹18.5M"
-          icon={<CalendarIcon size={16} className="text-[#25b990]" strokeWidth={2} />}
-          subtitle="Outstanding"
-          valueColor="green"
+          title="Stockouts (7d)"
+          value="6"
+          icon={<AlertTriangleIcon size={16} className="text-[#f56565]" strokeWidth={2} />}
+          subtitle="SKUs"
+          valueColor="red"
         />
       </div>
       {/* Category Breakdwona and Stock Drr Trend Chart */}
@@ -77,7 +77,7 @@ export default async function PincodeDetailsPage({ params, searchParams }: PageP
 
       </div>
       <div className="w-full">
-        <SkuInventoryTable pincode={pincode} />
+        <SkuInventoryTable pincode={pincode} name={name ?? ""} />
       </div>
     </div>
 

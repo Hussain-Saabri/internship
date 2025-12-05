@@ -17,7 +17,7 @@ export default function PincodeBreadcrumb({
           className="
             w-full flex flex-wrap items-center gap-3 
             px-4 md:px-5 py-3 
-            rounded-2xl 
+            rounded-[12px] 
             bg-white 
             border border-gray-200 
             shadow-none
@@ -47,15 +47,12 @@ export default function PincodeBreadcrumb({
             <div
               className="
                 flex items-center gap-2 
-                px-3 py-1.5 
-                rounded-full 
-                bg-[#25B990]/10 
-                border border-[#25B990]/20
+                 py-1.5 
                 text-xs md:text-sm
               "
             >
-              <span className="w-2 h-2 rounded-full bg-[#25B990]" />
-              <span className="font-semibold text-gray-700">
+              <span className="w-2 h-2 " />
+              <span className="font-bold text-gray-700 text-[15px]">
                 {name}
                 <span className="text-gray-500 ml-1">({pincode})</span>
               </span>

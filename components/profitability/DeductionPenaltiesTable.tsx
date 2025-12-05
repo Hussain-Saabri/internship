@@ -20,7 +20,7 @@ import {
   TableRow
 } from "@/components/ui/table"
 import { cn } from "@/lib/utils"
-import { ArrowUpDownIcon } from "@/lib/flaticons"
+import { ArrowUpDownIcon, ArrowUpIcon, ArrowDownIcon } from "@/lib/flaticons"
 
 // -----------------------------
 // Data Interface & Sample Data
@@ -77,13 +77,12 @@ const columns: ColumnDef<DeductionData>[] = [
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
         <span>PLATFORM</span>
-        <ArrowUpDownIcon
-          className={cn(
-            "w-3 h-3 transition-transform text-gray-400",
-            column.getIsSorted() === "asc" && "rotate-180",
-            column.getIsSorted() === "desc" && "rotate-0"
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
           )}
-        />
       </div>
     ),
     cell: ({ row }) => (
@@ -101,13 +100,12 @@ const columns: ColumnDef<DeductionData>[] = [
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
         <span>RETURNS (₹)</span>
-        <ArrowUpDownIcon
-          className={cn(
-            "w-3 h-3 transition-transform text-gray-400",
-            column.getIsSorted() === "asc" && "rotate-180",
-            column.getIsSorted() === "desc" && "rotate-0"
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
           )}
-        />
       </div>
     ),
     cell: ({ row }) => (
@@ -125,13 +123,12 @@ const columns: ColumnDef<DeductionData>[] = [
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
         <span>PENALTIES (₹)</span>
-        <ArrowUpDownIcon
-          className={cn(
-            "w-3 h-3 transition-transform text-gray-400",
-            column.getIsSorted() === "asc" && "rotate-180",
-            column.getIsSorted() === "desc" && "rotate-0"
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
           )}
-        />
       </div>
     ),
     cell: ({ row }) => (
@@ -149,13 +146,12 @@ const columns: ColumnDef<DeductionData>[] = [
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
         <span>OTHER DEDUCTIONS (₹)</span>
-        <ArrowUpDownIcon
-          className={cn(
-            "w-3 h-3 transition-transform text-gray-400",
-            column.getIsSorted() === "asc" && "rotate-180",
-            column.getIsSorted() === "desc" && "rotate-0"
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
           )}
-        />
       </div>
     ),
     cell: ({ row }) => (
@@ -173,6 +169,12 @@ const columns: ColumnDef<DeductionData>[] = [
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
         <span>TOTAL DEDUCTIONS</span>
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+          )}
       </div>
     ),
     cell: ({ row }) => (
@@ -190,6 +192,12 @@ const columns: ColumnDef<DeductionData>[] = [
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
         <span>DEDUCTION %</span>
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+          )}
       </div>
     ),
     cell: ({ row }) => (
@@ -207,13 +215,12 @@ const columns: ColumnDef<DeductionData>[] = [
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
         <span>NET RECEIVABLE (₹)</span>
-        <ArrowUpDownIcon
-          className={cn(
-            "w-3 h-3 transition-transform text-gray-400",
-            column.getIsSorted() === "asc" && "rotate-180",
-            column.getIsSorted() === "desc" && "rotate-0"
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
           )}
-        />
       </div>
     ),
     cell: ({ row }) => (

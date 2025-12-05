@@ -134,7 +134,7 @@ export function ComparisonLineChart({
   xAxisConfig,
 }: ComparisonLineChartProps) {
   return (
-    <DashboardCard className="rounded-[12px] relative overflow-hidden flex flex-col justify-between border-gray-200 bg-white">
+    <DashboardCard className="rounded-[12px] relative overflow-hidden flex flex-col justify-between border border-gray-200 ">
       {/* Content */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Header */}

@@ -24,7 +24,7 @@ export function DashboardLayout({
   showDatePicker = true,
   showNotifications = true,
 }: DashboardLayoutProps) {
-  const { isAuthenticated, isLoading } = useAuthStore()
+  const { isAuthenticated, isLoading, isHydrated } = useAuthStore()
   const router = useRouter()
   const pathname = usePathname()
   // Zustand: Mobile Sidebar State
@@ -54,15 +54,15 @@ export function DashboardLayout({
     setSidebarCollapsed((prev) => !prev)
   }
 
-  // Redirect to login if not authenticated
+  // Redirect to login if not authenticated (only after hydration is complete)
   useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
+    if (isHydrated && !isLoading && !isAuthenticated) {
       router.push("/login")
     }
-  }, [isAuthenticated, isLoading, router])
+  }, [isAuthenticated, isLoading, isHydrated, router])
 
-  // Show loading state while checking auth
-  if (isLoading) {
+  // Show loading state while checking auth or hydrating
+  if (!isHydrated || isLoading) {
     return (
       <div className="flex h-screen items-center justify-center bg-gray-50">
         <div className="text-center">

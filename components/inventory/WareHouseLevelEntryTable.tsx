@@ -20,8 +20,9 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-import { ArrowUpDown, TriangleAlert } from "lucide-react"
+import { TriangleAlert } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { ArrowUpIcon, ArrowDownIcon, ArrowUpDownIcon } from "@/lib/flaticons"
 
 // ==============================
 // Types
@@ -73,7 +74,12 @@ const columns: ColumnDef<WarehouseItem>[] = [
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990]"
       >
         Warehouse
-        <ArrowUpDown className="w-3 h-3 text-gray-400" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+          )}
       </div>
     ),
     cell: ({ row }) => (
@@ -92,7 +98,12 @@ const columns: ColumnDef<WarehouseItem>[] = [
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990]"
       >
         Stock Units
-        <ArrowUpDown className="w-3 h-3 text-gray-400" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+          )}
       </div>
     ),
     cell: ({ row }) => (
@@ -110,7 +121,12 @@ const columns: ColumnDef<WarehouseItem>[] = [
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990]"
       >
         Stock Value (₹)
-        <ArrowUpDown className="w-3 h-3 text-gray-400" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+          )}
       </div>
     ),
     cell: ({ row }) => (
@@ -128,7 +144,12 @@ const columns: ColumnDef<WarehouseItem>[] = [
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990]"
       >
         DRR (Units/day)
-        <ArrowUpDown className="w-3 h-3 text-gray-400" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+          )}
       </div>
     ),
     cell: ({ row }) => (
@@ -144,7 +165,12 @@ const columns: ColumnDef<WarehouseItem>[] = [
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990]"
       >
         DOI (days)
-        <ArrowUpDown className="w-3 h-3 text-gray-400" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+          )}
       </div>
     ),
     cell: ({ row }) => {
@@ -163,8 +189,8 @@ const columns: ColumnDef<WarehouseItem>[] = [
         s === "Healthy"
           ? "bg-[#25B990]/10 text-[#25B990]"
           : s === "Low Stock"
-          ? "bg-[#F5B82E]/10 text-[#F5B82E]"
-          : "bg-[#E85454]/10 text-[#E85454]"
+            ? "bg-[#F5B82E]/10 text-[#F5B82E]"
+            : "bg-[#E85454]/10 text-[#E85454]"
 
       return (
         <span className={`text-[12px] px-2 py-1 rounded-full flex items-center gap-1 w-fit ${style}`}>
@@ -185,7 +211,12 @@ const columns: ColumnDef<WarehouseItem>[] = [
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990]"
       >
         Expiry Risk %
-        <ArrowUpDown className="w-3 h-3 text-gray-400" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 text-gray-400" />
+          )}
       </div>
     ),
     cell: ({ row }) => (

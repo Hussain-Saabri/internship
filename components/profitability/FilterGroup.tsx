@@ -11,25 +11,41 @@ export interface FilterOption {
 
 interface FilterGroupProps {
   options: FilterOption[];
-  selected: string[];
-  onChange: (value: string[]) => void;
+
+  // Single-Select Mode
+  value?: string;
+  onChange?: (val: string) => void;
+
+  // Multi-Select Mode (Legacy support)
+  selected?: string[];
+  onMultiChange?: (val: string[]) => void;
 }
 
 export default function FilterGroup({
   options,
-  selected,
+  value,
   onChange,
+  selected,
+  onMultiChange,
 }: FilterGroupProps) {
-  const handleSelect = (label: string) => {
+  const handleClick = (label: string) => {
     const opt = options.find((o) => o.label === label);
 
-    // Do not toggle fixed items
     if (opt?.fixed) return;
 
-    if (selected.includes(label)) {
-      onChange(selected.filter((item) => item !== label));
-    } else {
-      onChange([...selected, label]);
+    // Multi-Select Logic
+    if (selected && onMultiChange) {
+      if (selected.includes(label)) {
+        onMultiChange(selected.filter((item) => item !== label));
+      } else {
+        onMultiChange([...selected, label]);
+      }
+      return;
+    }
+
+    // Single-Select Logic
+    if (onChange) {
+      onChange(label);
     }
   };
 
@@ -40,10 +56,14 @@ export default function FilterGroup({
           key={opt.label}
           label={opt.label}
           icon={opt.icon}
-          active={selected.includes(opt.label)}
           fixed={opt.fixed}
           disabled={opt.disabled}
-          onClick={() => handleSelect(opt.label)}
+          active={
+            selected
+              ? selected.includes(opt.label)
+              : value === opt.label
+          }
+          onClick={() => handleClick(opt.label)}
         />
       ))}
     </div>

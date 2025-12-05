@@ -20,7 +20,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { ArrowUpDownIcon } from "@/lib/flaticons";
+import { ArrowUpDownIcon, ArrowUpIcon, ArrowDownIcon } from "@/lib/flaticons";
 import { cn } from "@/lib/utils";
 
 // -------------------------
@@ -71,7 +71,12 @@ const columns: ColumnDef<ReceivableRow>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         PLATFORM
-        <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+          )}
       </div>
     ),
     cell: ({ row }) => (
@@ -89,7 +94,12 @@ const columns: ColumnDef<ReceivableRow>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         INVOICE
-        <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+          )}
       </div>
     ),
     cell: ({ row }) => (
@@ -105,7 +115,12 @@ const columns: ColumnDef<ReceivableRow>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         VALUE (₹)
-        <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+          )}
       </div>
     ),
     cell: ({ row }) => (
@@ -123,15 +138,20 @@ const columns: ColumnDef<ReceivableRow>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         AGEING
-        <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+          )}
       </div>
     ),
     cell: ({ row }) => {
       const v = row.original.ageingBucket;
       const color =
         v === "31-60d" ? "text-[#F5B82E]" :
-        v === "60+d" ? "text-[#E85454]" :
-        "text-[#6B7280]";
+          v === "60+d" ? "text-[#E85454]" :
+            "text-[#6B7280]";
 
       return <span className={`text-[10px] font-medium ${color}`}>{v}</span>;
     },
@@ -145,7 +165,12 @@ const columns: ColumnDef<ReceivableRow>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         OVERDUE
-        <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+          )}
       </div>
     ),
     cell: ({ row }) => {
@@ -154,8 +179,8 @@ const columns: ColumnDef<ReceivableRow>[] = [
         v.includes("45") || v.includes("72") || v.includes("68")
           ? "text-[#E85454]"
           : v.includes("22") || v.includes("28")
-          ? "text-[#F5B82E]"
-          : "text-[#6B7280]";
+            ? "text-[#F5B82E]"
+            : "text-[#6B7280]";
 
       return <span className={`text-[10px] font-medium ${color}`}>{v}</span>;
     },
@@ -169,7 +194,12 @@ const columns: ColumnDef<ReceivableRow>[] = [
         onClick={column.getToggleSortingHandler()}
       >
         STATUS
-        <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+        {{
+          asc: <ArrowUpIcon className="w-3 h-3 text-[#25B990]" />,
+          desc: <ArrowDownIcon className="w-3 h-3 text-[#25B990]" />,
+        }[column.getIsSorted() as string] ?? (
+            <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+          )}
       </div>
     ),
     cell: ({ row }) => {
