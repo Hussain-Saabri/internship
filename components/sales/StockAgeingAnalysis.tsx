@@ -10,10 +10,10 @@ interface AgeData {
 }
 
 const ageData: AgeData[] = [
-  { ageRange: "0-15 days", units: 600, color: "#25B980" },
-  { ageRange: "16-30 days", units: 400, color: "#5A9BFF" },
-  { ageRange: "31-60 days", units: 150, color: "#F6C667" },
-  { ageRange: "60+ days", units: 50, color: "#F36A6A" },
+  { ageRange: "0-15 d", units: 600, color: "#25B980" },
+  { ageRange: "16-30 d", units: 400, color: "#5A9BFF" },
+  { ageRange: "31-60 d", units: 150, color: "#F6C667" },
+  { ageRange: "60+ d", units: 50, color: "#F36A6A" },
 ]
 
 const CustomTooltip = ({ active, payload, label }: any) => {
