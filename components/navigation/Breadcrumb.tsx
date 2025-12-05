@@ -28,7 +28,8 @@ export function Breadcrumb({
                 <Link
                   href={item.href}
                   className="
-                    text-gray-500
+                    text-gray-900
+                    font-semibold
                     hover:text-gray-800
                     px-[6px] py-[4px]
                     rounded-md
@@ -54,7 +55,7 @@ export function Breadcrumb({
               )}
 
               {!isLast && (
-                <ChevronRight size={16} className="text-gray-300" />
+                <ChevronRight size={16} className="text-gray-900" />
               )}
             </div>
           )
@@ -81,7 +82,7 @@ export function Breadcrumb({
                   <Link
                     href={item.href}
                     className="
-                      text-gray-500
+                      text-gray-900
                       hover:text-gray-900
                       px-[8px] py-[5px]
                       rounded-md

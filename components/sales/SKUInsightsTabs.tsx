@@ -4,7 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { TopKeywords } from "./TopKeywords"
 import { StockAgeingAnalysis } from "./StockAgeingAnalysis"
-import { PincodeLevelAnalysis } from "./PincodeLevelAnalysis"
+import { PincodeLevelAnalysis } from "./sku/PincodeLevelAnalysis"
 import { CompetitorAnalysis } from "./CompetitorAnalysis"
 
 type TabType = "keywords" | "ageing" | "pincode" | "competitor"
