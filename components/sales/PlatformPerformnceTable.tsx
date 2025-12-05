@@ -57,7 +57,7 @@ export function PlatformPerformanceTable() {
   }
 
   return (
-    <Card className="rounded-[12px] flex-grow w-full relative overflow-hidden">
+    <Card className="rounded-[12px] flex-grow w-full relative overflow-hidden shadow-none">
       <CardContent className="p-6">
 
         {/* TITLE */}
