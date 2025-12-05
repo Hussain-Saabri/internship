@@ -91,7 +91,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
       </div>
 
       {/* PROFILE BUTTON */}
-      <div className="p-4 border-t border-gray-100">
+      <div className="p-4 border-t border-gray-100 mb-4 sm:mb-0">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button className={cn(

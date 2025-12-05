@@ -53,7 +53,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen w-full grid lg:grid-cols-[55%_45%] lg:overflow-hidden overflow-y-auto">
       {/* Left Panel - Login Form */}
-      <div className="flex flex-col justify-center px-8 sm:px-16 md:px-24 lg:px-32 bg-[#FAF8F2] relative min-h-[100dvh] py-12 lg:py-0">
+      <div className="flex flex-col justify-start pt-32 pb-12 lg:justify-center lg:pt-0 lg:pb-0 px-8 sm:px-16 md:px-24 lg:px-32 bg-[#FAF8F2] relative min-h-[100dvh]">
         <div className="w-full max-w-sm mx-auto">
           <div className="mb-6">
             <div className="mb-6">
