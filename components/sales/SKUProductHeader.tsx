@@ -20,9 +20,9 @@ export function SKUProductHeader({
 }: SKUProductHeaderProps) {
   return (
     <Card className="
-      border border-gray-100 
+      border border-gray-200 
       rounded-[12px] 
-     shadow-none
+      shadow-none
       bg-white
     ">
       <CardContent className="p-6">
