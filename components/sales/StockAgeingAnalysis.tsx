@@ -95,7 +95,7 @@ export function StockAgeingAnalysis() {
       <div className="grid grid-cols-3 gap-4">
         {/* Total Stock */}
         <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/60 backdrop-blur-md border border-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all hover:shadow-[0_6px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 duration-300">
-          <p className="text-[10px] font-medium text-gray-500 tracking-wide uppercase mb-1 whitespace-nowrap">
+          <p className="text-[10px] font-medium text-gray-500 tracking-wide  mb-1 whitespace-nowrap">
             Total Stock
           </p>
           <p className="text-sm font-bold text-[#25B980] tracking-tight whitespace-nowrap ">
@@ -105,20 +105,20 @@ export function StockAgeingAnalysis() {
 
         {/* Near Expiry */}
         <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/60 backdrop-blur-md border border-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all hover:shadow-[0_6px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 duration-300">
-          <p className="text-[10px] font-medium text-gray-500 tracking-wide uppercase mb-1">
+          <p className="text-[10px] font-medium text-gray-500 tracking-wide whitespace-nowrap  mb-1">
             Near Expiry
           </p>
-          <p className="text-sm font-bold text-[#F36A6A] tracking-tight">
+          <p className="text-sm font-bold text-[#F36A6A] tracking-tight whitespace-nowrap">
             70 units
           </p>
         </div>
 
         {/* Wastage % */}
         <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/60 backdrop-blur-md border border-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all hover:shadow-[0_6px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 duration-300">
-          <p className="text-[10px] font-medium text-gray-500 tracking-wide uppercase mb-1">
+          <p className="text-[10px] font-medium text-gray-500 tracking-wide whitespace-nowrap mb-1">
             Wastage %
           </p>
-          <p className="text-sm font-bold text-[#5A9BFF] tracking-tight">
+          <p className="text-sm font-bold text-[#5A9BFF] tracking-tight whitespace-nowrap">
             1.2%
           </p>
         </div>
