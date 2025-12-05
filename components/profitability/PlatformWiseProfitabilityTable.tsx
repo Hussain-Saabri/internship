@@ -67,7 +67,7 @@ const platformColumns: ColumnDef<PlatformProfitability>[] = [
       return (
         <div className="flex items-center gap-2">
           <div className={cn("w-1.5 h-1.5 rounded-full shadow-sm", dotColor)} />
-          <span className="text-[10px] font-semibold text-gray-800">
+          <span className="text-[10px] font-semibold text-gray-800 text-center">
             {row.original.platform}
           </span>
         </div>
@@ -78,7 +78,7 @@ const platformColumns: ColumnDef<PlatformProfitability>[] = [
     accessorKey: "netSales",
     header: "NET SALES (₹)",
     cell: ({ row }) => (
-      <div className="font-mono text-[10px] font-bold text-gray-900 justify-start">
+      <div className=" text-[10px] font-bold text-gray-900 text-center">
         {formatMillions(row.getValue("netSales"))}
       </div>
     ),
@@ -87,7 +87,7 @@ const platformColumns: ColumnDef<PlatformProfitability>[] = [
     accessorKey: "grossMargin",
     header: "GROSS MARGIN %",
     cell: ({ row }) => (
-      <div className="font-mono text-[10px] font-medium text-gray-600 justify-start">
+      <div className=" text-[10px]  text-gray-600 text-center">
         {row.getValue("grossMargin")}%
       </div>
     ),
@@ -101,7 +101,7 @@ const platformColumns: ColumnDef<PlatformProfitability>[] = [
       const color = val >= 15 ? "text-[#18C17A]" : "text-[#FF7A45]"
 
       return (
-        <div className={cn("justify-start font-mono text-[10px] font-bold", color)}>
+        <div className={cn("text-center text-[10px] font-bold", color)}>
           {val}%
         </div>
       )
@@ -111,7 +111,7 @@ const platformColumns: ColumnDef<PlatformProfitability>[] = [
     accessorKey: "netProfit",
     header: "NET PROFIT (₹)",
     cell: ({ row }) => (
-      <div className="justify-start font-mono text-[10px] font-bold text-[#18C17A]">
+      <div className="text-center text-[10px] font-bold text-[#18C17A]">
         {formatThousands(row.getValue("netProfit"))}
       </div>
     ),
@@ -123,14 +123,14 @@ const platformColumns: ColumnDef<PlatformProfitability>[] = [
       const value = row.getValue("change") as number
       const isPositive = value >= 0
       return (
-        <div className="flex items-center justify-start gap-1.5">
+        <div className="flex items-center justify-center gap-1.5">
           {isPositive ? (
             <TrendingUpIcon className="text-[#18C17A]" size={14} />
           ) : (
             <TrendingDownIcon className="text-[#FF7A45]" size={14} />
           )}
           <span className={cn(
-            "text-[10px] font-bold font-mono",
+            "text-[10px] font-bold ",
             isPositive ? "text-[#18C17A]" : "text-[#FF7A45]"
           )}>
             {Math.abs(value)}%
@@ -157,17 +157,18 @@ export function PlatformWiseProfitabilityTable() {
   })
 
   return (
-    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md h-full flex flex-col">
+    <Card className="border-gray-200 border rounded-[12px] flex-grow w-full bg-white  overflow-hidden shadow-none h-full flex flex-col">
       <CardContent className="p-6 flex flex-col h-full">
         {/* Title */}
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide  mb-6">
           Platform-wise Profitability
         </h3>
 
         {/* Table Container */}
-        <div className="flex-1 rounded-xl border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm flex flex-col">
-          <div className="flex-1 overflow-x-auto overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
-            <Table className="w-full min-w-[600px]">
+        <div className="flex-1 rounded-[12px] border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm flex flex-col ">
+          <div className="flex-1 overflow-x-auto thin-scrollbar ">
+            <div className="min-w-max">
+            <Table className="w-full">
               {/* HEADER */}
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
@@ -176,7 +177,7 @@ export function PlatformWiseProfitabilityTable() {
                       <TableHead
                         key={header.id}
                         className={cn(
-                          "px-4 py-3 text-left text-gray-500 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap select-none",
+                          " bg-gray-50/60 backdrop-blur-sm px-4 py-3 text-left text-gray-700 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap select-none",
                           header.id === "platform" ? "text-left" : "text-right"
                         )}
                       >
@@ -189,7 +190,9 @@ export function PlatformWiseProfitabilityTable() {
                             onClick={header.column.getToggleSortingHandler()}
                           >
                             {flexRender(header.column.columnDef.header, header.getContext())}
-                            <ArrowUpDownIcon className="w-3 h-3 text-gray-400 opacity-50" />
+                            <ArrowUpDownIcon />
+
+
                           </div>
                         )}
                       </TableHead>
@@ -217,6 +220,7 @@ export function PlatformWiseProfitabilityTable() {
                 ))}
               </TableBody>
             </Table>
+            </div>
           </div>
         </div>
       </CardContent>

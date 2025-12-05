@@ -393,7 +393,7 @@ const columns: ColumnDef<ProductPerformance>[] = [
     header: "PRODUCT / SKU",
     cell: ({ row }) => (
       <div className="flex flex-col">
-        <span className="text-[10px] font-bold text-gray-800">
+        <span className="text-[12px] font-bold text-gray-900">
           {row.original.productName}
         </span>
         <span className="text-[10px] text-gray-500">
@@ -406,14 +406,14 @@ const columns: ColumnDef<ProductPerformance>[] = [
     accessorKey: "category",
     header: "CATEGORY",
     cell: ({ row }) => (
-      <span className="text-[10px] text-gray-600">{row.getValue("category")}</span>
+      <span className="text-[12px] font-medium text-gray-70 ">{row.getValue("category")}</span>
     ),
   },
   {
     accessorKey: "salesValue",
     header: "SALES VALUE",
     cell: ({ row }) => (
-      <span className="text-[10px] font-bold text-gray-900">
+      <span className="text-[12px] font-bold text-gray-900">
         {formatCurrency(row.getValue("salesValue"))}
       </span>
     ),
@@ -422,7 +422,7 @@ const columns: ColumnDef<ProductPerformance>[] = [
     accessorKey: "orders",
     header: "ORDERS",
     cell: ({ row }) => (
-      <span className="text-[10px] font-medium text-gray-700">
+      <span className="text-[12px] font-medium text-gray-700">
         {row.getValue("orders")}
       </span>
     ),
@@ -433,7 +433,7 @@ const columns: ColumnDef<ProductPerformance>[] = [
     cell: ({ row }) => {
       const margin = row.getValue("marginPercent") as number;
       return (
-        <span className={cn("text-[10px] font-bold", getMarginColor(margin))}>
+        <span className={cn("text-[12px] font-bold", getMarginColor(margin))}>
           {margin}%
         </span>
       );
@@ -448,7 +448,7 @@ const columns: ColumnDef<ProductPerformance>[] = [
       return (
         <span
           className={cn(
-            "text-[10px] font-medium",
+            "text-[12px] font-medium",
             isHigh ? "text-[#e85454]" : "text-gray-700"
           )}
         >
@@ -464,12 +464,12 @@ const columns: ColumnDef<ProductPerformance>[] = [
       const days = row.original.stockDays;
       return (
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-gray-700">
+          <span className="text-[12px] text-gray-700">
             {row.getValue("stockDOI")}
           </span>
           <span
             className={cn(
-              "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold",
+              "inline-flex items-center rounded-full px-2 py-0.5 text-[12px] font-bold",
               getStockBadgeColor(days)
             )}
           >
@@ -483,7 +483,7 @@ const columns: ColumnDef<ProductPerformance>[] = [
     accessorKey: "wtDiscPercent",
     header: "WT. DISC %",
     cell: ({ row }) => (
-      <span className="text-[10px] text-gray-700">
+      <span className="text-[12px] text-gray-700">
         {row.getValue("wtDiscPercent")}%
       </span>
     ),
@@ -511,7 +511,7 @@ const columns: ColumnDef<ProductPerformance>[] = [
           )}
           <span
             className={cn(
-              "text-[10px] font-bold",
+              "text-[12px] font-bold",
               isPositive ? "text-[#25b990]" : "text-[#e85454]"
             )}
           >
@@ -529,7 +529,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
     accessorKey: "category",
     header: "CATEGORY",
     cell: ({ row }) => (
-      <span className="text-[10px] font-semibold text-gray-800">
+      <span className="text-[12px] font-semibold text-gray-800">
         {row.getValue("category")}
       </span>
     ),
@@ -538,7 +538,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
     accessorKey: "subcategory",
     header: "SUBCATEGORY",
     cell: ({ row }) => (
-      <span className="text-[10px] text-gray-500">
+      <span className="text-[12px] font-medium text-gray-700">
         {row.getValue("subcategory")}
       </span>
     ),
@@ -547,7 +547,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
     accessorKey: "salesValue",
     header: "SALES VALUE",
     cell: ({ row }) => (
-      <span className="text-[10px] font-bold text-gray-900">
+      <span className="text-[12px] font-bold text-gray-900">
         {formatCurrency(row.getValue("salesValue"))}
       </span>
     ),
@@ -556,7 +556,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
     accessorKey: "orders",
     header: "ORDERS",
     cell: ({ row }) => (
-      <span className="text-[10px] font-medium text-gray-700">
+      <span className="text-[12px] font-medium text-gray-700">
         {row.getValue("orders")}
       </span>
     ),
@@ -567,7 +567,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
     cell: ({ row }) => {
       const margin = row.getValue("marginPercent") as number;
       return (
-        <span className={cn("text-[10px] font-bold", getMarginColor(margin))}>
+        <span className={cn("text-[12px] font-bold", getMarginColor(margin))}>
           {margin}%
         </span>
       );
@@ -582,7 +582,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
       return (
         <span
           className={cn(
-            "text-[10px] font-medium",
+            "text-[12px] font-medium",
             isHigh ? "text-[#e85454]" : "text-gray-700"
           )}
         >
@@ -595,7 +595,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
     accessorKey: "activeSKUs",
     header: "ACTIVE SKUS",
     cell: ({ row }) => (
-      <span className="text-[10px] text-gray-700">
+      <span className="text-[12px] text-gray-700">
         {row.getValue("activeSKUs")}
       </span>
     ),
@@ -604,7 +604,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
     accessorKey: "osaPercent",
     header: "OSA %",
     cell: ({ row }) => (
-      <span className="text-[10px] font-medium text-gray-700">
+      <span className="text-[12px] font-medium text-gray-700">
         {row.getValue("osaPercent")}%
       </span>
     ),
@@ -617,7 +617,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
       return (
         <span
           className={cn(
-            "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold",
+            "inline-flex items-center rounded-full px-2 py-0.5 text-[12px] font-bold",
             getOSAStatusColor(status)
           )}
         >
@@ -630,7 +630,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
     accessorKey: "wtDiscPercent",
     header: "WT. DISC %",
     cell: ({ row }) => (
-      <span className="text-[10px] text-gray-700">
+      <span className="text-[12px] text-gray-700">
         {row.getValue("wtDiscPercent")}%
       </span>
     ),
@@ -659,7 +659,7 @@ const categoryColumns: ColumnDef<CategoryPerformance>[] = [
 
           <span
             className={cn(
-              "text-[10px] font-bold",
+              "text-[12px] font-bold",
               isPositive ? "text-[#25b990]" : "text-[#e85454]"
             )}
           >
@@ -687,12 +687,14 @@ export function SalesPerformanceTable({
         ...columns,
         {
           id: "actions",
-          header: "ACTION",
+          header: () => (
+    <span className="text-[12px] left-2 relative block">ACTION</span>
+  ),
           cell: ({ row }) => (
             <Button
               variant="outline"
               size="sm"
-              className="rounded-full text-[10px] h-7 "
+              className="rounded-full text-[10px] h-7 right-2 relative "
               onClick={(e) => {
                 e.stopPropagation();
                 onRowAction(row.original);
@@ -710,14 +712,16 @@ export function SalesPerformanceTable({
     showActions && onRowAction
       ? [
         ...categoryColumns,
-        {
+         {
           id: "actions",
-          header: "ACTION",
+          header: () => (
+    <span className="text-[12px] left-2 relative block">ACTION</span>
+  ),
           cell: ({ row }) => (
             <Button
               variant="outline"
               size="sm"
-              className="rounded-full bg-white/50 border-white/40 hover:bg-white/80 text-[10px] h-7"
+              className="rounded-full text-[10px] h-7 right-2 relative "
               onClick={(e) => {
                 e.stopPropagation();
                 onRowAction(row.original);
@@ -753,21 +757,21 @@ export function SalesPerformanceTable({
   });
 
   return (
-    <Card className="rounded-[12px] flex-grow w-full  relative overflow-hidden ">
+    <Card className="rounded-[12px] flex-grow w-full  relative overflow-hidden shadow-none">
       <CardContent className="p-6">
         {/* Title */}
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide  mb-6">
           Sales Performance Details
         </h3>
 
         {/* Tabs */}
         <Tabs defaultValue="product" className="w-full">
-          <TabsList className="bg-gray-200 p-1 rounded-xl mb-6 w-auto inline-flex border border-white/40">
+          <TabsList className="bg-gray-50 hover:bg-gray-25 p-1 rounded-xl mb-6 w-auto inline-flex border border-gray-200">
             <TabsTrigger
               value="product"
               className="
                 data-[state=active]:bg-white data-[state=active]:text-gray-800 data-[state=active]:shadow-sm
-                text-gray-500 rounded-lg px-4 py-2 text-[10px] font-semibold transition-all
+                text-gray-800 rounded-lg px-4 py-2 text-[12px] font-semibold transition-all 
               "
             >
               Product Performance
@@ -783,71 +787,75 @@ export function SalesPerformanceTable({
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="product">
-  <div className="rounded-xl border border-gray-200 overflow-hidden">
-    <div className="overflow-x-auto">
-      <Table className="w-full border-collapse">
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow
-              key={headerGroup.id}
-              className="bg-gray-50 border-b border-gray-200 h-12"
-            >
-              {headerGroup.headers.map((header) => (
-                <TableHead
-                  key={header.id}
-                  className="px-2 py-3 text-left font-bold text-[10px] tracking-wider uppercase whitespace-nowrap"
-                >
-                  {header.isPlaceholder ? null : (
-                    <div
-                      className={cn(
-                        "flex items-center gap-1 cursor-pointer select-none hover:text-gray-800 transition-colors"
-                      )}
-                      onClick={header.column.getToggleSortingHandler()}
-                    >
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                      {{
-                        asc: " ↑",
-                        desc: " ↓",
-                      }[header.column.getIsSorted() as string] ?? null}
-                    </div>
-                  )}
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </TableHeader>
+         <TabsContent value="product">
+  <div className="rounded-[12px] border border-gray-200 overflow-hidden">
 
-       <TableBody>
-  {table.getRowModel().rows.map((row) => (
-    <TableRow
-      key={row.id}
-      className="
-        h-[60px]
-        cursor-pointer
-        transition-all
-        bg-white
-        border-b border-gray-200
-        
-      "
-    >
-      {row.getVisibleCells().map((cell) => (
-        <TableCell
-          key={cell.id}
-          className="px-2 py-4 whitespace-nowrap"
-        >
-          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-        </TableCell>
-      ))}
-    </TableRow>
-  ))}
-</TableBody>
+    {/* scroll wrapper updated */}
+    <div className="flex-1 overflow-x-auto thin-scrollbar">
+      <div className="min-w-max"> 
+        <Table>
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow
+                key={headerGroup.id}
+                className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200 h-12 cursor-pointer"
+              >
+                {headerGroup.headers.map((header) => (
+                  <TableHead
+                    key={header.id}
+                    className="px-2 py-3 text-left font-semibold text-[12px] text-gray-900 tracking-wider uppercase whitespace-nowrap"
+                  >
+                    {header.isPlaceholder ? null : (
+                      <div
+                        className={cn(
+                          "flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
+                        )}
+                        onClick={header.column.getToggleSortingHandler()}
+                      >
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                        {{
+                          asc: " ↑",
+                          desc: " ↓",
+                        }[header.column.getIsSorted() as string] ?? null}
+                      </div>
+                    )}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
 
-      </Table>
+          <TableBody>
+            {table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                className="
+                  cursor-pointer
+                  transition-all
+                  bg-white
+                  border-b border-gray-200
+                  hover:bg-gray-50
+                "
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell
+                    key={cell.id}
+                    className="px-2 py-[4px] whitespace-nowrap"
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+
+        </Table>
+      </div>
     </div>
+
   </div>
 </TabsContent>
 
@@ -860,75 +868,81 @@ export function SalesPerformanceTable({
 
 
 
-          <TabsContent value="category">
+<TabsContent value="category">
   <div className="rounded-xl border border-gray-200 overflow-hidden bg-white">
-    <div className="overflow-x-auto">
-      <Table className="w-full border-collapse">
-        <TableHeader>
-          {categoryTable.getHeaderGroups().map((headerGroup) => (
-            <TableRow
-              key={headerGroup.id}
-              className="bg-gray-50 border-b border-gray-200 h-12"
-            >
-              {headerGroup.headers.map((header) => (
-                <TableHead
-                  key={header.id}
-                  className="px-2 py-3 text-left text-gray-500 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap"
-                >
-                  {header.isPlaceholder ? null : (
-                    <div
-                      className={cn(
-                        "flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-                      )}
-                      onClick={header.column.getToggleSortingHandler()}
-                    >
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                      {{
-                        asc: " ↑",
-                        desc: " ↓",
-                      }[header.column.getIsSorted() as string] ?? null}
-                    </div>
-                  )}
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </TableHeader>
 
-        <TableBody>
-          {categoryTable.getRowModel().rows.map((row) => (
-            <TableRow
-              key={row.id}
-              className="
-                h-[60px]
-                bg-white
-                border-b border-gray-200
-                cursor-pointer
-                transition-all
-                hover:bg-gray-50
-              "
-            >
-              {row.getVisibleCells().map((cell) => (
-                <TableCell
-                  key={cell.id}
-                  className="px-2 py-4 whitespace-nowrap"
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+    {/* scroll wrapper updated */}
+    <div className="overflow-x-auto thin-scrollbar">
+      <div className="min-w-max">
+
+        <Table className="w-full border-collapse">
+          <TableHeader>
+            {categoryTable.getHeaderGroups().map((headerGroup) => (
+              <TableRow
+                key={headerGroup.id}
+                className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200"
+              >
+                {headerGroup.headers.map((header) => (
+                  <TableHead
+                    key={header.id}
+                    className="px-2 py-3 text-left text-gray-900 font-bold text-[12px] tracking-wider uppercase whitespace-nowrap"
+                  >
+                    {header.isPlaceholder ? null : (
+                      <div
+                        className={cn(
+                          "flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
+                        )}
+                        onClick={header.column.getToggleSortingHandler()}
+                      >
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                        {{
+                          asc: " ↑",
+                          desc: " ↓",
+                        }[header.column.getIsSorted() as string] ?? null}
+                      </div>
+                    )}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
+
+          <TableBody>
+            {categoryTable.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                className="
+                  bg-white
+                  border-b border-gray-200
+                  cursor-pointer
+                  transition-all
+                  hover:bg-gray-50
+                "
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell
+                    key={cell.id}
+                    className="px-2 py-[10px] whitespace-nowrap"
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+
+      </div>
     </div>
+
   </div>
 </TabsContent>
 
-        </Tabs>
-      </CardContent>
-    </Card>
+        </Tabs >
+      </CardContent >
+    </Card >
   );
 }

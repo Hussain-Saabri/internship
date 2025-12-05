@@ -11,53 +11,75 @@ interface MetricCardProps {
   trend?: {
     value: string
     isPositive: boolean
-    isImprovement?: boolean // For cases like discount reduction being positive
+    isImprovement?: boolean
   }
 }
 
-function MetricCard({ title, value, valueColor = "default", subtitle, trend }: MetricCardProps) {
-  const valueColorClass = {
-    green: "text-[#25b990]",
-    yellow: "text-[#f5b82e]",
-    red: "text-[#e85454]",
-    default: "text-gray-800",
+function MetricCard({
+  title,
+  value,
+  valueColor = "default",
+  subtitle,
+  trend,
+}: MetricCardProps) {
+  const colors = {
+    green: "text-emerald-600",
+    yellow: "text-amber-500",
+    red: "text-red-500",
+    default: "text-gray-900",
   }[valueColor]
 
   return (
-    <Card className="border-gray-200 rounded-xl">
-      <CardContent className="p-px">
-        <div className="p-3">
-          {/* Title */}
-          <p className="text-[10px] font-normal leading-[15px] tracking-[0.1172px] text-gray-500 mb-[8px]">
-            {title}
-          </p>
+    <Card
+      className="
+        rounded-xl 
+        border border-gray-200 
+        bg-white/90 
+        backdrop-blur-sm 
+        
+        shadow-none
+        transition-all
+      "
+    >
+      <CardContent className="p-4">
+        
+        {/* Title */}
+        <p className="text-[11px] font-bold text-gray-900 tracking-wide mb-2">
+          {title}
+        </p>
 
-          {/* Main Value */}
-          <p className={`text-base font-semibold leading-6 tracking-[-0.3125px] mb-[2px] ${valueColorClass}`}>
-            {value}
-          </p>
+        {/* Value */}
+        <p className={`text-lg font-semibold tracking-tight mb-1 ${colors}`}>
+          {value}
+        </p>
 
-          {/* Subtitle or Trend */}
-          {trend && (
-            <div className="flex items-center gap-1">
-              {trend.isImprovement ? (
-                <ArrowDownIcon size={10} className="text-[#25b990]" strokeWidth={2} />
-              ) : trend.isPositive ? (
-                <ArrowUpIcon size={10} className="text-[#25b990]" strokeWidth={2} />
-              ) : (
-                <ArrowDownIcon size={10} className="text-[#e85454]" strokeWidth={2} />
-              )}
-              <p className="text-[10px] font-normal leading-[15px] tracking-[0.1172px] text-[#25b990]">
-                {trend.value}
-              </p>
-            </div>
-          )}
-          {subtitle && !trend && (
-            <p className="text-[10px] font-normal leading-[15px] tracking-[0.1172px] text-gray-500">
-              {subtitle}
+        {/* Trend or Subtitle */}
+        {trend ? (
+          <div className="flex items-center gap-1">
+            {trend.isImprovement ? (
+              <ArrowDownIcon size={10} className="text-emerald-600" />
+            ) : trend.isPositive ? (
+              <ArrowUpIcon size={10} className="text-emerald-600" />
+            ) : (
+              <ArrowDownIcon size={10} className="text-red-500" />
+            )}
+
+            <p
+              className={`
+                text-[10px] font-medium 
+                ${
+                  trend.isPositive || trend.isImprovement
+                    ? "text-emerald-700"
+                    : "text-red-500"
+                }
+              `}
+            >
+              {trend.value}
             </p>
-          )}
-        </div>
+          </div>
+        ) : (
+          <p className="text-[10px] text-gray-500">{subtitle}</p>
+        )}
       </CardContent>
     </Card>
   )
@@ -93,40 +115,27 @@ export function SKUMetricsGrid({
   stockSubtitle = "₹105K",
 }: SKUMetricsGridProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      <MetricCard
-        title="Sales Value"
-        value={salesValue}
-        trend={salesTrend}
-      />
-
-      <MetricCard
-        title="Orders"
-        value={orders}
-        trend={ordersTrend}
-      />
-
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <MetricCard title="Sales Value" value={salesValue} trend={salesTrend} />
+      <MetricCard title="Orders" value={orders} trend={ordersTrend} />
       <MetricCard
         title="Gross Margin"
         value={grossMargin}
         valueColor="green"
         subtitle={grossMarginSubtitle}
       />
-
       <MetricCard
         title="Wt. Discount"
         value={wtDiscount}
         valueColor="yellow"
         trend={wtDiscountTrend}
       />
-
       <MetricCard
         title="Returns %"
         value={returnsPercent}
         valueColor="red"
         subtitle={returnsSubtitle}
       />
-
       <MetricCard
         title="Stock (DOI)"
         value={stock}

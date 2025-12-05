@@ -42,7 +42,7 @@ export function NavItem({
         // Active State
         isActive &&
         `
-          bg-gray-50 text-[#111] font-semibold shadow-sm
+          bg-gray-50 text-[#111] font-bold shadow-sm
           border border-gray-200
         `,
 

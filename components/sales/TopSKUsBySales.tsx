@@ -19,9 +19,9 @@ const skuData: SKUData[] = [
 
 export function TopSKUsBySales() {
   return (
-    <Card className="border-gray-200 border rounded-[12px] flex-grow w-full   relative overflow-hidden backdrop-blur-md">
+    <Card className="border border-gray-200  rounded-[12px] flex-grow w-full shadow-none  relative overflow-hidden backdrop-blur-md">
       <CardContent className="p-6">
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide  mb-6">
           Top SKUs by Sales
         </h3>
         <div className="flex flex-col gap-3">

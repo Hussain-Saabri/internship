@@ -79,8 +79,8 @@ const CustomLegend = ({
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white p-3 rounded-xl border border-gray-200  min-w-[180px]">
-        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3 px-1">
+      <div className="bg-white p-3 rounded-xl border border-gray-200 shadow-none  min-w-[180px]">
+        <p className="text-[12px] font-bold text-gray-400 uppsefcase tracking-wider mb-3 px-1">
           {label}
         </p>
         <div className="flex flex-col gap-2">
@@ -144,7 +144,7 @@ export function ComparisonLineChartWTOSA({
             headerButton ? "flex items-center justify-between" : ""
           )}
         >
-          <h3 className="text-sm font-bold text-gray-900 tracking-wide uppercase text-[10px]">{title}</h3>
+          <h3 className="text-sm font-bold text-gray-900 tracking-wide  text-[10px]">{title}</h3>
           {headerButton && (
             <button
               onClick={headerButton.onClick}

@@ -45,7 +45,7 @@ export function AlertBox({
     <div
       onClick={onClick}
       className={cn(
-        "flex justify-between items-center rounded-xl border px-4 py-3 mb-3 cursor-pointer transition hover:shadow-sm",
+        "flex justify-between items-center rounded-[12px] border px-4 py-3 mb-3 cursor-pointer transition hover:shadow-sm",
         styles.container
       )}
     >

@@ -4,7 +4,7 @@ import { useParams, useRouter } from "next/navigation"
 import { DrillDownBreadcrumb } from "@/components/navigation/DrillDownBreadcrumb"
 import { KPICard } from "@/components/sales/KPICard"
 import { TopSKUsBySales } from "@/components/sales/TopSKUsBySales"
-import { SalesTrendChart } from "@/components/sales/SalesTrendChart"
+import { SalesTrendChart } from "@/components/sales/sku/SalesTrendChart"
 import { SalesPerformanceTable } from "@/components/sales/SalesPerformanceTable"
 import {
   ProfitabilityIcon,

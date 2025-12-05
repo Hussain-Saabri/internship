@@ -33,30 +33,30 @@ export function CityPerformanceTable({ cities }: CityPerformanceTableProps) {
   }
 
   return (
-    <Card className="rounded-[12px] flex-grow w-full relative overflow-hidden">
+    <Card className="rounded-[12px] flex-grow w-full relative shadow-none overflow-hidden">
       <CardContent className="p-6">
         {/* Header */}
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide   mb-6">
           City Performance
         </h3>
 
         {/* Table Wrapper */}
         <div className="rounded-xl border border-gray-200 overflow-hidden">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200/80 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gray-300/80">
             <Table className="w-full border-collapse">
               {/* Table Header */}
               <TableHeader>
                 <TableRow className="bg-gray-50 border-b border-gray-200 h-12">
-                  <TableHead className="px-2 py-3 text-left font-bold text-[10px] tracking-wider uppercase whitespace-nowrap pl-6">
+                  <TableHead className="px-2 py-3 text-left font-bold text-[12px]  text-gray-900 tracking-wider uppercase whitespace-nowrap pl-6">
                     City
                   </TableHead>
-                  <TableHead className="px-2 py-3 text-left font-bold text-[10px] tracking-wider uppercase whitespace-nowrap">
+                  <TableHead className="px-2 py-3 text-left font-bold text-[12px]  text-gray-900 tracking-wider uppercase whitespace-nowrap">
                     Sales Value
                   </TableHead>
-                  <TableHead className="px-2 py-3 text-left font-bold text-[10px] tracking-wider uppercase whitespace-nowrap">
+                  <TableHead className="px-2 py-3 text-left font-bold text-[12px]  text-gray-900 tracking-wider uppercase whitespace-nowrap">
                     Orders
                   </TableHead>
-                  <TableHead className="px-2 py-3 text-center font-bold text-[10px] tracking-wider uppercase whitespace-nowrap pr-6">
+                  <TableHead className="px-2 py-3 text-center font-bold text-[12px]  text-gray-900 tracking-wider uppercase whitespace-nowrap pr-6">
                     Action
                   </TableHead>
                 </TableRow>

@@ -144,7 +144,7 @@ export function ComparisonLineChart({
             headerButton ? "flex items-center justify-between" : ""
           )}
         >
-          <h3 className="text-sm font-bold text-gray-900 tracking-wide uppercase text-[10px]">{title}</h3>
+          <h3 className="text-sm font-bold text-gray-900 tracking-wide  text-[10px]">{title}</h3>
           {headerButton && (
             <button
               onClick={headerButton.onClick}
@@ -185,7 +185,7 @@ export function ComparisonLineChart({
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={chartData}
-              margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
+              margin={{ top: 10, right: 10, left: -15, bottom: 0 }}
             >
               <defs>
                 <linearGradient id="line1Gradient" x1="0" y1="0" x2="1" y2="0">

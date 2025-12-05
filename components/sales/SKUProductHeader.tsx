@@ -1,7 +1,6 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { PackageIcon } from "@/lib/flaticons"
 
 interface SKUProductHeaderProps {
@@ -20,33 +19,72 @@ export function SKUProductHeader({
   isActive = true,
 }: SKUProductHeaderProps) {
   return (
-    <Card className="border-gray-200 rounded-xl">
-      <CardContent className="p-[17px]">
-        <div className="flex gap-4 items-start">
-          {/* Product Icon Container */}
-          <div className="w-[80px] h-[80px] bg-gray-50 rounded-xl flex items-center justify-center shrink-0">
-            <PackageIcon size={40} className="text-gray-400" strokeWidth={1.5} />
+    <Card className="
+      border border-gray-100 
+      rounded-[12px] 
+     shadow-none
+      bg-white
+    ">
+      <CardContent className="p-6">
+        <div className="flex items-start gap-5">
+
+          {/* NEW — Gradient Icon Bubble */}
+          <div className="
+            w-[82px] h-[82px] 
+            rounded-2xl 
+            bg-gray-50 
+            border border-gray-200 
+            flex items-center justify-center 
+            shadow-inner
+          ">
+            <PackageIcon size={38} className="text-gray-500" strokeWidth={1.6} />
           </div>
 
-          {/* Product Info */}
-          <div className="flex flex-col gap-1 flex-1">
-            <h2 className="text-lg font-semibold text-gray-800 leading-[27px] tracking-[-0.4395px]">
+          {/* RIGHT CONTENT */}
+          <div className="flex flex-col gap-2 flex-1">
+
+            {/* Product Name */}
+            <h2 className="text-xl font-semibold text-gray-900 tracking-tight leading-[22px]">
               {productName}
             </h2>
 
-            {/* Metadata Row */}
-            <div className="flex items-center gap-4 h-[21px]">
-              <p className="text-xs font-normal text-gray-500 leading-4">
+            {/* Metadata Chips */}
+            <div className="flex flex-wrap gap-2 mt-1">
+
+              <span className="
+                text-[11px] px-3 py-[5px] rounded-full 
+                bg-gray-100 text-gray-600 border border-gray-200
+              ">
                 SKU: {sku}
-              </p>
-              <p className="text-xs font-normal text-gray-500 leading-4">
+              </span>
+
+              <span className="
+                text-[11px] px-3 py-[5px] rounded-full 
+                bg-gray-100 text-gray-600 border border-gray-200
+              ">
                 Pack: {pack}
-              </p>
-              <p className="text-xs font-normal text-gray-500 leading-4">
+              </span>
+
+              <span className="
+                text-[11px] px-3 py-[5px] rounded-full 
+                bg-gray-100 text-gray-600 border border-gray-200
+              ">
                 Category: {category}
-              </p>
+              </span>
+
               {isActive && (
-                <Badge variant="high">Active</Badge>
+                <span
+                  className="
+                    text-[11px] px-3 py-[5px]
+                    rounded-full 
+                    bg-emerald-50 
+                    text-emerald-700 
+                    border border-emerald-200
+                    font-medium
+                  "
+                >
+                  Active
+                </span>
               )}
             </div>
           </div>

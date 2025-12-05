@@ -60,16 +60,16 @@ const CustomTooltip = ({ active, payload }: any) => {
 
 export function PlatformContributionChart() {
   return (
-    <Card className=" rounded-[12px] flex-grow w-full  relative overflow-hidden ">
+    <Card className=" rounded-[12px] flex-grow w-full  relative overflow-hidden h-[335px] ">
       <CardContent className="p-6 h-full flex flex-col">
         {/* Title */}
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide mb-6 uppercase">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide mb-6">
           Platform Contribution
         </h3>
 
         <div className="flex flex-col md:flex-row items-center justify-between flex-1 gap-8">
           {/* Chart Section */}
-          <div className="w-full md:w-1/2 h-[240px] relative flex items-center justify-center">
+          <div className="w-full md:w-1/2 h-[210px] relative flex items-center justify-center">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie

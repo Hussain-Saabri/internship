@@ -71,7 +71,7 @@ export function MarketShareChart() {
 
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-sm font-bold text-gray-900 tracking-wide uppercase text-[10px]">
+          <h3 className="text-sm font-bold text-gray-900 tracking-wide  text-[10px]">
             Est. Market Share %
           </h3>
 

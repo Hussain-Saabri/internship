@@ -36,8 +36,8 @@ const revenueBreakdown: RevenueData[] = [
 
 const LegendItem = ({ item }: { item: RevenueData }) => {
   return (
-    <div className="flex flex-col items-center justify-center p-3 bg-white/90 border rounded-xl   ">
-      <p className="text-[10px] font-medium text-gray-500 uppercase tracking-wide whitespace-nowrap">{item.label}</p>
+    <div className="flex flex-col items-center justify-center p-3 bg-gray-100 border rounded-xl   ">
+      <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">{item.label}</p>
       <p className="text-lg font-bold mt-1" style={{ color: item.color }}>₹{item.amount.toFixed(2)}M</p>
     </div>
   )
@@ -59,10 +59,10 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function RevenueBreakdown() {
   return (
-    <div className="rounded-[20px] border border-gray-200 bg-white  p-6 h-full flex flex-col">
+    <div className="rounded-[12px] border border-gray-200 bg-white  p-6 h-full flex flex-col">
       {/* Header */}
       <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase">Revenue Breakdown</h3>
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide ">Revenue Breakdown</h3>
       </div>
 
       {/* Bar Chart */}
@@ -92,13 +92,14 @@ export function RevenueBreakdown() {
               dataKey="label"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6B7280', fontSize: 11, fontWeight: 500 }}
-              dy={10}
+              angle={-20}
+              tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600  }}
+              dy={2}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#9CA3AF', fontSize: 10, fontWeight: 500 }}
+              tick={{ fill: '#6B7280', fontSize: 10, fontWeight: 600 }}
               tickFormatter={(value) => `₹${value.toFixed(0)}M`}
             />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0,0,0,0.02)' }} />

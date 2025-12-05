@@ -30,14 +30,14 @@ const trendColorClasses = {
 
 export function KPICard({ title, value, icon, trend, subtitle, valueColor = "default" }: KPICardProps) {
   return (
-    <Card className="relative overflow-hidden border border-white/40 shadow-[0_2px_20px_rgb(0,0,0,0.04)] bg-white rounded-2xl h-full">
+    <Card className="relative overflow-hidden border border-gray-200  bg-white rounded-[12px] h-full shadow-none">
       {/* Faint Overlay Gradient for Depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
 
       <CardContent className="relative z-10 p-5 flex flex-col justify-between h-full">
         {/* Header: Title and Icon */}
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs text-[#6B7280] font-medium">{title}</span>
+          <span className="text-xs text-gray-900 font-semibold">{title}</span>
           <div className="w-4 h-4 shrink-0 text-gray-600">{icon}</div>
         </div>
 

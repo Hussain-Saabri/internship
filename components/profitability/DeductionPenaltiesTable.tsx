@@ -111,7 +111,7 @@ const columns: ColumnDef<DeductionData>[] = [
       </div>
     ),
     cell: ({ row }) => (
-      <span className="text-xs font-medium text-[#EF4444]">
+      <span className="text-xs font-medium text-[#EF4444] text-ce">
         {row.original.returns}
       </span>
     ),
@@ -245,27 +245,27 @@ export function DeductionPenaltiesTable() {
 
 
   return (
-    <Card className="rounded-[12px] border border-gray-200 bg-white ">
+    <Card className="rounded-[12px] border border-gray-200 bg-white shadow-none ">
       <CardContent className="p-6">
         {/* Header */}
-        <h4 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
+        <h4 className="text-sm font-semibold text-gray-700 tracking-wide mb-6">
           Deductions & Penalties by Platform
         </h4>
 
         {/* Table */}
-        <div className="rounded-xl border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm">
-          <div className="overflow-x-auto">
+        <div className="rounded-[12px] border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm">
+          <div >
             <Table className="w-full">
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow
                     key={headerGroup.id}
-                    className="bg-white/50 border-b border-gray-200 h-10 hover:bg-white/60"
+                    className="bg-white/50 h-10 hover:bg-white/60 "
                   >
                     {headerGroup.headers.map((header) => (
                       <TableHead
                         key={header.id}
-                        className="px-4 py-3 text-left text-gray-500 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap"
+                        className="px-4 py-3 text-left pr-1 text-gray-900 font-semibold text-[10px] tracking-wider bg-gray-50 whitespace-nowrap "
                       >
                         {flexRender(header.column.columnDef.header, header.getContext())}
                       </TableHead>
@@ -278,12 +278,12 @@ export function DeductionPenaltiesTable() {
                 {table.getRowModel().rows.map((row) => (
                   <TableRow
                     key={row.id}
-                    className="border-b border-gray-200 hover:bg-white/60 transition-colors"
+                    className=" hover:bg-white/60 transition-colors"
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell
                         key={cell.id}
-                        className="px-4 py-4 align-middle whitespace-nowrap"
+                        className="px-4 py-4 align-middle whitespace-nowrap text-center"
                       >
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>

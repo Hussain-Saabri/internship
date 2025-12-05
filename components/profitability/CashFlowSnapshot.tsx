@@ -101,14 +101,14 @@ export function CashFlowSnapshot() {
 
             <XAxis
               dataKey="month"
-              tick={{ fill: "#9CA3AF", fontSize: 11, fontWeight: 500 }}
+              tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
               axisLine={false}
               tickLine={false}
               dy={10}
             />
 
             <YAxis
-              tick={{ fill: "#9CA3AF", fontSize: 11, fontWeight: 500 }}
+              tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
               axisLine={false}
               tickLine={false}
               domain={[0, 12]}
@@ -182,8 +182,8 @@ export function CashFlowSnapshot() {
             <div
               key={item.month}
               className="
-                group p-4 rounded-xl bg-white border border-white/60 
-                hover:bg-white hover:shadow-md hover:border-white 
+                group p-4 rounded-xl bg-gray-200 border border-gray-200 
+               hover:shadow-md hover:border-white 
                 transition-all duration-300
               "
             >

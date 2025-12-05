@@ -1,54 +1,119 @@
 "use client"
 
-import Link from "next/link"
 import { ChevronRight } from "lucide-react"
-import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 export interface BreadcrumbItem {
   label: string
-  href?: string // Optional href - if not provided, item is not clickable
+  href?: string
 }
 
-export interface BreadcrumbProps {
+export function Breadcrumb({
+  items,
+  className,
+}: {
   items: BreadcrumbItem[]
   className?: string
-}
-
-export function Breadcrumb({ items, className }: BreadcrumbProps) {
+}) {
   return (
-    <nav
-      className={cn("flex items-center space-x-2 sm:text-sm", className)}
-      aria-label="Breadcrumb"
-    >
-      {items.map((item, index) => {
-        const isLast = index === items.length - 1
+    <nav className={`w-full ${className || ""}`}>
+      {/* Desktop (md and above) */}
+      <div className="hidden md:flex items-center gap-2 text-[13px]">
+        {items.map((item, index) => {
+          const isLast = index === items.length - 1
 
-        return (
-          <div key={index} className="flex items-center">
-            {item.href && !isLast ? (
-              <Link
-                href={item.href}
-                className="text-teal-600 hover:text-teal-700 hover:underline transition-colors"
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <span
-                className={cn(
-                  "font-medium",
-                  isLast ? "text-gray-900" : "text-gray-600"
+          return (
+            <div key={index} className="flex items-center gap-2">
+              {!isLast && item.href ? (
+                <Link
+                  href={item.href}
+                  className="
+                    text-gray-500
+                    hover:text-gray-800
+                    px-[6px] py-[4px]
+                    rounded-md
+                    hover:bg-gray-100
+                    transition
+                  "
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <span
+                  className="
+                    text-gray-900
+                    font-semibold
+                    px-[6px] py-[4px]
+                    rounded-md
+                    bg-gray-100/80
+                    border border-gray-200
+                  "
+                >
+                  {item.label}
+                </span>
+              )}
+
+              {!isLast && (
+                <ChevronRight size={16} className="text-gray-300" />
+              )}
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Mobile (smaller screens) */}
+      <div className="md:hidden overflow-x-auto no-scrollbar">
+        <div
+          className="
+            flex items-center gap-2 
+            whitespace-nowrap 
+            px-2 py-2 
+            text-[12px]
+            min-w-max
+          "
+        >
+          {items.map((item, index) => {
+            const isLast = index === items.length - 1
+
+            return (
+              <div key={index} className="flex items-center gap-2">
+                {!isLast && item.href ? (
+                  <Link
+                    href={item.href}
+                    className="
+                      text-gray-500
+                      hover:text-gray-900
+                      px-[8px] py-[5px]
+                      rounded-md
+                      hover:bg-gray-100
+                      transition
+                    "
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <span
+                    className="
+                      text-gray-900
+                      font-semibold
+                      px-[8px] py-[5px]
+                      rounded-md
+                      bg-gray-100/80
+                      border border-gray-200
+                    "
+                  >
+                    {item.label}
+                  </span>
                 )}
-              >
-                {item.label}
-              </span>
-            )}
 
-            {!isLast && (
-              <ChevronRight className="mx-2 h-4 w-4 text-gray-400" />
-            )}
-          </div>
-        )
-      })}
+                {!isLast && (
+                  <ChevronRight size={12} className="text-gray-400" />
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </div>
     </nav>
   )
 }

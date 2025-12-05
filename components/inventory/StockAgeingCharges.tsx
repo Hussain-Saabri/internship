@@ -36,7 +36,7 @@ export function StockAgeingCharges() {
 
       {/* Header */}
       <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-800 tracking-wide">Stock Ageing Distribution</h3>
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide">Stock Ageing Distribution</h3>
       </div>
 
       {/* Chart */}
@@ -80,13 +80,13 @@ export function StockAgeingCharges() {
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-4 mt-6 pt-4 border-t border-white/40">
+      <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-[2px] mt-6 pt-4 border-t border-white/40 ">
         {ageingData.map((item) => (
           <div
             key={item.period}
-            className="flex flex-col items-center justify-center bg-white/90  rounded-[10px] px-5 py-2 border min-w-[100px]"
+            className="flex flex-col items-center justify-center bg-gray-200 hover:bg-gray-300 hover:text-gray-900 cursor-pointer  rounded-[10px] px-5 py-2 border min-w-[100px]"
           >
-            <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wide mb-0.5 whitespace-nowrap">
+            <span className="text-[10px] font-bold text-gray-700 uppercase tracking-wide mb-0.5 whitespace-nowrap">
               {item.period}
             </span>
             <span className="text-sm font-bold" style={{ color: item.color }}>

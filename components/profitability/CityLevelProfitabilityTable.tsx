@@ -23,8 +23,10 @@ import {
 import { ArrowUpDownIcon } from "@/lib/flaticons";
 import { cn } from "@/lib/utils";
 
+// =======================
 // Types
-interface PlatformProfitability {
+// =======================
+interface CityProfitability {
   platform: string;
   netSales: number;
   drr: number;
@@ -32,74 +34,58 @@ interface PlatformProfitability {
   contribution: number;
 }
 
+// =======================
 // Data
-const platformData: PlatformProfitability[] = [
-  {
-    platform: "Blinkit",
-    netSales: 4.2,
-    drr: 48,
-    grossmargin: 24.8,
-    contribution: 14.5,
-  },
-  {
-    platform: "Zepto",
-    netSales: 3.15,
-    drr: 66,
-    grossmargin: 25.3,
-    contribution: 15.1,
-  },
-  {
-    platform: "Instamart",
-    netSales: 2.85,
-    drr: 95,
-    grossmargin: 27.8,
-    contribution: 17.5,
-  },
+// =======================
+const cityData: CityProfitability[] = [
+  { platform: "Blinkit", netSales: 4.2, drr: 48, grossmargin: 24.8, contribution: 14.5 },
+  { platform: "Zepto", netSales: 3.15, drr: 66, grossmargin: 25.3, contribution: 15.1 },
+  { platform: "Instamart", netSales: 2.85, drr: 95, grossmargin: 27.8, contribution: 17.5 },
 ];
 
 // Helpers
-const formatMillions = (val: number) => `₹${val.toFixed(2)}M`;
-const formatThousands = (val: number) => `₹${val}K/day`;
+const formatMillions = (v: number) => `₹${v.toFixed(2)}M`;
+const formatThousands = (v: number) => `₹${v}K/day`;
 
-// Column Definitions
-const platformColumns: ColumnDef<PlatformProfitability>[] = [
+// =======================
+// Columns (Matched with Platform-Wise Table)
+// =======================
+const cityColumns: ColumnDef<CityProfitability>[] = [
   {
     accessorKey: "platform",
     header: "CITY",
     cell: ({ row }) => {
-      // Using same color logic or generic for cities if needed, 
-      // but keeping consistent with platform colors for now as data uses platform names
       const colorMap: Record<string, string> = {
-        Blinkit: "bg-[#FACC15]", // Yellow
-        Zepto: "bg-[#C084FC]",   // Purple
-        Instamart: "bg-[#FB923C]", // Orange
-      }
-      const dotColor = colorMap[row.original.platform] || "bg-gray-300"
+        Blinkit: "bg-[#FACC15]",
+        Zepto: "bg-[#C084FC]",
+        Instamart: "bg-[#FB923C]",
+      };
+      const dotColor = colorMap[row.original.platform] || "bg-gray-300";
 
       return (
         <div className="flex items-center gap-2">
           <div className={cn("w-1.5 h-1.5 rounded-full shadow-sm", dotColor)} />
           <span className="text-[10px] font-semibold text-gray-800">
-            {row.getValue("platform")}
+            {row.original.platform}
           </span>
         </div>
-      )
+      );
     },
   },
   {
     accessorKey: "netSales",
     header: "NET SALES (₹)",
     cell: ({ row }) => (
-      <div className="justify-start font-mono text-[10px] font-bold text-gray-900">
+      <div className="text-center text-[10px] font-bold text-gray-900">
         {formatMillions(row.getValue("netSales"))}
       </div>
     ),
   },
   {
     accessorKey: "drr",
-    header: "DRR",
+    header: "DAILY RUN RATE",
     cell: ({ row }) => (
-      <div className="justify-start font-mono text-[10px] font-bold text-[#18C17A]">
+      <div className="text-center text-[10px] font-bold text-[#18C17A]">
         {formatThousands(row.getValue("drr"))}
       </div>
     ),
@@ -108,7 +94,7 @@ const platformColumns: ColumnDef<PlatformProfitability>[] = [
     accessorKey: "grossmargin",
     header: "GROSS MARGIN %",
     cell: ({ row }) => (
-      <div className="justify-start font-mono text-[10px] font-medium text-gray-600">
+      <div className="text-center text-[10px] font-medium text-gray-600">
         {row.getValue("grossmargin")}%
       </div>
     ),
@@ -117,27 +103,27 @@ const platformColumns: ColumnDef<PlatformProfitability>[] = [
     accessorKey: "contribution",
     header: "CONTRIBUTION %",
     cell: ({ row }) => {
-      const val = row.getValue("contribution") as number;
-      // Green for high, Orange for low
-      const color =
-        val >= 18 ? "text-[#18C17A]" : val >= 15 ? "text-[#18C17A]" : "text-[#FF7A45]";
+      const v = row.getValue("contribution") as number;
+      const color = v >= 15 ? "text-[#18C17A]" : "text-[#FF7A45]";
 
       return (
-        <div className={cn("justify-start font-mono text-[10px] font-bold", color)}>
-          {val}%
+        <div className={cn("text-center text-[10px] font-bold", color)}>
+          {v}%
         </div>
       );
     },
   },
 ];
 
+// =======================
 // Component
+// =======================
 export function CityLevelProfitabilityTable() {
   const [sorting, setSorting] = useState<SortingState>([]);
 
   const table = useReactTable({
-    data: platformData,
-    columns: platformColumns,
+    data: cityData,
+    columns: cityColumns,
     state: { sorting },
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
@@ -145,69 +131,71 @@ export function CityLevelProfitabilityTable() {
   });
 
   return (
-    <Card className="border-white/50 rounded-[20px] flex-grow w-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.05)] relative overflow-hidden backdrop-blur-md h-full flex flex-col">
+    <Card className="border-gray-200 border rounded-[12px] flex-grow w-full bg-white overflow-hidden shadow-none h-full flex flex-col">
       <CardContent className="p-6 flex flex-col h-full">
+        
         {/* Title */}
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide mb-6">
           City-Level Profitability
         </h3>
 
         {/* Table Container */}
-        <div className="flex-1 rounded-xl border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm flex flex-col">
-          <div className="flex-1 overflow-x-auto overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
-            <Table className="w-full min-w-[600px]">
-              {/* HEADER */}
-              <TableHeader>
-                {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id} className="bg-white/50 border-b border-gray-200 h-12 hover:bg-white/60">
-                    {headerGroup.headers.map((header) => (
-                      <TableHead
-                        key={header.id}
-                        className={cn(
-                          "px-4 py-3 text-left text-gray-500 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap select-none",
-                          header.id === "platform" ? "text-left" : "text-right"
-                        )}
-                      >
-                        {header.isPlaceholder ? null : (
-                          <div
-                            className={cn(
-                              "flex items-center gap-1.5 transition-colors hover:text-gray-700 cursor-pointer",
-                              header.id !== "platform" && "justify-end"
-                            )}
-                            onClick={header.column.getToggleSortingHandler()}
-                          >
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                            <ArrowUpDownIcon className="w-3 h-3 text-gray-400 opacity-50" />
-                          </div>
-                        )}
-                      </TableHead>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableHeader>
+        <div className="flex-1 rounded-[12px] border border-gray-200 overflow-hidden bg-white/40 backdrop-blur-sm flex flex-col">
+          <div className="flex-1 overflow-x-auto thin-scrollbar">
+            <div className="min-w-max">
+              
+              <Table className="w-full">
+                {/* HEADER */}
+                <TableHeader>
+                  {table.getHeaderGroups().map((headerGroup) => (
+                    <TableRow
+                      key={headerGroup.id}
+                      className="bg-white/50 border-b border-gray-200 h-12 hover:bg-white/60"
+                    >
+                      {headerGroup.headers.map((header) => (
+                        <TableHead
+                          key={header.id}
+                          className={cn(
+                            "bg-gray-50/60 backdrop-blur-sm px-4 py-3 text-left text-gray-700 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap select-none",
+                            header.id === "platform" ? "text-left" : "text-right"
+                          )}
+                        >
+                          {header.isPlaceholder ? null : (
+                            <div
+                              className={cn(
+                                "flex items-center gap-1.5 hover:text-gray-700 cursor-pointer",
+                                header.id !== "platform" && "justify-end"
+                              )}
+                              onClick={header.column.getToggleSortingHandler()}
+                            >
+                              {flexRender(header.column.columnDef.header, header.getContext())}
+                              <ArrowUpDownIcon className="w-3 h-3 opacity-60" />
+                            </div>
+                          )}
+                        </TableHead>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableHeader>
 
-              {/* BODY */}
-              <TableBody>
-                {table.getRowModel().rows.map((row) => (
-                  <TableRow
-                    key={row.id}
-                    className="border-b border-gray-200 last:border-0 hover:bg-white/40 transition-colors duration-200 group"
-                  >
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell
-                        key={cell.id}
-                        className="py-3 px-4"
-                      >
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                {/* BODY */}
+                <TableBody>
+                  {table.getRowModel().rows.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      className="border-b border-gray-200 last:border-0 hover:bg-white/40 transition-colors duration-200"
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell key={cell.id} className="py-3 px-4">
+                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+
+            </div>
           </div>
         </div>
       </CardContent>

@@ -10,12 +10,12 @@ import {
 
 export function AlertsAndExceptions() {
   return (
-    <Card className="border border-gray-200 rounded-[12px] bg-white  ">
+    <Card className="border border-gray-200 rounded-[12px] bg-white shadow-none  ">
       <CardContent className="p-4">
         {/* Section Header */}
         <div className="flex items-center gap-2 mb-4">
           <AlertTriangleIcon size={18} className="text-red-500" strokeWidth={2} />
-          <h3 className="text-sm  font-semibold text-gray-800 tracking-tight">
+          <h3 className="text-sm  font-semibold text-gray-900 tracking-tight">
             Alerts & Exceptions
           </h3>
         </div>

@@ -1,9 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
+import { motion, AnimatePresence } from "framer-motion"
 import { TopKeywords } from "./TopKeywords"
 import { StockAgeingAnalysis } from "./StockAgeingAnalysis"
+import { PincodeLevelAnalysis } from "./PincodeLevelAnalysis"
+import { CompetitorAnalysis } from "./CompetitorAnalysis"
 
 type TabType = "keywords" | "ageing" | "pincode" | "competitor"
 
@@ -18,62 +20,60 @@ export function SKUInsightsTabs() {
   ]
 
   return (
-    <Card className="border-gray-200 rounded-xl">
-      <CardContent className="p-[17px] flex flex-col gap-[42px]">
-        {/* Tab Bar */}
-        <div className="bg-gray-200 rounded-2xl p-[3px] h-[36px]">
-          <div className="grid grid-cols-4 gap-0 h-full">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`
-                  flex items-center justify-center
-                  rounded-2xl px-[9px] py-[5px]
-                  text-xs font-medium text-gray-800 leading-4
-                  transition-colors
-                  ${
-                    activeTab === tab.id
-                      ? "bg-white"
-                      : "bg-transparent hover:bg-gray-100"
-                  }
-                `}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+    <div className="flex flex-col gap-6">
+      {/* Tabs Container */}
+      <div className="bg-[linear-gradient(135deg,#EFF1F5,#F8FAFC)] rounded-2xl border border-gray-200/70 shadow-[0_2px_10px_rgba(0,0,0,0.03)] p-1.5 w-fit">
+        <div className="flex items-center gap-1">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`
+                relative px-4 py-2 rounded-2xl text-xs font-medium tracking-tight transition-all duration-200
+                ${activeTab === tab.id
+                  ? "text-gray-900 font-semibold"
+                  : "text-gray-600 hover:bg-gray-100/70"
+                }
+              `}
+            >
+              {activeTab === tab.id && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-white rounded-2xl shadow-[0_2px_6px_rgba(0,0,0,0.06)]"
+                  initial={false}
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 30,
+                  }}
+                />
+              )}
+              <span className="relative z-10">{tab.label}</span>
+            </button>
+          ))}
         </div>
+      </div>
 
-        {/* Tab Content */}
-        <div className="min-h-[488px]">
-          {activeTab === "keywords" && <TopKeywords />}
+      {/* Tab Content Area */}
+      <div className="bg-white/80 backdrop-blur-[2px] rounded-2xl p-6 border border-gray-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] min-h-[400px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            {activeTab === "keywords" && <TopKeywords />}
 
-          {activeTab === "ageing" && <StockAgeingAnalysis />}
+            {activeTab === "ageing" && <StockAgeingAnalysis />}
 
-          {activeTab === "pincode" && (
-            <div className="flex items-center justify-center h-64 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
-              <div className="text-center">
-                <p className="text-gray-500 font-medium">Pincode Analysis</p>
-                <p className="text-sm text-gray-400 mt-1">
-                  Coming soon - Pincode-wise performance
-                </p>
-              </div>
-            </div>
-          )}
+            {activeTab === "pincode" && <PincodeLevelAnalysis />}
 
-          {activeTab === "competitor" && (
-            <div className="flex items-center justify-center h-64 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
-              <div className="text-center">
-                <p className="text-gray-500 font-medium">Competitor Analysis</p>
-                <p className="text-sm text-gray-400 mt-1">
-                  Coming soon - Competitor price comparison
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+            {activeTab === "competitor" && <CompetitorAnalysis />}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
   )
 }

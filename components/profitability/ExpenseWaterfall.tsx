@@ -34,10 +34,10 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function ExpenseWaterfall() {
   return (
-    <div className="rounded-[20px] border border-gray-200 bg-white   p-6 h-full flex flex-col">
+    <div className="rounded-[12px] border border-gray-200 bg-white p-6 h-full flex flex-col">
       {/* Header */}
       <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide ">
           Expense Waterfall <span className="font-normal text-gray-500 normal-case tracking-normal ml-1">(Where Money Flows)</span>
         </h3>
       </div>
@@ -69,16 +69,16 @@ export function ExpenseWaterfall() {
               dataKey="label"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 500 }}
+              tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
               interval={0}
               angle={-25}
-              dy={15}
+              dy={10}
               textAnchor="end"
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#9CA3AF", fontSize: 10, fontWeight: 500 }}
+              tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
               tickFormatter={(value) => `₹${value.toFixed(0)}M`}
               domain={[-11, 11]}
             />

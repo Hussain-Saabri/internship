@@ -114,7 +114,7 @@ export function DashboardLayout({
         <main
           className={cn(
             "flex-1 overflow-y-auto overflow-x-hidden",
-            "bg-gray-50 p-6",
+            "bg-white p-6",
             className
           )}
         >

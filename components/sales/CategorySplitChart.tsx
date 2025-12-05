@@ -12,7 +12,7 @@ const categories = [
 
 export function CategorySplitChart() {
   return (
-    <Card className="border border-gray-200/60 bg-white rounded-[22px] shadow-sm w-full">
+    <Card className="border border-gray-200 bg-white rounded-[12px] shadow-none w-full">
       <CardContent className="p-6">
         <h3 className="text-sm font-semibold text-gray-900 mb-6 tracking-wide">
           Category Split
@@ -26,7 +26,7 @@ export function CategorySplitChart() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0 shadow-sm"
+                    className="w-2.5 h-2.5 rounded-full shrink-0 "
                     style={{ backgroundColor: category.color }}
                   />
                   <span className="text-sm font-medium text-gray-500">

@@ -215,8 +215,8 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
     header: "PRODUCT / SKU",
     cell: ({ row }) => (
       <div className="flex flex-col">
-        <span className="text-[10px] font-semibold text-gray-800">{row.original.productName}</span>
-        <span className="text-[10px] text-gray-500">{row.original.sku}</span>
+        <span className="text-[12px] font-semibold text-gray-800">{row.original.productName}</span>
+        <span className="text-[12px] text-gray-500">{row.original.sku}</span>
       </div>
     ),
   },
@@ -225,7 +225,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
     accessorKey: "category",
     header: "CATEGORY",
     cell: ({ row }) => (
-      <span className="text-[10px] text-gray-600">{row.getValue("category")}</span>
+      <span className="text-[12px] text-gray-600">{row.getValue("category")}</span>
     ),
   },
 
@@ -233,7 +233,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
     accessorKey: "currentStock",
     header: "CURRENT STOCK",
     cell: ({ row }) => (
-      <span className="text-[10px] text-[#1F2937]">
+      <span className="text-[12px] text-[#1F2937]">
         {row.getValue("currentStock")} units
       </span>
     ),
@@ -243,7 +243,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
     accessorKey: "stockValue",
     header: "STOCK VALUE",
     cell: ({ row }) => (
-      <span className="text-[10px] font-bold text-gray-900">
+      <span className="text-[12px] font-bold text-gray-900">
         {formatCurrency(row.getValue("stockValue"))}
       </span>
     ),
@@ -253,7 +253,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
     accessorKey: "drr",
     header: "DRR",
     cell: ({ row }) => (
-      <span className="text-[10px] text-[#25b990]">{row.getValue("drr")}/day</span>
+      <span className="text-[12px] text-[#25b990]">{row.getValue("drr")}/day</span>
     ),
   },
 
@@ -266,10 +266,10 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
 
       return (
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-[#1F2937]">{days}d</span>
+          <span className="text-[12px] text-[#1F2937]">{days}d</span>
           <span
             className={cn(
-              "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold",
+              "inline-flex items-center rounded-full px-2 py-0.5 text-[12px] font-bold",
               color
             )}
           >
@@ -290,9 +290,9 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
 
       return (
         <div className="flex items-center gap-1">
-          <span className={cn("text-[10px]", color)}>{seven}</span>
-          <span className="text-gray-400 text-[10px]">/</span>
-          <span className={cn("text-[10px]", color)}>{thirty}</span>
+          <span className={cn("text-[12px]", color)}>{seven}</span>
+          <span className="text-gray-400 text-[12px]">/</span>
+          <span className={cn("text-[12px]", color)}>{thirty}</span>
         </div>
       )
     },
@@ -308,7 +308,7 @@ const columns: ColumnDef<ProductLevelInventory>[] = [
       return (
         <div className="flex items-center gap-1">
           {isHigh && <AlertTriangleIcon size={12} className="text-[#e85454]" />}
-          <span className={cn("text-[10px]", isHigh ? "text-[#e85454]" : "text-[#1F2937]")}>
+          <span className={cn("text-[12px]", isHigh ? "text-[#e85454]" : "text-[#1F2937]")}>
             {val}%
           </span>
         </div>
@@ -333,26 +333,26 @@ export function ProductLevelTable() {
   })
 
   return (
-    <Card className="border-gray-200 border rounded-[12px] bg-white ">
+    <Card className="border-gray-200 border rounded-[12px] bg-white shadow-none ">
       <CardContent className="p-6">
 
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide  mb-6">
           Product-Level Inventory (Top SKUs by Stock)
         </h3>
 
         <div className="rounded-[12px] border border-gray-200 overflow-hidden  backdrop-blur-sm">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200/80 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gray-300/80">
             <Table className="w-full">
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow
                     key={headerGroup.id}
-                    className="bg-gray-50 border-b border-gray-200 h-12 "
+                    className="bg-gray-50/60 backdrop-blur-sm border-b border-gray-200 h-10 "
                   >
                     {headerGroup.headers.map((header) => (
                       <TableHead
                         key={header.id}
-                        className="px-2 py-3 text-left text-gray-500 font-bold text-[10px] tracking-wider uppercase whitespace-nowrap"
+                        className="px-1 text-left align-middle whitespace-nowrap font-semibold text-gray-900 text-[11px] tracking-wide"
                       >
                         {header.isPlaceholder ? null : (
                           <div

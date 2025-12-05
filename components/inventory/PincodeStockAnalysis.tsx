@@ -14,9 +14,11 @@ export function PincodeStockAnalysis() {
   ];
 
   return (
-    <Card className="rounded-[12px] border border-gray-200 bg-white  h-full">
+    <Card className="rounded-[12px] border border-gray-200 bg-white  h-full shadow-none">
       <CardContent className="p-6">
         <h3 className="text-sm font-semibold text-gray-800 tracking-wide mb-6">
+
+         
           Pincode-Level Stock Analysis
         </h3>
 

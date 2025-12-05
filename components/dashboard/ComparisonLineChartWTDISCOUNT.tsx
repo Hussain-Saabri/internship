@@ -144,7 +144,7 @@ export function ComparisonLineChartWTDISCOUNT({
             headerButton ? "flex items-center justify-between" : ""
           )}
         >
-          <h3 className="text-sm font-bold text-gray-900 tracking-wide uppercase text-[10px]">{title}</h3>
+          <h3 className="text-sm font-bold text-gray-900 tracking-wide capitalize text-[10px]">{title}</h3>
           {headerButton && (
             <button
               onClick={headerButton.onClick}

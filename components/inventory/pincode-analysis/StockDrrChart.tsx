@@ -8,7 +8,9 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Area,
 } from "recharts";
+
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export default function StockDrrTrendExact() {
@@ -24,30 +26,35 @@ export default function StockDrrTrendExact() {
   ];
 
   return (
-    <Card className="relative overflow-hidden border border-gray-200 shadow-sm bg-white rounded-2xl h-full">
-      {/* Faint Overlay Gradient for Depth - Removed */}
-      {/* <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" /> */}
+    <Card className="relative overflow-hidden bg-white rounded-[16px] border border-gray-200 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+      
+      {/* Soft White Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/70 to-transparent pointer-events-none" />
 
-      <CardHeader className="relative z-10 px-6 pt-6 pb-2">
-        <CardTitle className="text-xs font-bold text-gray-400 uppercase tracking-wider">
-          Stock & DRR Trend (Last 8 Days)
-        </CardTitle>
+      <CardHeader className="relative z-10 px-7 pt-7 pb-3">
+       <h3 className="relative z-10 text-sm font-semibold text-gray-900 tracking-tight mb-6">
+        Stock & DRR Trend (Last 8 Days)
+      </h3>
       </CardHeader>
 
-      <CardContent className="relative z-10 px-6 pb-6">
+      <CardContent className="relative z-10 px-7 pb-7">
         <div className="w-full h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-              <CartesianGrid
-                stroke="#E5E7EB"
-                strokeDasharray="3 3"
-                vertical={false}
-                strokeOpacity={0.5}
-              />
+
+              <defs>
+                {/* Area under STOCK line */}
+                <linearGradient id="stockArea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#25B990" stopOpacity={0.25} />
+                  <stop offset="100%" stopColor="#25B990" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+
+              <CartesianGrid stroke="#E5E7EB" strokeDasharray="3 3" vertical={false} strokeOpacity={0.5} />
 
               <XAxis
                 dataKey="date"
-                tick={{ fill: "#9CA3AF", fontSize: 11, fontWeight: 500 }}
+                tick={{ fill: "#4b5563", fontSize: 12, fontWeight: 500 }}
                 axisLine={false}
                 tickLine={false}
                 dy={10}
@@ -55,17 +62,17 @@ export default function StockDrrTrendExact() {
 
               <YAxis
                 yAxisId="left"
-                tick={{ fill: "#9CA3AF", fontSize: 11, fontWeight: 500 }}
+                tick={{ fill: "#4b5563", fontSize: 12, fontWeight: 500 }}
                 axisLine={false}
                 tickLine={false}
                 domain={[0, 14000]}
-                tickFormatter={(value) => `${value / 1000}k`}
+                tickFormatter={(v) => `${v / 1000}k`}
               />
 
               <YAxis
                 yAxisId="right"
                 orientation="right"
-                tick={{ fill: "#9CA3AF", fontSize: 11, fontWeight: 500 }}
+                tick={{ fill: "#4b5563", fontSize: 12, fontWeight: 500 }}
                 axisLine={false}
                 tickLine={false}
                 domain={[0, 1000]}
@@ -79,16 +86,16 @@ export default function StockDrrTrendExact() {
                   const stock = payload.find((p) => p.dataKey === "stock")?.value;
 
                   return (
-                    <div className="bg-white/90 backdrop-blur-sm border border-white/60 rounded-xl shadow-lg p-3 min-w-[140px]">
+                    <div className="bg-white/90 backdrop-blur-md border border-gray-20 rounded-xl shadow-lg p-4 min-w-[160px]">
                       <p className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">{label}</p>
                       <div className="space-y-1">
-                        <div className="flex items-center justify-between gap-4">
-                          <span className="text-xs font-medium text-gray-600">DRR</span>
-                          <span className="text-sm font-bold font-mono" style={{ color: "rgba(37, 185, 144, 0.35)" }}>{drr}</span>
+                        <div className="flex justify-between">
+                          <span className="text-xs text-gray-600">DRR</span>
+                          <span className="text-sm font-bold font-mono text-[#25B990]/40">{drr}</span>
                         </div>
-                        <div className="flex items-center justify-between gap-4">
-                          <span className="text-xs font-medium text-gray-600">Stock</span>
-                          <span className="text-sm font-bold text-[#25B990] font-mono">{stock}</span>
+                        <div className="flex justify-between">
+                          <span className="text-xs text-gray-600">Stock</span>
+                          <span className="text-sm font-bold font-mono text-[#25B990]">{stock}</span>
                         </div>
                       </div>
                     </div>
@@ -96,7 +103,17 @@ export default function StockDrrTrendExact() {
                 }}
               />
 
-              {/* Stock Line (Green) */}
+              {/* Area under STOCK line */}
+              <Area
+                yAxisId="left"
+                type="monotone"
+                dataKey="stock"
+                stroke="none"
+                fill="url(#stockArea)"
+                fillOpacity={0.4}
+              />
+
+              {/* STOCK LINE */}
               <Line
                 yAxisId="left"
                 type="monotone"
@@ -107,16 +124,17 @@ export default function StockDrrTrendExact() {
                 activeDot={{ r: 6, fill: "#25B990", stroke: "#fff", strokeWidth: 3 }}
               />
 
-              {/* DRR Line (Secondary Green) */}
+              {/* DRR LINE */}
               <Line
                 yAxisId="right"
                 type="monotone"
                 dataKey="drr"
-                stroke="rgba(37, 185, 144, 0.35)"
+                stroke="rgba(37,185,144,0.35)"
                 strokeWidth={3}
-                dot={{ stroke: "rgba(37, 185, 144, 0.35)", strokeWidth: 2, r: 4, fill: "#fff" }}
-                activeDot={{ r: 6, fill: "rgba(37, 185, 144, 0.35)", stroke: "#fff", strokeWidth: 3 }}
+                dot={{ stroke: "rgba(37,185,144,0.35)", strokeWidth: 2, r: 4, fill: "#fff" }}
+                activeDot={{ r: 6, fill: "rgba(37,185,144,0.35)", stroke: "#fff", strokeWidth: 3 }}
               />
+
             </LineChart>
           </ResponsiveContainer>
         </div>

@@ -13,7 +13,7 @@ const chartData = [
 
 export function DiscountTrendChart() {
   return (
-    <Card className="border-gray-200 rounded-[20px] flex-grow w-full  overflow-hidden ">
+    <Card className="border border-gray-200 shadow-none rounded-[12px] flex-grow w-full  ">
       <CardContent className="p-6 flex flex-col h-full">
         <h3 className="text-sm font-bold text-gray-700 tracking-wide mb-2">
           Discount Trend

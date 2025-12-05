@@ -61,7 +61,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function SalesTrendChart() {
   return (
-    <Card className=" border border-gray-200 shadow-none rounded-[12px] flex-grow w-full  relative overflow-hidden h-[335px] ">
+    <Card className=" border border-gray-200 shadow-none rounded-[12px] flex-grow w-full  relative overflow-hidden h-[490px] ">
 
       <CardContent className="p-6 relative z-10">
         {/* Title */}
@@ -72,7 +72,7 @@ export function SalesTrendChart() {
         </div>
 
         {/* Line Chart */}
-        <div style={{ width: "100%", height: "215px" }}>
+        <div style={{ width: "100%", height: "354px" }}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={salesData}

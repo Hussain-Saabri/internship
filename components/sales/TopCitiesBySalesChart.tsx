@@ -32,7 +32,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function TopCitiesBySalesChart() {
   return (
-    <Card className="border-white/50 rounded-[20px] w-full  relative overflow-hidden backdrop-blur-md">
+    <Card className="border border-gray-200 rounded-[12px] w-full  relative overflow-hidden shadow-none">
       <CardContent className="p-6">
         <h3 className="text-sm font-bold text-gray-700 tracking-wide mb-6">
           Top Cities by Sales

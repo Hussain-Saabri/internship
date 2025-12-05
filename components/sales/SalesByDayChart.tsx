@@ -15,7 +15,7 @@ const chartData = [
 
 export function SalesByDayChart() {
   return (
-    <Card className="border-gray-200 rounded-[20px] flex-grow w-full  overflow-hidden ">
+    <Card className="border border-gray-200 rounded-[12px] flex-grow w-full shadow-none overflow-hidden ">
       <CardContent className="p-6">
         <h3 className="text-sm font-bold text-black tracking-wide text-gray-900 mb-6">
           

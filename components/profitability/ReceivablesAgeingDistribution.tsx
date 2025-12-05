@@ -47,12 +47,12 @@ export function ReceivablesAgeingDistribution() {
   return (
     <div className="rounded-[12px] border border-gray-200 bg-white p-6 flex flex-col">
       {/* Header */}
-      <h4 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
+      <h4 className="text-sm font-semibold text-gray-900 tracking-wide mb-6">
         Receivables Ageing Distribution
       </h4>
 
       {/* Chart wrapper: responsive height */}
-      <div className="w-full h-[242px] sm:h-[240px] md:h-[282px] min-h-[220px]">
+      <div className="w-full h-[242px] sm:h-[240px] md:h-[222px] min-h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
@@ -83,14 +83,14 @@ export function ReceivablesAgeingDistribution() {
               dataKey="label"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#9CA3AF", fontSize: 10, fontWeight: 500 }}
+              tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
               dy={10}
             />
 
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#9CA3AF", fontSize: 10, fontWeight: 500 }}
+              tick={{ fill: "#6B7280", fontSize: 10, fontWeight: 600 }}
               width={45}
               tickFormatter={(v) => {
                 if (v === 0) return "₹0";
@@ -120,10 +120,10 @@ export function ReceivablesAgeingDistribution() {
       {/* Bottom small boxes: 1 column on mobile, 2 on sm+ */}
       <div className="grid grid-cols-2 gap-3 mt-6">
         {data.map((item) => (
-          <div key={item.label} className="p-3 bg-white/90 rounded-xl border    flex flex-col items-center justify-center text-center hover:shadow-md transition-all">
-            <p className="text-[10px] font-medium text-gray-500 uppercase tracking-wide">{item.label}</p>
+          <div key={item.label} className="p-3 bg-gray-200 rounded-xl border flex flex-col items-center justify-center text-center hover:shadow-md transition-all">
+            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide">{item.label}</p>
             <p className="text-sm font-bold mt-1" style={{ color: item.color }}>{item.displayAmount}</p>
-            <p className="text-[10px] text-gray-400 mt-0.5">
+            <p className="text-[10px] text-gray-500 font-bold mt-0.5">
               {item.invoices} invoices
             </p>
           </div>

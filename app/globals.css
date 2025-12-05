@@ -71,13 +71,13 @@
 
 /* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  height: 8px;
+  height: 2px;
   /* horizontal bar height */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
   background: #F3F4F6;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -104,3 +104,22 @@
 }
 
 /* addded to remove the black border box when click on the chart */
+/* Thin Horizontal Scrollbar */
+/* Premium SaaS Scrollbar */
+.thin-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: #F9FAFB; /* Light gray track */
+  border-radius: 8px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #9CA3AF; /* Medium gray thumb */
+  border-radius: 8px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #6B7280; /* Darker gray on hover */
+}

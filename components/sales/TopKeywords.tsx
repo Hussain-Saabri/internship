@@ -1,6 +1,6 @@
 "use client"
 
-import { SearchIcon } from "@/lib/flaticons"
+import { SearchIcon } from "lucide-react"
 
 interface KeywordData {
   keyword: string
@@ -38,28 +38,30 @@ const keywordData: KeywordData[] = [
 
 export function TopKeywords() {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-5 p-6 rounded-[12px] bg-white/70 backdrop-blur-md border border-gray-200/60 ">
       {/* Section Header */}
-      <div className="flex items-center gap-2">
-        <SearchIcon size={16} className="text-gray-800" strokeWidth={2} />
-        <h3 className="text-sm font-normal text-gray-800 leading-5 tracking-[-0.1504px]">
+      <div className="flex items-center gap-2.5">
+        <div className="p-2 bg-white rounded-lg shadow-sm border border-gray-100">
+          <SearchIcon size={18} className="text-gray-400" strokeWidth={2} />
+        </div>
+        <h3 className="text-sm font-semibold text-gray-900 tracking-tight">
           Top Keywords Driving Discovery
         </h3>
       </div>
 
       {/* Keyword List */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         {keywordData.map((item, index) => (
           <div
             key={index}
-            className="border border-gray-200 rounded-xl p-[13px] flex flex-col gap-2"
+            className="group relative border border-gray-100 rounded-xl p-4 flex flex-col gap-3 bg-white transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:-translate-y-0.5"
           >
             {/* Keyword Header */}
             <div className="flex items-center justify-between">
-              <p className="text-xs font-normal text-gray-800 leading-4">
+              <p className="text-xs font-semibold text-gray-900 capitalize tracking-tight">
                 {item.keyword}
               </p>
-              <p className="text-[10px] font-normal text-gray-500 leading-[15px] tracking-[0.1172px]">
+              <p className="text-[10px] font-medium text-gray-400 tracking-wide">
                 {item.searches} searches
               </p>
             </div>
@@ -67,21 +69,21 @@ export function TopKeywords() {
             {/* CTR and Conversion Grid */}
             <div className="grid grid-cols-2 gap-3">
               {/* CTR Box */}
-              <div className="bg-gray-50 rounded p-2">
-                <p className="text-[10px] font-normal text-gray-500 leading-[15px] tracking-[0.1172px] mb-[6px]">
+              <div className="bg-gray-50/80 backdrop-blur-sm rounded-xl p-2.5 border border-gray-100/50 transition-colors duration-200 group-hover:bg-gray-100/60">
+                <p className="text-[10px] font-medium text-gray-500 tracking-wide mb-1">
                   CTR
                 </p>
-                <p className="text-xs font-normal text-[#25b990] leading-4">
+                <p className="text-xs font-semibold text-[#25b990] tracking-tight">
                   {item.ctr}
                 </p>
               </div>
 
               {/* Conversion Box */}
-              <div className="bg-gray-50 rounded p-2">
-                <p className="text-[10px] font-normal text-gray-500 leading-[15px] tracking-[0.1172px] mb-[6px]">
+              <div className="bg-gray-50/80 backdrop-blur-sm rounded-xl p-2.5 border border-gray-100/50 transition-colors duration-200 group-hover:bg-gray-100/60">
+                <p className="text-[10px] font-medium text-gray-500 tracking-wide mb-1">
                   Conversion
                 </p>
-                <p className="text-xs font-normal text-[#25b990] leading-4">
+                <p className="text-xs font-semibold text-[#5A9BFF] tracking-tight">
                   {item.conversion}
                 </p>
               </div>

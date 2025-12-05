@@ -119,7 +119,7 @@ export function TopCitiesChart() {
       <div className="relative z-10 flex flex-col h-full">
         {/* Header */}
         <div className="mb-2">
-          <h3 className="text-sm font-bold text-gray-900 tracking-wide uppercase text-[10px]">Top cities</h3>
+          <h3 className="text-sm font-bold text-gray-900 tracking-wide capitalize text-[10px]">Top cities</h3>
         </div>
 
         {/* Pie Chart */}

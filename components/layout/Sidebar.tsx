@@ -32,7 +32,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
     <aside
       className={cn(
         "flex flex-col h-screen",
-        collapsed ? "w-[72px]" : "w-[200px]",
+        collapsed ? "w-[72px]" : "w-[180px]",
         "relative transition-all duration-300 ease-in-out z-40",
         "bg-white border-r border-gray-200 "
       )}

@@ -37,32 +37,32 @@ export function WarehousePerformanceTable({
   }
 
   return (
-    <Card className="rounded-[12px] flex-grow w-full relative overflow-hidden">
+    <Card className="rounded-[12px] flex-grow w-full shadow-none relative overflow-hidden">
       <CardContent className="p-6">
         {/* Title */}
-        <h3 className="text-sm font-semibold text-gray-700 tracking-wide uppercase mb-6">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide  mb-6">
           Warehouse Performance
         </h3>
 
         {/* Table Container */}
         <div className="rounded-xl border border-gray-200 overflow-hidden">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto ">
             <Table className="w-full border-collapse">
               <TableHeader>
                 <TableRow className="bg-gray-50 border-b border-gray-200 h-12">
-                  <TableHead className="px-2 py-3 text-left font-bold text-[10px] tracking-wider uppercase whitespace-nowrap pl-6">
+                  <TableHead className="px-2 py-3 text-left font-bold text-[12px]  text-gray-900 tracking-wider uppercase whitespace-nowrap pl-6">
                     Warehouse
                   </TableHead>
-                  <TableHead className="px-2 py-3 text-left font-bold text-[10px] tracking-wider uppercase whitespace-nowrap">
+                  <TableHead className="px-2 py-3 text-left font-bold text-[12px]  text-gray-900 tracking-wider uppercase whitespace-nowrap">
                     Location
                   </TableHead>
-                  <TableHead className="px-2 py-3 text-left font-bold text-[10px] tracking-wider uppercase whitespace-nowrap">
+                  <TableHead className="px-2 py-3 text-left font-bold text-[12px]  text-gray-900 tracking-wider uppercase whitespace-nowrap">
                     Sales Value
                   </TableHead>
-                  <TableHead className="px-2 py-3 text-left font-bold text-[10px] tracking-wider uppercase whitespace-nowrap">
+                  <TableHead className="px-2 py-3 text-left font-bold text-[12px]  text-gray-900 tracking-wider uppercase whitespace-nowrap">
                     Orders
                   </TableHead>
-                  <TableHead className="px-2 py-3 text-center font-bold text-[10px] tracking-wider uppercase whitespace-nowrap pr-6">
+                  <TableHead className="px-2 py-3 text-center font-bold text-[12px]  text-gray-900 tracking-wider uppercase whitespace-nowrap pr-6">
                     Action
                   </TableHead>
                 </TableRow>
@@ -77,28 +77,28 @@ export function WarehousePerformanceTable({
                   >
                     {/* Warehouse Name */}
                     <TableCell className="px-2 py-3 pl-6">
-                      <span className="text-[10px] font-bold text-gray-800 whitespace-nowrap">
+                      <span className="text-[12px] font-bold text-gray-800 whitespace-nowrap">
                         {warehouse.name}
                       </span>
                     </TableCell>
 
                     {/* Location */}
                     <TableCell className="px-2 py-3 text-left">
-                      <span className="text-[10px] font-medium text-gray-700 whitespace-nowrap">
+                      <span className="text-[12px] font-medium text-gray-700 whitespace-nowrap">
                         {warehouse.location}
                       </span>
                     </TableCell>
 
                     {/* Sales Value */}
                     <TableCell className="px-2 py-3 text-left">
-                      <span className="text-[10px] font-bold text-gray-900 whitespace-nowrap">
+                      <span className="text-[12px] font-bold text-gray-900 whitespace-nowrap">
                         {warehouse.salesValue}
                       </span>
                     </TableCell>
 
                     {/* Orders */}
                     <TableCell className="px-2 py-3 text-left">
-                      <span className="text-[10px] font-medium text-gray-700 whitespace-nowrap">
+                      <span className="text-[12px] font-medium text-gray-700 whitespace-nowrap">
                         {warehouse.orders.toLocaleString()}
                       </span>
                     </TableCell>
@@ -108,7 +108,7 @@ export function WarehousePerformanceTable({
                       <Button
                         variant="outline"
                         size="sm"
-                        className="rounded-full bg-white/50 border-gray-200 hover:bg-gray-100 text-[10px] h-7 px-4"
+                        className="rounded-full bg-white/50 border-gray-200 hover:bg-gray-100 text-[12px] h-7 px-4"
                         onClick={(e) => {
                           e.stopPropagation()
                           handleWarehouseClick(warehouse.id)
@@ -121,9 +121,9 @@ export function WarehousePerformanceTable({
                 ))}
               </TableBody>
             </Table>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+          </div >
+        </div >
+      </CardContent >
+    </Card >
   )
 }
