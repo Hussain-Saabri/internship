@@ -18,7 +18,7 @@ export function Breadcrumb({
   return (
     <nav className={`w-full ${className || ""}`}>
       {/* Desktop (md and above) */}
-      <div className="hidden md:flex items-center gap-2 text-[13px]">
+      <div className="hidden md:flex items-center  text-[13px]">
         {items.map((item, index) => {
           const isLast = index === items.length - 1
 
@@ -67,7 +67,7 @@ export function Breadcrumb({
           className="
             flex items-center gap-2 
             whitespace-nowrap 
-            px-2 py-2 
+            ml-[-7px]
             text-[12px]
             min-w-max
           "
