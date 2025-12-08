@@ -691,7 +691,7 @@ export function SalesPerformanceTable({
         {
           id: "actions",
           header: () => (
-            <span className="text-[12px] left-2 relative block">ACTION</span>
+            <span className="text-[12px] left-1 relative block">ACTION</span>
           ),
           cell: ({ row }) => (
             <Button
@@ -718,7 +718,7 @@ export function SalesPerformanceTable({
         {
           id: "actions",
           header: () => (
-            <span className="text-[12px] left-2 relative block">ACTION</span>
+            <span className="text-[12px] left-1 relative block">ACTION</span>
           ),
           cell: ({ row }) => (
             <Button
@@ -801,17 +801,17 @@ export function SalesPerformanceTable({
                       {table.getHeaderGroups().map((headerGroup) => (
                         <TableRow
                           key={headerGroup.id}
-                          className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200 h-12 cursor-pointer"
+                          className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200 h-12 cursor-pointer "
                         >
                           {headerGroup.headers.map((header) => (
                             <TableHead
                               key={header.id}
-                              className="px-2 py-3 text-left font-semibold text-[12px] text-gray-900 tracking-wider uppercase whitespace-nowrap"
+                              className="px-2 py-3 text-left font-semibold text-[12px] text-gray-900 tracking-wider uppercase whitespace-nwrapormal"
                             >
                               {header.isPlaceholder ? null : (
                                 <div
                                   className={cn(
-                                    "flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
+                                    "flex items-center gap-1 whitespace-normal cursor-pointer select-none hover:text-[#25B990] transition-colors"
                                   )}
                                   onClick={header.column.getToggleSortingHandler()}
                                 >
@@ -864,15 +864,6 @@ export function SalesPerformanceTable({
             </div>
           </TabsContent>
 
-
-
-
-
-
-
-
-
-
           <TabsContent value="category">
             <div className="rounded-xl border border-gray-200 overflow-hidden bg-white">
 
@@ -890,7 +881,7 @@ export function SalesPerformanceTable({
                           {headerGroup.headers.map((header) => (
                             <TableHead
                               key={header.id}
-                              className="px-2 py-3 text-left text-gray-900 font-bold text-[12px] tracking-wider uppercase whitespace-nowrap"
+                              className="px-2 py-3 text-left text-gray-900 font-bold text-[12px] tracking-wider uppercase whitespace-normal"
                             >
                               {header.isPlaceholder ? null : (
                                 <div

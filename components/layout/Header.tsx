@@ -48,7 +48,7 @@ export function Header({
         {/* ---- LEFT: TITLE + MOBILE MENU ---- */}
         <div className="flex items-center gap-4">
           <button
-            className="p-2 rounded-lg hover:bg-gray-100 text-gray-600 md:hidden transition"
+            className="p-1 ml-[-5px] rounded-lg hover:bg-gray-100 text-gray-600 md:hidden transition"
             onClick={toggleMobileSidebar}
           >
             <Menu size={22} />

@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import { Sidebar } from "./Sidebar"
@@ -7,6 +6,8 @@ import { Header } from "./Header"
 import { useAuthStore } from "@/stores/authStore"
 import { cn } from "@/lib/utils"
 import { useUIStore } from "@/stores/uiStore"
+import { PremiumLoader } from "@/components/ui/Loader"
+
 export interface DashboardLayoutProps {
   children: React.ReactNode
   title?: string
@@ -62,15 +63,18 @@ export function DashboardLayout({
   }, [isAuthenticated, isLoading, isHydrated, router])
 
   // Show loading state while checking auth or hydrating
-  if (!isHydrated || isLoading) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <div className="mb-4 h-8 w-8 animate-spin rounded-full border-4 border-sidebar-primary border-t-transparent mx-auto" />
-          <p className="text-sm text-gray-600">Loading...</p>
-        </div>
-      </div>
-    )
+  // Enforce a minimum loading time of 2 seconds to ensure the animation is visible
+  const [minLoadTimePassed, setMinLoadTimePassed] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMinLoadTimePassed(true)
+    }, 2000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (!isHydrated || isLoading || !minLoadTimePassed) {
+    return <PremiumLoader />
   }
 
   // Don't render if not authenticated

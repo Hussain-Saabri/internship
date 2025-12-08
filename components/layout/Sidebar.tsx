@@ -1,5 +1,4 @@
 "use client";
-
 import { NavItem } from "./NavItem";
 import { NAV_ITEMS } from "@/lib/constants";
 import { getIcon } from "@/lib/icon-map";
@@ -17,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { Logo } from "@/components/base/Logo";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import z from "zod";
+
 
 interface SidebarProps {
   collapsed?: boolean;
@@ -31,7 +30,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
   return (
     <aside
       className={cn(
-        "flex flex-col h-screen",
+        "flex flex-col h-screen relative",
         collapsed ? "w-[72px]" : "w-[180px]",
         "relative transition-all duration-300 ease-in-out z-40",
         "bg-white border-r border-gray-200 "
@@ -110,7 +109,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
                   <span className="text-sm font-semibold text-gray-900 truncate w-full">
                     {user?.name || "User"}
                   </span>
-                  <span className="text-[11px] text-gray-400 truncate w-full font-medium">
+                  <span className="text-[11px] text-[#25B990] truncate w-full font-medium">
                     {user?.email || "user@example.com"}
                   </span>
                 </div>
@@ -118,8 +117,8 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
             </button>
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent side="right" align="end" className="w-56 mb-2 p-1.5 rounded-xl border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.08)] bg-white">
-            <DropdownMenuLabel className="text-xs text-gray-400 font-medium px-2 py-1.5 uppercase tracking-wider">My Account</DropdownMenuLabel>
+          <DropdownMenuContent  align="end" className="w-[172px] relative left-1 mb-2 p-1.5 rounded-xl border-gray-200  bg-white">
+            <DropdownMenuLabel className="text-xs text-[#25B990] font-medium px-2 py-1.5 uppercase tracking-wider">My Account</DropdownMenuLabel>
             <DropdownMenuSeparator className="bg-gray-100" />
             <DropdownMenuItem onClick={() => router.push("/settings")} className="rounded-lg text-sm font-medium text-gray-600 focus:text-gray-900 focus:bg-gray-50 py-2">
               <Settings className="mr-2 h-4 w-4" />
