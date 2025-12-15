@@ -34,7 +34,7 @@ export function CategorySplitChart() {
                   </span>
                 </div>
 
-                <span className="text-sm font-semibold text-gray-500">
+                <span className="text-[12px] font-semibold text-gray-500">
                   {category.percentage}%
                 </span>
               </div>

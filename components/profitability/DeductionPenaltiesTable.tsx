@@ -74,7 +74,7 @@ const columns: ColumnDef<DeductionData>[] = [
     header: ({ column }) => (
       <div
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={column.getToggleSortingHandler()}
       >
         <span>PLATFORM</span>
         {{
@@ -97,7 +97,7 @@ const columns: ColumnDef<DeductionData>[] = [
     header: ({ column }) => (
       <div
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={column.getToggleSortingHandler()}
       >
         <span>RETURNS (₹)</span>
         {{
@@ -120,7 +120,7 @@ const columns: ColumnDef<DeductionData>[] = [
     header: ({ column }) => (
       <div
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={column.getToggleSortingHandler()}
       >
         <span>PENALTIES (₹)</span>
         {{
@@ -143,7 +143,7 @@ const columns: ColumnDef<DeductionData>[] = [
     header: ({ column }) => (
       <div
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={column.getToggleSortingHandler()}
       >
         <span>OTHER DEDUCTIONS (₹)</span>
         {{
@@ -166,7 +166,7 @@ const columns: ColumnDef<DeductionData>[] = [
     header: ({ column }) => (
       <div
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={column.getToggleSortingHandler()}
       >
         <span>TOTAL DEDUCTIONS</span>
         {{
@@ -189,7 +189,7 @@ const columns: ColumnDef<DeductionData>[] = [
     header: ({ column }) => (
       <div
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={column.getToggleSortingHandler()}
       >
         <span>DEDUCTION %</span>
         {{
@@ -212,7 +212,7 @@ const columns: ColumnDef<DeductionData>[] = [
     header: ({ column }) => (
       <div
         className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={column.getToggleSortingHandler()}
       >
         <span>NET RECEIVABLE (₹)</span>
         {{

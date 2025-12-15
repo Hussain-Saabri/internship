@@ -21,7 +21,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
     return (
       <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.08)] animate-in fade-in zoom-in-95 duration-200 min-w-[140px]">
-        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2 px-1">{label}</p>
+        <p className="text-[10px] font-bold text-gray-900 uppercase tracking-wider mb-2 px-1">{label}</p>
 
         <div className="flex items-center justify-between gap-4 px-1 py-0.5 rounded-md hover:bg-gray-50/50 transition-colors">
           <div className="flex items-center gap-2.5">
@@ -29,7 +29,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
               className="w-2 h-2 rounded-full shadow-sm"
               style={{ backgroundColor: "#25B990" }}
             />
-            <span className="text-[11px] font-semibold text-gray-600">Share</span>
+            <span className="text-[11px] font-semibold text-gray-500">Share</span>
           </div>
           <span className="text-sm font-bold font-mono tracking-tight text-[#25B990]">{value}%</span>
         </div>
@@ -71,7 +71,7 @@ export function MarketShareChart() {
 
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-sm font-bold text-gray-900 tracking-wide  text-[10px]">
+          <h3 className="text-sm font-bold text-gray-700 tracking-wide  text-[10px]">
             Est. Market Share %
           </h3>
 
@@ -82,17 +82,17 @@ export function MarketShareChart() {
 
         {/* Value + Growth */}
         <div className="mb-8">
-          <p className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+          <p className="text-3xl font-extrabold text-gray-800 tracking-tight mb-2">
             2.8%
           </p>
 
           {/* Growth Indicator */}
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200/50">
-              <TrendingUpIcon className="w-3 h-3 text-emerald-700" />
-              <span className="text-xs font-bold text-emerald-700">1.2%</span>
+              <TrendingUpIcon className="w-3 h-3 text-emerald-600" />
+              <span className="text-xs font-bold text-emerald-600">1.2%</span>
             </div>
-            <span className="text-xs font-medium text-gray-500">vs last month</span>
+            <span className="text-xs font-medium text-gray-400">vs last month</span>
           </div>
         </div>
 

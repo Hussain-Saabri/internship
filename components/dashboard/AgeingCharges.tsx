@@ -108,7 +108,7 @@ export function AgeingCharges() {
         </div>
 
         {/* Bar Chart */}
-        <div className="mb-6 relative z-10" style={{ width: "100%", height: "188px" }}>
+        <div className="mb-6 relative z-10" style={{ width: "100%", height: "150px" }}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={ageingData} margin={{ top: 10, right: 10, left: -15, bottom: 5 }}>
 

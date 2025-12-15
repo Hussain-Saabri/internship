@@ -163,7 +163,7 @@ export function CityLevelProfitabilityTable() {
                           {header.isPlaceholder ? null : (
                             <div
                               className={cn(
-                                "flex items-center gap-1.5 hover:text-gray-700 cursor-pointer",
+                                "flex items-center gap-1.5 hover:text-[#25B990] transition-colors cursor-pointer",
                                 header.id !== "platform" && "justify-end"
                               )}
                               onClick={header.column.getToggleSortingHandler()}

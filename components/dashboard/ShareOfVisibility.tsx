@@ -23,8 +23,8 @@ const sovData: WeeklySOVData[] = [
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white p-3 rounded-xl border border-gray-100min-w-[180px]">
-        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3 px-1">{label}</p>
+      <div className="bg-white p-3 rounded-xl border border-gray-300 min-w-[180px]">
+        <p className="text-[12px] font-bold text-gray-900 uppercase tracking-wider mb-3 px-1">{label}</p>
 
         <div className="flex flex-col gap-2">
           {payload[1] && (
@@ -106,7 +106,7 @@ export function ShareOfVisibility() {
         </div>
 
         {/* Line Chart */}
-        <div className="relative z-10" style={{ width: '100%', height: '268px' }}>
+        <div className="relative z-10" style={{ width: '100%', height: '230px' }}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={sovData} margin={{ top: 10, right: 10, left: -35, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.08)" vertical={false} />

@@ -15,7 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { Logo } from "@/components/base/Logo";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+
 
 
 interface SidebarProps {
@@ -47,7 +47,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
           <Logo width={110} height={30} />
         ) : (
           <div className="">
-            
+
           </div>
         )}
       </div>
@@ -95,15 +95,14 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
           <DropdownMenuTrigger asChild>
             <button className={cn(
               "flex items-center gap-3 w-full p-2.5 rounded-xl transition-all duration-200",
-              "hover:bg-gray-50 border border-transparent hover:border-gray-200",
-              collapsed && "justify-center"
+              " bg-gray-200 border border-gray-200 border-transparent ",
+              collapsed && "justify-center "
             )}>
-              <Avatar className="h-9 w-9 border border-gray-100 ">
-                <AvatarFallback className="bg-gray-50 text-gray-700 font-semibold text-xs">
+              <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center shrink-0 border border-gray-100 shadow-sm">
+                <span className="text-[#25B990] font-bold text-sm">
                   {user?.name?.charAt(0).toUpperCase() || "U"}
-                </AvatarFallback>
-              </Avatar>
-
+                </span>
+              </div>
               {!collapsed && (
                 <div className="flex flex-col items-start text-left overflow-hidden">
                   <span className="text-sm font-semibold text-gray-900 truncate w-full">
@@ -117,7 +116,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
             </button>
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent  align="end" className="w-[172px] relative left-1 mb-2 p-1.5 rounded-xl border-gray-200  bg-white">
+          <DropdownMenuContent align="end" className="w-[172px] relative left-1 mb-2 p-1.5 rounded-xl border-gray-200  bg-white">
             <DropdownMenuLabel className="text-xs text-[#25B990] font-medium px-2 py-1.5 uppercase tracking-wider">My Account</DropdownMenuLabel>
             <DropdownMenuSeparator className="bg-gray-100" />
             <DropdownMenuItem onClick={() => router.push("/settings")} className="rounded-lg text-sm font-medium text-gray-600 focus:text-gray-900 focus:bg-gray-50 py-2">

@@ -33,13 +33,13 @@ export function DateRangePicker() {
         <button
           className={cn(
             // Base styles from Figma
-            "flex h-9 items-center gap-2.5 rounded-[10px] border border-gray-200 bg-gray-50 px-3 text-sm font-medium text-gray-800 transition-colors",
+            "flex h-9 items-center gap-2.5 rounded-[10px] border border-gray-200 bg-gray-50 px-3 text-sm font-medium text-gray-700 transition-colors",
             "hover:bg-gray-100",
             "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
           )}
           aria-label="Select date range"
         >
-          <Calendar size={16} className="text-gray-600" />
+          <Calendar size={16} className="text-gray-500" />
           <span className="whitespace-nowrap tracking-[-0.15px]">
             {formatDateRange()}
           </span>

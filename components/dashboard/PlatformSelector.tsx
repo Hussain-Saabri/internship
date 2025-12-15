@@ -90,8 +90,8 @@ export function PlatformSelector({
             className={cn(
               "flex h-8 items-center gap-2 rounded-[10px] px-3 text-sm font-normal transition-all",
               isActive
-                ? "bg-white text-gray-800"
-                : "text-gray-500 hover:text-gray-700",
+                ? "bg-white text-gray-700"
+                : "text-gray-400 hover:text-gray-600",
               isAll && isActive && "min-w-[106px]"
             )}
           >

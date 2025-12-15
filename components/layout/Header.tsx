@@ -54,7 +54,7 @@ export function Header({
             <Menu size={22} />
           </button>
 
-          <h1 className="text-[20px] font-semibold text-[#1F2937] tracking-tight">
+          <h1 className="text-[20px] font-semibold text-gray-700 tracking-tight">
             {title}
           </h1>
         </div>

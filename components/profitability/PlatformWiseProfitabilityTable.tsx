@@ -184,7 +184,7 @@ export function PlatformWiseProfitabilityTable() {
                           {header.isPlaceholder ? null : (
                             <div
                               className={cn(
-                                "flex items-center gap-1.5 transition-colors hover:text-gray-700 cursor-pointer",
+                                "flex items-center gap-1.5 transition-colors hover:text-[#25B990] cursor-pointer",
                                 header.id !== "platform" && "justify-end"
                               )}
                               onClick={header.column.getToggleSortingHandler()}

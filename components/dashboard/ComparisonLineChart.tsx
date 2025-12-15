@@ -59,7 +59,7 @@ const CustomLegend = ({
           className="w-2 h-2 rounded-full"
           style={{ backgroundColor: line1Color }}
         />
-        <span className="text-[11px] font-medium tracking-wide text-gray-500">
+        <span className="text-[11px] font-medium tracking-wide text-gray-400">
           {line1Label}
         </span>
       </div>
@@ -68,7 +68,7 @@ const CustomLegend = ({
           className="w-2 h-2 rounded-full"
           style={{ backgroundColor: line2Color }}
         />
-        <span className="text-[11px] font-medium tracking-wide text-gray-500">
+        <span className="text-[11px] font-medium tracking-wide text-gray-400">
           {line2Label}
         </span>
       </div>
@@ -80,7 +80,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.08)] animate-in fade-in zoom-in-95 duration-200 min-w-[180px]">
-        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3 px-1">
+        <p className="text-[12px] font-bold text-gray-900 uppercase tracking-wider mb-3 px-1">
           {label}
         </p>
         <div className="flex flex-col gap-2">
@@ -144,7 +144,7 @@ export function ComparisonLineChart({
             headerButton ? "flex items-center justify-between" : ""
           )}
         >
-          <h3 className="text-sm font-bold text-gray-900 tracking-wide  text-[10px]">{title}</h3>
+          <h3 className="text-sm font-bold text-gray-700 tracking-wide  text-[10px]">{title}</h3>
           {headerButton && (
             <button
               onClick={headerButton.onClick}
@@ -158,11 +158,11 @@ export function ComparisonLineChart({
         {/* Main Value */}
         <div className="mb-8">
           <div className="flex items-baseline gap-1 mb-2">
-            <p className="text-3xl font-extrabold text-gray-900 tracking-tight">
+            <p className="text-3xl font-extrabold text-gray-800 tracking-tight">
               {mainValue}
             </p>
             {valueSuffix && (
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-sm font-medium text-gray-600">
                 {valueSuffix}
               </span>
             )}
@@ -171,12 +171,12 @@ export function ComparisonLineChart({
           {/* Growth Indicator */}
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200/50">
-              <TrendingUpIcon className="w-3 h-3 text-emerald-700" />
-              <span className="text-xs font-bold text-emerald-700">
+              <TrendingUpIcon className="w-3 h-3 text-emerald-600" />
+              <span className="text-xs font-bold text-emerald-600">
                 {growthPercentage}
               </span>
             </div>
-            <span className="text-xs font-medium text-gray-500">{growthText}</span>
+            <span className="text-xs font-medium text-gray-400">{growthText}</span>
           </div>
         </div>
 

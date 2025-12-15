@@ -67,7 +67,7 @@ const columns: ColumnDef<ReceivableRow>[] = [
     accessorKey: "platform",
     header: ({ column }) => (
       <div
-        className="flex items-center gap-1 cursor-pointer select-none"
+        className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
         onClick={column.getToggleSortingHandler()}
       >
         PLATFORM
@@ -90,7 +90,7 @@ const columns: ColumnDef<ReceivableRow>[] = [
     accessorKey: "invoiceNumber",
     header: ({ column }) => (
       <div
-        className="flex items-center gap-1 cursor-pointer select-none"
+        className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
         onClick={column.getToggleSortingHandler()}
       >
         INVOICE
@@ -111,7 +111,7 @@ const columns: ColumnDef<ReceivableRow>[] = [
     accessorKey: "invoiceValue",
     header: ({ column }) => (
       <div
-        className="flex items-center gap-1 cursor-pointer select-none"
+        className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
         onClick={column.getToggleSortingHandler()}
       >
         VALUE (₹)
@@ -134,7 +134,7 @@ const columns: ColumnDef<ReceivableRow>[] = [
     accessorKey: "ageingBucket",
     header: ({ column }) => (
       <div
-        className="flex items-center gap-1 cursor-pointer select-none"
+        className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
         onClick={column.getToggleSortingHandler()}
       >
         AGEING
@@ -161,7 +161,7 @@ const columns: ColumnDef<ReceivableRow>[] = [
     accessorKey: "daysOverdue",
     header: ({ column }) => (
       <div
-        className="flex items-center gap-1 cursor-pointer select-none"
+        className="flex items-center gap-1 cursor-pointer select-none hover:text-[#25B990] transition-colors"
         onClick={column.getToggleSortingHandler()}
       >
         OVERDUE
@@ -190,7 +190,7 @@ const columns: ColumnDef<ReceivableRow>[] = [
     accessorKey: "status",
     header: ({ column }) => (
       <div
-        className="flex items-center gap-1 cursor-pointer select-none justify-center"
+        className="flex items-center gap-1 cursor-pointer select-none justify-center hover:text-[#25B990] transition-colors"
         onClick={column.getToggleSortingHandler()}
       >
         STATUS

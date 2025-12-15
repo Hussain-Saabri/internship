@@ -80,7 +80,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-white p-3 rounded-xl border border-gray-200 shadow-none  min-w-[180px]">
-        <p className="text-[12px] font-bold text-gray-400 uppsefcase tracking-wider mb-3 px-1">
+        <p className="text-[12px] font-bold text-gray-900 uppsefcase tracking-wider mb-3 px-1">
           {label}
         </p>
         <div className="flex flex-col gap-2">

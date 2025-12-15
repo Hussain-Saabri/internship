@@ -3,11 +3,13 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { useAuthStore } from "@/stores/authStore"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Logo } from "@/components/base/Logo"
+import { Eye, EyeOff } from "lucide-react"
 
 export default function RegisterPage() {
   const [name, setName] = useState("")
@@ -15,6 +17,8 @@ export default function RegisterPage() {
   const [companyName, setCompanyName] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
   const router = useRouter()
@@ -69,104 +73,162 @@ export default function RegisterPage() {
   }
 
   return (
-    <Card>
-      <CardHeader className="space-y-1">
-        <div className="flex items-center justify-center mb-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sidebar-primary text-white text-2xl font-bold">
-            Q
+    <div className="min-h-screen w-full grid lg:grid-cols-[55%_45%] lg:overflow-hidden overflow-y-auto">
+      {/* Left Panel - Register Form */}
+      <div className="flex flex-col justify-start pt-16 pb-12 lg:justify-center lg:pt-0 lg:pb-0 px-8 sm:px-16 md:px-24 lg:px-32 bg-[#FAF8F2] relative min-h-[100dvh]">
+        <div className="w-full max-w-sm mx-auto">
+          <div className="mt-2">
+            
+            <h1 className="text-3xl text-[#1A1A1A] mb-2 font-bold">Create an account</h1>
+            
           </div>
-        </div>
-        <CardTitle className="text-2xl text-center">Create an account</CardTitle>
-        <CardDescription className="text-center">
-          Enter your information to get started
-        </CardDescription>
-      </CardHeader>
-      <form onSubmit={handleRegister}>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="name">Full Name</Label>
-            <Input
-              id="name"
-              type="text"
-              placeholder="John Doe"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              disabled={isLoading}
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="name@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              disabled={isLoading}
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="companyName">Company Name</Label>
-            <Input
-              id="companyName"
-              type="text"
-              placeholder="Your Company"
-              value={companyName}
-              onChange={(e) => setCompanyName(e.target.value)}
-              required
-              disabled={isLoading}
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              placeholder="Create a password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              disabled={isLoading}
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="confirmPassword">Confirm Password</Label>
-            <Input
-              id="confirmPassword"
-              type="password"
-              placeholder="Confirm your password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              disabled={isLoading}
-            />
-          </div>
-          {error && (
-            <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
-              {error}
+
+          <form onSubmit={handleRegister} className="space-y-4">
+            <div className="space-y-1.5">
+              <Label htmlFor="name" className="text-xs font-medium text-[#1A1A1A]">
+                Full Name
+              </Label>
+              <Input
+                id="name"
+                type="text"
+                placeholder="Enter Your First Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                disabled={isLoading}
+                className="h-10 rounded-md border-[#D9D9D9] bg-white px-3 text-sm placeholder:text-[#888888] focus-visible:ring-1 focus-visible:ring-[#999999] focus-visible:border-[#999999]"
+              />
             </div>
-          )}
-          <div className="rounded-md bg-blue-50 p-3 text-sm text-blue-800">
-            <p className="font-medium mb-1">Demo Mode</p>
-            <p className="text-xs text-blue-600">
-              Registration is mocked. You'll be logged in automatically.
-            </p>
-          </div>
-        </CardContent>
-        <CardFooter className="flex flex-col space-y-4">
-          <Button type="submit" className="w-full" disabled={isLoading}>
-            {isLoading ? "Creating account..." : "Create account"}
-          </Button>
-          <div className="text-sm text-center text-muted-foreground">
-            Already have an account?{" "}
-            <Link href="/login" className="text-sidebar-primary hover:underline font-medium">
-              Sign in
-            </Link>
-          </div>
-        </CardFooter>
-      </form>
-    </Card>
+
+            <div className="space-y-1.5">
+              <Label htmlFor="email" className="text-xs font-medium text-[#1A1A1A]">
+                Email address
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="Enter Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={isLoading}
+                className="h-10 rounded-md border-[#D9D9D9] bg-white px-3 text-sm placeholder:text-[#888888] focus-visible:ring-1 focus-visible:ring-[#999999] focus-visible:border-[#999999]"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <Label htmlFor="companyName" className="text-xs font-medium text-[#1A1A1A]">
+                Company Name
+              </Label>
+              <Input
+                id="companyName"
+                type="text"
+                placeholder="Your Company"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+                required
+                disabled={isLoading}
+                className="h-10 rounded-md border-[#D9D9D9] bg-white px-3 text-sm placeholder:text-[#888888] focus-visible:ring-1 focus-visible:ring-[#999999] focus-visible:border-[#999999]"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <Label htmlFor="password" className="text-xs font-medium text-[#1A1A1A]">
+                Password
+              </Label>
+              <div className="relative">
+                <Input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Create a password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  className="h-10 rounded-md border-[#D9D9D9] bg-white px-3 pr-10 text-sm placeholder:text-[#888888] focus-visible:ring-1 focus-visible:ring-[#999999] focus-visible:border-[#999999]"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#888888] hover:text-[#1A1A1A] transition-colors"
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <Label htmlFor="confirmPassword" className="text-xs font-medium text-[#1A1A1A]">
+                Confirm Password
+              </Label>
+              <div className="relative">
+                <Input
+                  id="confirmPassword"
+                  type={showConfirmPassword ? "text" : "password"}
+                  placeholder="Confirm your password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  className="h-10 rounded-md border-[#D9D9D9] bg-white px-3 pr-10 text-sm placeholder:text-[#888888] focus-visible:ring-1 focus-visible:ring-[#999999] focus-visible:border-[#999999]"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#888888] hover:text-[#1A1A1A] transition-colors"
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {error && (
+              <div className="rounded-md bg-red-50 p-2.5 text-xs text-red-600 border border-red-100">
+                {error}
+              </div>
+            )}
+
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="w-[70%] h-10 rounded-md bg-[#3F4A36] hover:bg-[#2E3324] text-white text-sm font-medium transition-all duration-200 shadow-sm mt-4"
+            >
+              {isLoading ? "Creating account..." : "Create account"}
+            </Button>
+
+            <div className="flex justify-start pt-2">
+              <span className="text-sm text-[#757575]">
+                Already have an account?{" "}
+                <Link
+                  href="/login"
+                  className="text-[#1A1A1A] font-medium hover:underline"
+                >
+                  Sign in
+                </Link>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      {/* Right Panel - Image */}
+      <div className="hidden lg:block relative bg-[#2E3324] overflow-hidden">
+        <Image
+          src="/images/login-right.png"
+          alt="Login Visual"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+    </div>
   )
 }

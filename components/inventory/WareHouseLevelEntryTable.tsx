@@ -245,7 +245,7 @@ export function WareHouseLevelEntryTable() {
   return (
     <Card className="border border-gray-200 rounded-[12px] bg-white shadow-none">
       <CardContent className="p-4">
-        <h3 className="text-sm font-semibold text-gray-900 tracking-wide mb-10">
+        <h3 className="text-sm font-semibold text-gray-900 tracking-wide mb-6">
           Warehouse-Level Inventory
         </h3>
 
