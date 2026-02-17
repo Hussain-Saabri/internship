@@ -27,10 +27,15 @@ interface AuthState {
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
-      user: null,
-      accessToken: null,
-      refreshToken: null,
-      isAuthenticated: false,
+      user: {
+        id: "demo_user",
+        name: "Demo User",
+        email: "demo@example.com",
+        role: "owner"
+      },
+      accessToken: "demo_access_token",
+      refreshToken: "demo_refresh_token",
+      isAuthenticated: true,
       isLoading: false,
       isHydrated: false,
 
@@ -77,6 +82,15 @@ export const useAuthStore = create<AuthState>()(
         isAuthenticated: state.isAuthenticated,
       }),
       onRehydrateStorage: () => (state) => {
+        if (state && (!state.user || !state.isAuthenticated)) {
+          state.setUser({
+            id: "demo_user",
+            name: "Demo User",
+            email: "demo@example.com",
+            role: "owner"
+          });
+          state.setTokens("demo_access_token", "demo_refresh_token");
+        }
         state?.setHydrated(true)
       },
     }

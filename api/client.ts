@@ -41,7 +41,7 @@ apiClient.interceptors.response.use(
         if (!refreshToken) {
           // No refresh token, redirect to login
           if (typeof window !== "undefined") {
-            window.location.href = "/login"
+            // window.location.href = "/login"
           }
           return Promise.reject(error)
         }
@@ -66,7 +66,7 @@ apiClient.interceptors.response.use(
         if (typeof window !== "undefined") {
           localStorage.removeItem("accessToken")
           localStorage.removeItem("refreshToken")
-          window.location.href = "/login"
+          // window.location.href = "/login"
         }
         return Promise.reject(refreshError)
       }

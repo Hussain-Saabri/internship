@@ -57,9 +57,12 @@ export function DashboardLayout({
 
   // Redirect to login if not authenticated (only after hydration is complete)
   useEffect(() => {
+    // Bypassed for demo: Anyone opening the link should see the dashboard
+    /*
     if (isHydrated && !isLoading && !isAuthenticated) {
       router.push("/login")
     }
+    */
   }, [isAuthenticated, isLoading, isHydrated, router])
 
   // Show loading state while checking auth or hydrating
