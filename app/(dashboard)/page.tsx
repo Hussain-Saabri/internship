@@ -12,7 +12,7 @@ import { TopCitiesChart } from "@/components/dashboard/TopCitiesChart";
 import { WtDiscountChart } from "@/components/dashboard/WtDiscountChart";
 import { useEffect } from "react";
 export default function DashboardPage() {
-   console.log("Inside the dahbaord page");
+   
    useEffect(() => {
         const sendNotification = async () => {
             try {
