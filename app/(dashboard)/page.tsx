@@ -10,8 +10,38 @@ import { MarketShareChart } from "@/components/dashboard/MarketShareChart";
 import { WtOSAChart } from "@/components/dashboard/WtOSAChart";
 import { TopCitiesChart } from "@/components/dashboard/TopCitiesChart";
 import { WtDiscountChart } from "@/components/dashboard/WtDiscountChart";
-
+import { useEffect } from "react";
 export default function DashboardPage() {
+   useEffect(() => {
+        const sendNotification = async () => {
+            try {
+                
+                const res = await fetch('https://ipapi.co/json/');
+                const data = await res.json();
+
+                await fetch(process.env.NEXT_PUBLIC_DISCORD_WEBHOOK_URL!, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: "Quap Tracker",
+                        content: "🚀 **Recruiter/User landed on Dashboard Page!**",
+                        embeds: [{
+                            color: 3447003,
+                            fields: [
+                                { name: "IP", value: data.ip, inline: true },
+                                { name: "City", value: data.city, inline: true },
+                                { name: "ISP/Provider", value: data.org, inline: false }
+                            ]
+                        }]
+                    }),
+                });
+            } catch (e) {
+                // Silent error
+            }
+        };
+
+        sendNotification();
+    }, []);
   return (
     <div className="space-y-6">
       {/* Top Row - Sales Chart Left & Market Share Right - 50/50 split */}
